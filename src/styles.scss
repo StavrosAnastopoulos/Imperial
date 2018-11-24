@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+@page 
+    {
+        size:  auto;   /* auto is the initial value */
+        margin: 15px;  /* this affects the margin in the printer settings */
+        
+    }
+
+@media print {
+
+html{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#border {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: 2px solid rgb(110, 26, 23);
+}
+
+    
+    .hide-print{
+        display: none !important;
+    }
+}

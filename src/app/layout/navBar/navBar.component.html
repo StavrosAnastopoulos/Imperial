@@ -1,0 +1,4 @@
+<div class="navContainer hide-print">
+    <div class="navItem" >IMPERIAL</div>
+    <div class="navItem" *ngFor="let action of availableAction" [routerLink]="action.route" [innerHtml]="action.title"></div>
+</div>

@@ -1,0 +1,17 @@
+.footer {
+    width: 100%;
+    font-size: 10px;
+    text-align: center;
+}
+
+@media screen {
+    .print {
+      display: none;
+    }
+  }
+  @media print {
+    .print {
+      position: fixed;
+      bottom: 20px;
+    }
+  }

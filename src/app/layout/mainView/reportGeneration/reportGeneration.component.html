@@ -1,0 +1,58 @@
+<div class="container">
+    <div *ngIf="!fileSelected" class="hide-print" style="margin-bottom: 10px;">
+        <input (change)="addFile()" type="file" id="file">
+    </div>
+    <div *ngIf="dataProcessed">
+        <client-info
+            [additionalInfo]="additionalInfo"
+            [ownerInfo]="ownerInfo"
+            [dealerInfo]="dealerInfo"
+            [expertInfo]="expertInfo"
+            [vehicleInfo]="vehicleInfo"
+        ></client-info>
+
+        <p style="page-break-before: always">
+        
+        <table-info
+            [sourceData]="materialInfo" 
+            [columnPointers]="materialPointers"
+            [tableTitle]="materialHeader">
+        </table-info>
+        
+        <table-info
+            [sourceData]="labourInfo" 
+            [columnPointers]="labourPointers"
+            [tableTitle]="labourHeader">
+        </table-info>
+        
+        <table-info
+            [sourceData]="lacquerInfo" 
+            [columnPointers]="lacquerPointers"
+            [tableTitle]="lacquerHeader">
+        </table-info>
+
+        <p style="page-break-before: always">
+        
+        <table-info
+            [sourceData]="sparePartSum" 
+            [columnPointers]="sparePartPointers"
+            [tableTitle]="sparePartHeader"
+            [totalPrice]="sparePartTotal">
+        </table-info>
+        
+        <table-info
+            [sourceData]="labourSum" 
+            [columnPointers]="labourSumPointers"
+            [tableTitle]="labourSumHeader"
+            [totalPrice]="labourSumTotal">
+        </table-info>
+
+        <table-info
+            [sourceData]="lacquerSum" 
+            [columnPointers]="lacquerSumPointers"
+            [tableTitle]="lacquerSumHeader"
+            [totalPrice]="lacquerSumTotal">
+        </table-info>
+
+    </div>
+</div>
