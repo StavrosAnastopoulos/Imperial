@@ -26,7 +26,7 @@ export class ReportGenerationComponent {
     
     lacquerInfo: any = {};
     lacquerHeader = 'Lacquer';
-    lacquerPointers = ['ns1:LabourPosId', 'ns1:Description', 'ns1:Material', 'ns1:Duration', 'WagePrice', 'ns1:ValueTotalCorrected'];
+    lacquerPointers = ['ns1:WageLevel', 'ns1:Description', 'ns1:Material', 'ns1:Duration', 'WagePrice', 'ns1:ValueTotalCorrected'];
     
     sparePartSum: any = {};
     sparePartHeader = 'SumBlockSpareParts';
@@ -35,13 +35,18 @@ export class ReportGenerationComponent {
 
     labourSum: any = [];
     labourSumHeader = 'SumBlockWage';
-    labourSumPointers = ['ns1:Type', 'ns1:Units', 'ns1:PricePerUnit', 'ns1:Price'];
+    labourSumPointers = ['ns1:Description', 'ns1:Units', 'ns1:PricePerUnit', 'ns1:Price'];
     labourSumTotal: number;
 
     lacquerSum: any = [];
     lacquerSumHeader = 'SumBlockLacquer';
     lacquerSumPointers = ['ns1:Description', 'ns1:Units', 'ns1:PricePerUnit', 'ns1:Price'];
     lacquerSumTotal: number;
+
+    finalSum: any = [];
+    finalSumHeader = 'CostSummary';
+    finalSumPointers = ['ns1:Description', 'ns1:TotalNetCosts', 'ns1:TotalVAT', 'ns1:TotalGrossCosts'];
+    finalSumTotal: number;
 
     dataProcessed = false;
     fileSelected = false;
@@ -60,7 +65,7 @@ export class ReportGenerationComponent {
 
                 // client info page
                 const temp = this.data['customTemplateData']['entry'];
-                Object.keys(temp).forEach(item => this.additionalInfo[temp[item]['key']] = temp[item]['value'])
+                Object.keys(temp).forEach(item => this.additionalInfo[temp[item]['key']] = temp[item]['value']);
         
                 this.data = this.data['ns1:Dossier']
 
@@ -86,21 +91,37 @@ export class ReportGenerationComponent {
         
                 this.lacquerInfo = details['ns1:LacquerPositions']['ns1:LacquerPosition'];
                 delete this.materialInfo['#text'];
-                this.lacquerInfo.forEach(item => item['WagePrice'] = 30 * item['ns1:Duration']);
+                this.lacquerInfo.forEach(item => {
+                    item['WagePrice'] = 30 * item['ns1:Duration'];
+                    item['ns1:WageLevel'] = item['ns1:LabourPosId'];
+                });
 
                 // summary
-                const summary = this.data['ns1:RepairCalculation']['ns1:CalculationSummary']
+                const summary = this.data['ns1:RepairCalculation']['ns1:CalculationSummary'];
+                summary['ns1:SparePartsCosts']['ns1:Description'] = 'SparePartsSum | header';
                 this.sparePartSum = [summary['ns1:SparePartsCosts']];
-                this.sparePartTotal = summary['ns1:SparePartsCosts']['ns1:TotalSum']
+                this.sparePartTotal = summary['ns1:SparePartsCosts']['ns1:TotalSum'];
 
                 delete summary['ns1:LabourCosts']['#text'];
                 this.labourSumTotal = summary['ns1:LabourCosts']['ns1:TotalSum'];
                 delete summary['ns1:LabourCosts']['ns1:TotalSum'];
-                Object.keys(summary['ns1:LabourCosts']).forEach(key => this.labourSum.push(summary['ns1:LabourCosts'][key]))
+                Object.keys(summary['ns1:LabourCosts']).forEach(key => this.labourSum.push(summary['ns1:LabourCosts'][key]));
+                this.labourSum.forEach(element => element['ns1:Description'] = this.labourReplacement[element['ns1:Type']]);
 
-                this.lacquerSum.push(summary['ns1:LacquerCosts']['ns1:Wage'])
-                this.lacquerSum.push(...summary['ns1:LacquerCosts']['ns1:Material']['ns1:LacquerConstants']['ns1:LacquerConstant'])
-                this.lacquerSum.push(...summary['ns1:LacquerCosts']['ns1:Material']['ns1:MaterialGroups']['ns1:LacquerMaterialGroupSummary'])
+                summary['ns1:LacquerCosts']['ns1:Wage']['ns1:Description'] = 'Wage | header';
+                this.lacquerSum.push(summary['ns1:LacquerCosts']['ns1:Wage']);
+                this.lacquerSum.push(...summary['ns1:LacquerCosts']['ns1:Material']['ns1:LacquerConstants']['ns1:LacquerConstant']);
+                summary['ns1:LacquerCosts']['ns1:Material']['ns1:MaterialGroups']['ns1:LacquerMaterialGroupSummary'].forEach(item => item['ns1:Description'] = item['ns1:Name']);
+                this.lacquerSum.push(...summary['ns1:LacquerCosts']['ns1:Material']['ns1:MaterialGroups']['ns1:LacquerMaterialGroupSummary']);
+                this.lacquerSumTotal = summary['ns1:LacquerCosts']['ns1:TotalSum'];
+
+                this.finalSum = [{
+                    'ns1:Description': 'RepairCost | header',
+                    'ns1:TotalNetCosts': summary['ns1:TotalNetCosts'],
+                    'ns1:TotalVAT': summary['ns1:TotalVAT'],
+                    'ns1:TotalGrossCosts': summary['ns1:TotalGrossCosts']
+                }];
+                this.finalSumTotal = summary['ns1:TotalGrossCosts'];
 
                 this.dataProcessed = true;
             }
@@ -109,4 +130,9 @@ export class ReportGenerationComponent {
         }
     }
     
+    labourReplacement = {
+        'CAR BODY': 'BodyWork | header',
+        'ELECTRIC': 'Electrics | header',
+        'MECHANIC': 'MechanicalSystems | header'
+    };
 }

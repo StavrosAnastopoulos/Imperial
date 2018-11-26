@@ -10,7 +10,7 @@ import {MatTableModule} from '@angular/material/table';
 @NgModule({
     imports: [CommonModule, RouterModule, FormsModule, MainViewRoutingModule, 
         PdfViewerModule, MatTableModule],
-    declarations: [View.Components],
-    exports: [View.Components]
+    declarations: [View.Components, View.Pipes],
+    exports: [View.Components, View.Pipes]
 })
 export class MainViewModule {}

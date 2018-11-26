@@ -1,13 +1,13 @@
 <table *ngIf="tableTitle" style="width: 100%">
     <tr>
         <th [innerHtml]="titles[tableTitle]"></th>
-        <th *ngIf="totalPrice" style="text-align: end" [innerHtml]="totalPrice"></th>
+        <th *ngIf="totalPrice" style="text-align: end" [innerHtml]="totalPrice | convert"></th>
     </tr>
 </table>
 <mat-table [dataSource]=sourceData>
     <ng-container *ngFor="let header of columnPointers" [matColumnDef]="header">
         <mat-header-cell *matHeaderCellDef [innerHtml]="titles[header]"></mat-header-cell>
-        <mat-cell *matCellDef="let element" [innerHtml]="element[header] || '-'">
+        <mat-cell *matCellDef="let element" [innerHtml]="element[header] | convert: locale">
         </mat-cell>
     </ng-container>
 
