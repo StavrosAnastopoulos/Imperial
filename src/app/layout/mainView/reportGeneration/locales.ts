@@ -740,7 +740,7 @@ export interface IDictionary<T> {
 
 export const LanguagePacks: IDictionary<LanguagePack> = {
     en: English,
-    gr: Greek,
+    'el_GR': Greek,
     bg: Bulgarian,
     ch: Chinese,
     cz: Czech,

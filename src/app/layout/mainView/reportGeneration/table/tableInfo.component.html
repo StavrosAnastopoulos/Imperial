@@ -1,12 +1,12 @@
 <table *ngIf="tableTitle" style="width: 100%">
     <tr>
-        <th [innerHtml]="titles[tableTitle]"></th>
+        <th [innerHtml]="tableTitle + ' | header' | convert"></th>
         <th *ngIf="totalPrice" style="text-align: end" [innerHtml]="totalPrice | convert"></th>
     </tr>
 </table>
 <mat-table [dataSource]=sourceData>
     <ng-container *ngFor="let header of columnPointers" [matColumnDef]="header">
-        <mat-header-cell *matHeaderCellDef [innerHtml]="titles[header]"></mat-header-cell>
+        <mat-header-cell *matHeaderCellDef [innerHtml]="header + ' | header' | convert"></mat-header-cell>
         <mat-cell *matCellDef="let element" [innerHtml]="element[header] | convert: locale">
         </mat-cell>
     </ng-container>

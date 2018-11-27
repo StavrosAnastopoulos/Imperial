@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { NgxXml2jsonService } from 'ngx-xml2json';
+import { LocaleService } from "./locale.service";
                 
 @Component({
 selector: '',
@@ -8,6 +9,7 @@ styleUrls: ['reportGeneration.component.scss']
 })
 export class ReportGenerationComponent {
 
+    locale: string = 'en';
     data: any = {};
     
     additionalInfo = {};
@@ -30,17 +32,17 @@ export class ReportGenerationComponent {
     
     sparePartSum: any = {};
     sparePartHeader = 'SumBlockSpareParts';
-    sparePartPointers = ['ns1:Description', 'ns1:AllSum', 'ns1:ConsumablesSurcharge', 'ns1:TotalSum'];
+    sparePartPointers = ['ns1:Description', 'ns1:AllSum', 'ns1:ConsumablesSurcharge', 'ns1:ValueTotalCorrected'];
     sparePartTotal: number;
 
     labourSum: any = [];
     labourSumHeader = 'SumBlockWage';
-    labourSumPointers = ['ns1:Description', 'ns1:Units', 'ns1:PricePerUnit', 'ns1:Price'];
+    labourSumPointers = ['ns1:Description', 'ns1:Duration', 'ns1:PricePerUnit', 'ns1:ValueTotalCorrected'];
     labourSumTotal: number;
 
     lacquerSum: any = [];
     lacquerSumHeader = 'SumBlockLacquer';
-    lacquerSumPointers = ['ns1:Description', 'ns1:Units', 'ns1:PricePerUnit', 'ns1:Price'];
+    lacquerSumPointers = ['ns1:Description', 'ns1:Duration', 'ns1:PricePerUnit', 'ns1:ValueTotalCorrected'];
     lacquerSumTotal: number;
 
     finalSum: any = [];
@@ -50,7 +52,7 @@ export class ReportGenerationComponent {
 
     dataProcessed = false;
     fileSelected = false;
-    constructor(private ngxXml2jsonService: NgxXml2jsonService){}
+    constructor(private ngxXml2jsonService: NgxXml2jsonService, private localeService: LocaleService){}
 
     addFile() {
         const $img: any = document.querySelector('#file');
@@ -66,8 +68,10 @@ export class ReportGenerationComponent {
                 // client info page
                 const temp = this.data['customTemplateData']['entry'];
                 Object.keys(temp).forEach(item => this.additionalInfo[temp[item]['key']] = temp[item]['value']);
-        
-                this.data = this.data['ns1:Dossier']
+                console.log(this.additionalInfo)
+                this.data = this.data['ns1:Dossier'];
+
+                this.localeService.setLocal(this.data['ns1:Language']);
 
                 this.dealerInfo = this.data['ns1:TradingData']['ns1:Dealership'];
                 delete this.dealerInfo['#text'];
@@ -77,7 +81,7 @@ export class ReportGenerationComponent {
         
                 this.ownerInfo = this.data['ns1:TradingData']['ns1:Owner'];
                 delete this.ownerInfo['#text'];
-        
+
                 this.vehicleInfo = this.data['ns1:Vehicle'];
                 delete this.vehicleInfo['#text'];
         
@@ -99,6 +103,7 @@ export class ReportGenerationComponent {
                 // summary
                 const summary = this.data['ns1:RepairCalculation']['ns1:CalculationSummary'];
                 summary['ns1:SparePartsCosts']['ns1:Description'] = 'SparePartsSum | header';
+                summary['ns1:SparePartsCosts']['ns1:ValueTotalCorrected'] = summary['ns1:SparePartsCosts']['ns1:TotalSum'];
                 this.sparePartSum = [summary['ns1:SparePartsCosts']];
                 this.sparePartTotal = summary['ns1:SparePartsCosts']['ns1:TotalSum'];
 
@@ -106,13 +111,22 @@ export class ReportGenerationComponent {
                 this.labourSumTotal = summary['ns1:LabourCosts']['ns1:TotalSum'];
                 delete summary['ns1:LabourCosts']['ns1:TotalSum'];
                 Object.keys(summary['ns1:LabourCosts']).forEach(key => this.labourSum.push(summary['ns1:LabourCosts'][key]));
-                this.labourSum.forEach(element => element['ns1:Description'] = this.labourReplacement[element['ns1:Type']]);
+                this.labourSum.forEach(element => {
+                    element['ns1:Description'] = this.labourReplacement[element['ns1:Type']]
+                    element['ns1:Duration'] = element['ns1:Units']
+                    element['ns1:ValueTotalCorrected'] = element['ns1:Price']
+                });
 
                 summary['ns1:LacquerCosts']['ns1:Wage']['ns1:Description'] = 'Wage | header';
                 this.lacquerSum.push(summary['ns1:LacquerCosts']['ns1:Wage']);
                 this.lacquerSum.push(...summary['ns1:LacquerCosts']['ns1:Material']['ns1:LacquerConstants']['ns1:LacquerConstant']);
                 summary['ns1:LacquerCosts']['ns1:Material']['ns1:MaterialGroups']['ns1:LacquerMaterialGroupSummary'].forEach(item => item['ns1:Description'] = item['ns1:Name']);
                 this.lacquerSum.push(...summary['ns1:LacquerCosts']['ns1:Material']['ns1:MaterialGroups']['ns1:LacquerMaterialGroupSummary']);
+                this.lacquerSum.forEach(element => {
+                    element['ns1:Duration'] = element['ns1:Units']
+                    element['ns1:ValueTotalCorrected'] = element['ns1:Price']
+                });
+
                 this.lacquerSumTotal = summary['ns1:LacquerCosts']['ns1:TotalSum'];
 
                 this.finalSum = [{

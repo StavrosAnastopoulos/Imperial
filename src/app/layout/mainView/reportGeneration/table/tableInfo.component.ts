@@ -1,5 +1,4 @@
 import { Component, Input } from "@angular/core";
-import { LanguagePacks, LanguagePack } from "../locales";
 
 @Component({
     selector: 'table-info',
@@ -14,14 +13,7 @@ export class TableInfoComponent {
     @Input()
     tableTitle: string;
     @Input()
-    locale = 'en'
-    @Input()
     totalPrice: number;
 
-
-    titles: LanguagePack;
-
-    constructor(){
-        this.titles = LanguagePacks[this.locale];
-    }
+    constructor(){}
 }

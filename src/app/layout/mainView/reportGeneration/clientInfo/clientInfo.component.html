@@ -1,9 +1,9 @@
 <table>
     <tr>
         <th>Order No.</th>
-        <td><input></td>
+        <td><input [value]="additionalInfo['claimNumber']"></td>
         <th>License Plate</th>
-        <td><input [(ngModel)]="vehicleInfo['ns1:RegistrationData']['ns1:LicenseNumber']"></td>
+        <td><input [value]="vehicleInfo['ns1:RegistrationData']['ns1:LicenseNumber']"></td>
     </tr>
     <tr>
         <th>Debitor No.</th>
@@ -13,7 +13,7 @@
     </tr>
     <tr>
         <th>Client Name</th>
-        <td colspan="3"><input></td>
+        <td colspan="3"><input [value]="expertInfo['ns1:NameLong'] || expertInfo['ns1:CompanyName']"></td>
     </tr>
     <tr>
         <th>Client Address</th>
@@ -29,7 +29,7 @@
         <th>Claims Adjuster</th>
         <td><input></td>
         <th>Damage Date</th>
-        <td><input></td>
+        <td><input [value]="additionalInfo['accidentDate'] | date"></td>
     </tr>
     <tr>
         <th>Inspector</th>
@@ -48,17 +48,17 @@
     </tr>
     <tr>
         <th>Name</th>
-        <td colspan="3"><input></td>
+        <td colspan="3"><input [value]="ownerInfo['ns1:LastName'] + ' ' + ownerInfo['ns1:FirstName']"></td>
     </tr>
     <tr>
         <th>Address</th>
-        <td colspan="3"><input></td>
+        <td colspan="3"><input [value]="this.ownerInfo['ns1:Street'] + ', ' + this.ownerInfo['ns1:StreetCity']"></td>
     </tr>
     <tr>
         <th>Email</th>
-        <td><input></td>
+        <td><input [value]="ownerInfo['ns1:Email']"></td>
         <th>Telephone</th>
-        <td><input></td>
+        <td><input [value]="ownerInfo['ns1:PhoneMobile'] || ownerInfo['ns1:Personal']"></td>
     </tr>
 </table>
 <table>
@@ -67,46 +67,46 @@
     </tr>
     <tr>
         <th>VIN</th>
-        <td  colspan="2"><input [(ngModel)]="vehicleInfo['ns1:VehicleIdentNumber']"></td>
+        <td  colspan="2"><input [value]="vehicleInfo['ns1:VehicleIdentNumber']"></td>
         <th>First Registration</th>
         <td colspan="2">
-            <input [(ngModel)]="vehicleInfo['ns1:InitialRegistration']">
+            <input [value]="additionalInfo['vehicle_registrationFirst'] | date">
         </td>
     </tr>
     <tr>
         <th>Type</th>
         <td colspan="2">
-            <input>
+            <input [value]="additionalInfo['VehicleUse']">
         </td>
         <th>Make</th>
         <td colspan="2">
-            <input [(ngModel)]="vehicleInfo['ns1:ManufacturerName']">
+            <input [value]="vehicleInfo['ns1:ManufacturerName']">
         </td>
     </tr>
     <tr>
         <th>Model/Series</th>
         <td colspan="5">
-            <input [(ngModel)]="vehicleInfo['ns1:BaseModelName']">
+            <input [value]="vehicleInfo['ns1:BaseModelName']+', '+vehicleInfo['ns1:SubModelName']">
         </td>
     </tr>
     <tr>
         <th>Horse Power (HP)</th>
         <td>
-            <input [(ngModel)]="vehicleInfo['ns1:Engine']['ns1:EnginePowerKw']">
+            <input [value]="vehicleInfo['ns1:Engine']['ns1:EnginePowerKw']">
         </td>
         <th>Cubic Capacity (ccm)</th>
         <td>
-            <input [(ngModel)]="vehicleInfo['ns1:Engine']['ns1:Capacity']">
+            <input [value]="vehicleInfo['ns1:Engine']['ns1:Capacity']">
         </td>
         <th class="th-small">Fuel</th>
         <td>
-            <input [(ngModel)]="vehicleInfo['ns1:Engine']['ns1:FuelMethod']">
+            <input [value]="vehicleInfo['ns1:Engine']['ns1:FuelMethod']">
         </td>
     </tr>
     <tr>
         <th>Mileage Reading</th>
         <td colspan="2">
-            <input [(ngModel)]="vehicleInfo['ns1:MileageOdometer']">
+            <input [value]="vehicleInfo['ns1:MileageOdometer']">
         </td>
         <th>Color</th>
         <td colspan="2">

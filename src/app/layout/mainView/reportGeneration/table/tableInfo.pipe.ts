@@ -1,19 +1,19 @@
 import { Pipe, PipeTransform } from "@angular/core";
-import { LanguagePacks } from "../locales";
+import { LocaleService } from "../locale.service";
 
 @Pipe({
     name: 'convert'
 })
 export class TableInfoPipe implements PipeTransform {
-    constructor(){}
+    constructor(private localeService: LocaleService){}
 
-    transform(value: string, locale: string = 'en') {
+    transform(value: string) {
         if (!value) return '-';
         if (typeof(value) == 'string'){
             const parts = value.split(' | ');
             if (parts.length == 2){
                 if (parts[1] == 'header') {
-                    return LanguagePacks[locale][parts[0]];
+                    return this.localeService.getHeader(parts[0]);
                 }
             }
         }
