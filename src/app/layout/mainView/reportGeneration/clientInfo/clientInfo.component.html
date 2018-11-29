@@ -1,42 +1,66 @@
 <table>
-    <tr>
-        <th>Order No.</th>
+    <tr [ngClass]="{'hide-print': hide[0]}">
+        <th>
+            <mat-checkbox [indeterminate]="hide[0]" [(ngModel)]="hide[0]"></mat-checkbox>
+            Order No.
+        </th>
         <td><input [value]="additionalInfo['claimNumber']"></td>
         <th>License Plate</th>
         <td><input [value]="vehicleInfo['ns1:RegistrationData']['ns1:LicenseNumber']"></td>
     </tr>
-    <tr>
-        <th>Debitor No.</th>
+    <tr [ngClass]="{'hide-print': hide[1]}">
+        <th>
+            <mat-checkbox [indeterminate]="hide[1]" [(ngModel)]="hide[1]"></mat-checkbox>
+            Debitor No.
+        </th>
         <td><input></td>
         <th>Accident Ref. No.</th>
         <td><input></td>
     </tr>
-    <tr>
-        <th>Client Name</th>
+    <tr [ngClass]="{'hide-print': hide[2]}">
+        <th>
+            <mat-checkbox [indeterminate]="hide[2]" [(ngModel)]="hide[2]"></mat-checkbox>
+            Client Name
+        </th>
         <td colspan="3"><input [value]="expertInfo['ns1:NameLong'] || expertInfo['ns1:CompanyName']"></td>
     </tr>
-    <tr>
-        <th>Client Address</th>
+    <tr [ngClass]="{'hide-print': hide[3]}">
+        <th>
+            <mat-checkbox [indeterminate]="hide[3]" [(ngModel)]="hide[3]"></mat-checkbox>
+            Client Address
+        </th>
         <td colspan="3"><input></td>
     </tr>
-    <tr>
-        <th>Email</th>
+    <tr [ngClass]="{'hide-print': hide[4]}">
+        <th>
+            <mat-checkbox [indeterminate]="hide[4]" [(ngModel)]="hide[4]"></mat-checkbox>
+            Email
+        </th>
         <td><input></td>
         <th>Telephone</th>
         <td><input></td>
     </tr>
-    <tr>
-        <th>Claims Adjuster</th>
+    <tr [ngClass]="{'hide-print': hide[5]}">
+        <th>
+            <mat-checkbox [indeterminate]="hide[5]" [(ngModel)]="hide[5]"></mat-checkbox>
+            Claims Adjuster
+        </th>
         <td><input></td>
         <th>Damage Date</th>
         <td><input [value]="additionalInfo['accidentDate'] | date"></td>
     </tr>
-    <tr>
-        <th>Inspector</th>
+    <tr [ngClass]="{'hide-print': hide[6]}">
+        <th>
+            <mat-checkbox [indeterminate]="hide[6]" [(ngModel)]="hide[6]"></mat-checkbox>
+            Inspector
+        </th>
         <td colspan="3"><input></td>
     </tr>
-    <tr>
-        <th>Inspection Place</th>
+    <tr [ngClass]="{'hide-print': hide[7]}">
+        <th>
+            <mat-checkbox [indeterminate]="hide[7]" [(ngModel)]="hide[7]"></mat-checkbox>
+            Inspection Place
+        </th>
         <td><input></td>
         <th>Inspection Date</th>
         <td><input></td>
@@ -46,16 +70,25 @@
     <tr>
         <th colspan="4">Vehicle Owner</th>
     </tr>
-    <tr>
-        <th>Name</th>
+    <tr [ngClass]="{'hide-print': hide[8]}">
+        <th>
+            <mat-checkbox [indeterminate]="hide[8]" [(ngModel)]="hide[8]"></mat-checkbox>
+            Name
+        </th>
         <td colspan="3"><input [value]="ownerInfo['ns1:LastName'] + ' ' + ownerInfo['ns1:FirstName']"></td>
     </tr>
-    <tr>
-        <th>Address</th>
+    <tr [ngClass]="{'hide-print': hide[9]}">
+        <th>
+            <mat-checkbox [indeterminate]="hide[9]" [(ngModel)]="hide[9]"></mat-checkbox>
+            Address
+        </th>
         <td colspan="3"><input [value]="this.ownerInfo['ns1:Street'] + ', ' + this.ownerInfo['ns1:StreetCity']"></td>
     </tr>
-    <tr>
-        <th>Email</th>
+    <tr [ngClass]="{'hide-print': hide[10]}">
+        <th>
+            <mat-checkbox [indeterminate]="hide[10]" [(ngModel)]="hide[10]"></mat-checkbox>
+            Email
+        </th>
         <td><input [value]="ownerInfo['ns1:Email']"></td>
         <th>Telephone</th>
         <td><input [value]="ownerInfo['ns1:PhoneMobile'] || ownerInfo['ns1:Personal']"></td>
@@ -65,16 +98,22 @@
     <tr>
         <th colspan="6">Vehicle</th>
     </tr>
-    <tr>
-        <th>VIN</th>
+    <tr [ngClass]="{'hide-print': hide[11]}">
+        <th>
+            <mat-checkbox [indeterminate]="hide[11]" [(ngModel)]="hide[11]"></mat-checkbox>
+            VIN
+        </th>
         <td  colspan="2"><input [value]="vehicleInfo['ns1:VehicleIdentNumber']"></td>
         <th>First Registration</th>
         <td colspan="2">
             <input [value]="additionalInfo['vehicle_registrationFirst'] | date">
         </td>
     </tr>
-    <tr>
-        <th>Type</th>
+    <tr [ngClass]="{'hide-print': hide[12]}">
+        <th>
+            <mat-checkbox [indeterminate]="hide[12]" [(ngModel)]="hide[12]"></mat-checkbox>
+            Type
+        </th>
         <td colspan="2">
             <input [value]="additionalInfo['VehicleUse']">
         </td>
@@ -83,14 +122,20 @@
             <input [value]="vehicleInfo['ns1:ManufacturerName']">
         </td>
     </tr>
-    <tr>
-        <th>Model/Series</th>
+    <tr [ngClass]="{'hide-print': hide[13]}">
+        <th>
+            <mat-checkbox [indeterminate]="hide[13]" [(ngModel)]="hide[13]"></mat-checkbox>
+            Model/Series
+        </th>
         <td colspan="5">
             <input [value]="vehicleInfo['ns1:BaseModelName']+', '+vehicleInfo['ns1:SubModelName']">
         </td>
     </tr>
-    <tr>
-        <th>Horse Power (HP)</th>
+    <tr [ngClass]="{'hide-print': hide[14]}">
+        <th>
+            <mat-checkbox [indeterminate]="hide[14]" [(ngModel)]="hide[14]"></mat-checkbox>
+            Horse Power (HP)
+        </th>
         <td>
             <input [value]="vehicleInfo['ns1:Engine']['ns1:EnginePowerKw']">
         </td>
@@ -103,8 +148,11 @@
             <input [value]="vehicleInfo['ns1:Engine']['ns1:FuelMethod']">
         </td>
     </tr>
-    <tr>
-        <th>Mileage Reading</th>
+    <tr [ngClass]="{'hide-print': hide[15]}">
+        <th>
+            <mat-checkbox [indeterminate]="hide[15]" [(ngModel)]="hide[15]"></mat-checkbox>
+            Mileage Reading
+        </th>
         <td colspan="2">
             <input [value]="vehicleInfo['ns1:MileageOdometer']">
         </td>
@@ -113,8 +161,11 @@
             <input>
         </td>
     </tr>
-    <tr>
-        <th>MOT Date</th>
+    <tr [ngClass]="{'hide-print': hide[16]}">
+        <th>
+            <mat-checkbox [indeterminate]="hide[16]" [(ngModel)]="hide[16]"></mat-checkbox>
+            MOT Date
+        </th>
         <td colspan="2">
             <input>
         </td>
@@ -123,8 +174,11 @@
             <input>
         </td>
     </tr>
-    <tr>
-        <th>Tyre Description</th>
+    <tr [ngClass]="{'hide-print': hide[17]}">
+        <th>
+            <mat-checkbox [indeterminate]="hide[17]" [(ngModel)]="hide[17]"></mat-checkbox>
+            Tyre Description
+        </th>
         <td colspan="2">
             <input>
         </td>
@@ -133,8 +187,11 @@
             <input>
         </td>
     </tr>
-    <tr>
-        <th>LF / RF</th>
+    <tr [ngClass]="{'hide-print': hide[18]}">
+        <th>
+            <mat-checkbox [indeterminate]="hide[18]" [(ngModel)]="hide[18]"></mat-checkbox>
+            LF / RF
+        </th>
         <td>
             <input>
         </td>
@@ -149,18 +206,24 @@
     </tr>
 </table>
 <table>
-    <tr>
-        <th>Equipment/ Accessories</th>
+    <tr [ngClass]="{'hide-print': hide[19]}">
+        <th>
+            <mat-checkbox [indeterminate]="hide[19]" [(ngModel)]="hide[19]"></mat-checkbox>
+            Equipment/ Accessories
+        </th>
         <td colspan="3">
-            <input>
+            <textarea id="textarea1" (keyup)="textAreaAdjust(1)" style="overflow:hidden"></textarea>
         </td>
     </tr>
 </table>
 <table>
-    <tr>
-        <th>Additional Comments</th>
+    <tr [ngClass]="{'hide-print': hide[20]}">
+        <th>
+            <mat-checkbox [indeterminate]="hide[20]" [(ngModel)]="hide[20]"></mat-checkbox>
+            Additional Comments
+        </th>
         <td colspan="3">
-            <input>
+            <textarea id="textarea2" (keyup)="textAreaAdjust(2)" style="overflow:hidden"></textarea>
         </td>
     </tr>
 </table>

@@ -3,6 +3,7 @@ import { ReportGenerationComponent } from "./reportGeneration/reportGeneration.c
 import { ClientInfoComponent } from "./reportGeneration/clientInfo/clientInfo.component";
 import { TableInfoComponent } from "./reportGeneration/table/tableInfo.component";
 import { TableInfoPipe } from "./reportGeneration/table/tableInfo.pipe";
+import { ReportTitleComponent } from "./reportGeneration/title/report-title.component";
 
 export const Pipes = [TableInfoPipe];
-export const Components = [InvoiceCheckComponent, ReportGenerationComponent, ClientInfoComponent, TableInfoComponent];
+export const Components = [InvoiceCheckComponent, ReportGenerationComponent, ClientInfoComponent, TableInfoComponent, ReportTitleComponent];

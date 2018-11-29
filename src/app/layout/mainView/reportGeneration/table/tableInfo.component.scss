@@ -5,6 +5,7 @@ table{
         color: white;
         th {
             text-align: start;
+            
         }
     }
 }
@@ -18,6 +19,7 @@ mat-table {
         background-color: rgb(255, 255, 224);
         border: 1px solid black;
         mat-header-cell {
+            color: black;
             font-size: 14px;
             font-weight: 600;
             text-align: left;
@@ -30,6 +32,7 @@ mat-table {
     mat-row {
         border-left: 1px solid black;
         border-right: 1px solid black;
+        border-bottom-color: black;
         min-height: 35px;
         mat-cell {
             font-size: 12px;

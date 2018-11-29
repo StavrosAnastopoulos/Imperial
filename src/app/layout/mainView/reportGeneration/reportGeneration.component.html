@@ -3,6 +3,13 @@
         <input (change)="addFile()" type="file" id="file">
     </div>
     <div *ngIf="dataProcessed">
+        
+        <imp-report-title
+            imgPath="assets/img/logoImperialDekra2.PNG"
+            [dims]="[300, 75]"
+            title="International vehicle damage inspection "
+        ></imp-report-title>
+        
         <client-info
             [additionalInfo]="additionalInfo"
             [ownerInfo]="ownerInfo"

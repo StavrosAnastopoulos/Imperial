@@ -82,10 +82,6 @@ const English = <LanguagePack>{
     SumBlockLacquer: 'Sum block of the paintwork',
     TotalAuxiliaryCost: 'Sum of the ancillary costs',
     AuxiliaryCost: 'Ancillary costs',
-    'ns1:TotalSum': 'Total Amount / EUR',
-    'ns1:Price': 'Total Amount / EUR',
-    'ns1:Units': 'Labour time in hours',
-    'ns1:Type': 'Designation',
 }
 
 const Greek = <LanguagePack>{
