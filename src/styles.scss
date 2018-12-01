@@ -27,11 +27,32 @@
         border: 2px solid rgb(110, 26, 23);
     }
     
-    .hide-print{
+    header, footer, .hide-print{
         display: none !important;
     }
 }
 
 html {
     font-family: Roboto,"Helvetica Neue",sans-serif;
+}
+
+
+.mat-checkbox-checked .mat-checkbox-background {
+    background-color: rgb(110, 26, 23) !important;
+}
+
+.mat-ripple-element {
+    background-color: rgba(110, 26, 23, 0.4) !important;
+}
+
+.inputFile {
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.inputFile + label {
+	cursor: pointer;
 }

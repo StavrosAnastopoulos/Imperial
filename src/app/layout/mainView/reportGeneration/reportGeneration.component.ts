@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { NgxXml2jsonService } from 'ngx-xml2json';
 import { LocaleService } from "./locale.service";
+import { DomSanitizer, SafeResourceUrl } from "@angular/platform-browser";
                 
 @Component({
 selector: '',
@@ -9,6 +10,9 @@ styleUrls: ['reportGeneration.component.scss']
 })
 export class ReportGenerationComponent {
 
+    fileName = 'No file chosen';
+    numberOfImages = 'No images chosen';
+    imgFilePaths: SafeResourceUrl[] = [];
     locale: string = 'en';
     data: any = {};
     
@@ -52,11 +56,37 @@ export class ReportGenerationComponent {
 
     dataProcessed = false;
     fileSelected = false;
-    constructor(private ngxXml2jsonService: NgxXml2jsonService, private localeService: LocaleService){}
+    imgsSelected = false;
 
-    addFile() {
-        const $img: any = document.querySelector('#file');
-       
+    constructor(private ngxXml2jsonService: NgxXml2jsonService, private localeService: LocaleService, private sanitizer: DomSanitizer){}
+
+    addImages(event: any) {
+        this.imgsSelected = false;
+        this.imgFilePaths = [];
+        this.numberOfImages = 'No images chosen';
+
+        for (let i = 0; i < event.target.files.length; i++) {
+            if (!event.target.files[i].type.includes('image')) {
+                this.numberOfImages = 'Please select only images'
+                return;
+            }
+
+            this.imgFilePaths.push(this.sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(event.target.files[i])));
+        }
+
+        this.numberOfImages = event.target.files.length;
+        this.imgsSelected = true;
+    }
+
+    addFile(event: any) {
+        if (!event || !event.target.files[0].name.toLowerCase().endsWith('.xml')) {
+            this.fileName = 'Please select an XML file!'
+            return ;
+        }
+        else {
+            this.fileName = event.target.files[0].name;
+        }
+
         if (typeof (FileReader) !== 'undefined') {
             const reader: FileReader = new FileReader();
             reader.onload = () => {
@@ -139,7 +169,7 @@ export class ReportGenerationComponent {
 
                 this.dataProcessed = true;
             }
-            reader.readAsText($img.files[0]);
+            reader.readAsText(event.target.files[0]);
             this.fileSelected = true;
         }
     }

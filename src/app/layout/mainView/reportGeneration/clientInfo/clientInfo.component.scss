@@ -41,14 +41,6 @@ table {
     }
 }
 
-::ng-deep .mat-checkbox-checked .mat-checkbox-background {
-    background-color: rgb(110, 26, 23) !important;
-}
-
-::ng-deep .mat-ripple-element {
-    background-color: rgba(110, 26, 23, 0.4) !important;
-}
-
 @media print {
     mat-checkbox{
         display: none;
