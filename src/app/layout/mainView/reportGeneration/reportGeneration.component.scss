@@ -5,6 +5,13 @@
         border-bottom: 1px solid black;
         display: flex;
         flex-direction: column;
+        .print-button {
+            position: absolute;
+            right: 0;
+            top: 90px;
+            margin-right: 30px;
+            cursor: pointer;
+        }
     }
     .tool-bar > * {
         margin-bottom: 10px;

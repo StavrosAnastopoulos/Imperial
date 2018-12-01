@@ -4,6 +4,7 @@
         <label for="xmlFile" [innerHtml]="'File: ' + fileName"></label>
         <input (change)="addImages($event)" type="file" multiple="multiple" class="inputFile" id="imgs">
         <label for="imgs" [innerHtml]="'Images: ' + numberOfImages"></label>
+        <div class ="print-button" (click)="print()">Print</div>
     </div>
     <div *ngIf="dataProcessed">
         

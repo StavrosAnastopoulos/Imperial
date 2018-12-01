@@ -60,6 +60,8 @@ export class ReportGenerationComponent {
 
     constructor(private ngxXml2jsonService: NgxXml2jsonService, private localeService: LocaleService, private sanitizer: DomSanitizer){}
 
+    print = () => window.print();
+
     addImages(event: any) {
         this.imgsSelected = false;
         this.imgFilePaths = [];
