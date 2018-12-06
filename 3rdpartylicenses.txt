@@ -580,9 +580,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
-@angular/forms
-MIT
-
 @angular/material
 MIT
 The MIT License
@@ -608,12 +605,15 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
+@angular/material/table
+
+@angular/forms
+MIT
+
 @angular/animations
 MIT
 
 @angular/material/checkbox
-
-@angular/material/table
 
 ngx-xml2json
 
