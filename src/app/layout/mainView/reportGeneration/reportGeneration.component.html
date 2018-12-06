@@ -9,8 +9,8 @@
     <div *ngIf="dataProcessed">
         
         <imp-report-title
-            imgPath="assets/img/logoImperialDekra2.PNG"
-            [dims]="[300, 75]"
+            imgPath="assets/img/Logo_Imp_D_P.jpg"
+            [dims]="[700, 65]"
             title="International vehicle damage inspection "
         ></imp-report-title>
         
@@ -23,57 +23,16 @@
         ></client-info>
 
         <imp-damage-card></imp-damage-card>
-        
-        <p style="page-break-before: always">
-            <table-info
-                [sourceData]="materialInfo" 
-                [columnPointers]="materialPointers"
-                [tableTitle]="materialHeader">
-            </table-info>
-
-        <p style="page-break-before: auto;">
-            <table-info
-                [sourceData]="labourInfo" 
-                [columnPointers]="labourPointers"
-                [tableTitle]="labourHeader">
-            </table-info>
-        <p style="page-break-before: auto">
-            <table-info
-                [sourceData]="lacquerInfo" 
-                [columnPointers]="lacquerPointers"
-                [tableTitle]="lacquerHeader">
-            </table-info>
-        </p>
-
-        <p style="page-break-before: always">
-            <table-info
-                [sourceData]="sparePartSum" 
-                [columnPointers]="sparePartPointers"
-                [tableTitle]="sparePartHeader"
-                [totalPrice]="sparePartTotal">
-            </table-info>
             
-            <table-info
-                [sourceData]="labourSum" 
-                [columnPointers]="labourSumPointers"
-                [tableTitle]="labourSumHeader"
-                [totalPrice]="labourSumTotal">
-            </table-info>
-
-            <table-info
-                [sourceData]="lacquerSum" 
-                [columnPointers]="lacquerSumPointers"
-                [tableTitle]="lacquerSumHeader"
-                [totalPrice]="lacquerSumTotal">
-            </table-info>
-
-            <table-info
-                [sourceData]="finalSum" 
-                [columnPointers]="finalSumPointers"
-                [tableTitle]="finalSumHeader"
-                [totalPrice]="finalSumTotal">
-            </table-info>
-        </p>
+        <div *ngFor="let page of pages">
+            <p style="page-break-before: always">
+                <div *ngFor="let table of page">
+                        <table-info
+                        [data]="table">
+                    </table-info>
+                </div>
+        </div>
+            
     </div>
     <div *ngIf="imgsSelected" >
         <p style="page-break-before: always"></p>

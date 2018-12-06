@@ -6,7 +6,7 @@
         </th>
         <td><input [value]="additionalInfo['claimNumber']"></td>
         <th>License Plate</th>
-        <td><input [value]="vehicleInfo['ns1:RegistrationData']['ns1:LicenseNumber']"></td>
+        <td><input [value]="vehicleInfo['RegistrationData']['LicenseNumber']"></td>
     </tr>
     <tr [ngClass]="{'hide-print': chkh2.indeterminate}">
         <th>
@@ -22,7 +22,7 @@
             <mat-checkbox #chkh3 [(ngModel)]="chkh3.indeterminate"></mat-checkbox>
             Client Name
         </th>
-        <td colspan="3"><input [value]="expertInfo['ns1:NameLong'] || expertInfo['ns1:CompanyName']"></td>
+        <td colspan="3"><input [value]="expertInfo['NameLong'] || expertInfo['CompanyName']"></td>
     </tr>
     <tr [ngClass]="{'hide-print': chkh4.indeterminate}">
         <th>
@@ -75,23 +75,23 @@
             <mat-checkbox #chkh9 [(ngModel)]="chkh9.indeterminate"></mat-checkbox>
             Name
         </th>
-        <td colspan="3"><input [value]="ownerInfo['ns1:LastName'] + ' ' + ownerInfo['ns1:FirstName']"></td>
+        <td colspan="3"><input [value]="ownerInfo['LastName'] + ' ' + ownerInfo['FirstName']"></td>
     </tr>
     <tr [ngClass]="{'hide-print': chkh10.indeterminate}">
         <th>
             <mat-checkbox #chkh10 [(ngModel)]="chkh10.indeterminate"></mat-checkbox>
             Address
         </th>
-        <td colspan="3"><input [value]="this.ownerInfo['ns1:Street'] + ', ' + this.ownerInfo['ns1:StreetCity']"></td>
+        <td colspan="3"><input [value]="this.ownerInfo['Street'] + ', ' + this.ownerInfo['StreetCity']"></td>
     </tr>
     <tr [ngClass]="{'hide-print': chkh11.indeterminate}">
         <th>
             <mat-checkbox #chkh11 [(ngModel)]="chkh11.indeterminate"></mat-checkbox>
             Email
         </th>
-        <td><input [value]="ownerInfo['ns1:Email']"></td>
+        <td><input [value]="ownerInfo['Email']"></td>
         <th>Telephone</th>
-        <td><input [value]="ownerInfo['ns1:PhoneMobile'] || ownerInfo['ns1:Personal']"></td>
+        <td><input [value]="ownerInfo['PhoneMobile'] || ownerInfo['Personal']"></td>
     </tr>
 </table>
 <table>
@@ -103,7 +103,7 @@
             <mat-checkbox #chkh12 [(ngModel)]="chkh12.indeterminate"></mat-checkbox>
             VIN
         </th>
-        <td  colspan="2"><input [value]="vehicleInfo['ns1:VehicleIdentNumber']"></td>
+        <td  colspan="2"><input [value]="vehicleInfo['VehicleIdentNumber']"></td>
         <th>First Registration</th>
         <td colspan="2">
             <input [value]="additionalInfo['vehicle_registrationFirst'] | date">
@@ -119,7 +119,7 @@
         </td>
         <th>Make</th>
         <td colspan="2">
-            <input [value]="vehicleInfo['ns1:ManufacturerName']">
+            <input [value]="vehicleInfo['ManufacturerName']">
         </td>
     </tr>
     <tr [ngClass]="{'hide-print': chkh14.indeterminate}">
@@ -128,7 +128,7 @@
             Model/Series
         </th>
         <td colspan="5">
-            <input [value]="vehicleInfo['ns1:BaseModelName']+', '+vehicleInfo['ns1:SubModelName']">
+            <input [value]="vehicleInfo['BaseModelName']+', '+vehicleInfo['SubModelName']">
         </td>
     </tr>
     <tr [ngClass]="{'hide-print': chkh15.indeterminate}">
@@ -137,15 +137,15 @@
             Horse Power (HP)
         </th>
         <td>
-            <input [value]="vehicleInfo['ns1:Engine']['ns1:EnginePowerKw']">
+            <input [value]="vehicleInfo['Engine']['EnginePowerKw']">
         </td>
         <th>Cubic Capacity (ccm)</th>
         <td>
-            <input [value]="vehicleInfo['ns1:Engine']['ns1:Capacity']">
+            <input [value]="vehicleInfo['Engine']['Capacity']">
         </td>
         <th class="th-small">Fuel</th>
         <td>
-            <input [value]="vehicleInfo['ns1:Engine']['ns1:FuelMethod']">
+            <input [value]="vehicleInfo['Engine']['FuelMethod']">
         </td>
     </tr>
     <tr [ngClass]="{'hide-print': chkh16.indeterminate}">
@@ -154,7 +154,7 @@
             Mileage Reading
         </th>
         <td colspan="2">
-            <input [value]="vehicleInfo['ns1:MileageOdometer']">
+            <input [value]="vehicleInfo['MileageOdometer']">
         </td>
         <th>Color</th>
         <td colspan="2">

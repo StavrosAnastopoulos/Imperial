@@ -3,19 +3,16 @@
 /* You can add global styles to this file, and also import other style files */
 @page 
     {
-        size:  auto;   /* auto is the initial value */
+        size: A4;   /* auto is the initial value */
         margin: 15px;  /* this affects the margin in the printer settings */
-        
     }
 
 @media print {
-
-    html{
-        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    }
-    
     body {
         -webkit-print-color-adjust: exact !important;
+        height: 90%;
+        margin-bottom: 80px;
+        padding-bottom: 80px;
     }
 
     #border {
@@ -24,7 +21,8 @@
         bottom: 0;
         left: 0;
         right: 0;
-        border: 2px solid rgb(110, 26, 23);
+        // border: 2px solid rgb(110, 26, 23);
+        border: 2px solid rgb(1, 131, 67);
     }
     
     header, footer, .hide-print{

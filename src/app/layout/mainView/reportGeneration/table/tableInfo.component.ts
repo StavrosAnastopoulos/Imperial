@@ -1,5 +1,12 @@
 import { Component, Input } from "@angular/core";
 
+export interface TableData {
+    pointers: [];
+    source: [];
+    title: string;
+    price: number;
+}
+
 @Component({
     selector: 'table-info',
     templateUrl: 'tableInfo.component.html',
@@ -7,13 +14,7 @@ import { Component, Input } from "@angular/core";
 })
 export class TableInfoComponent {
     @Input()
-    columnPointers: [];
-    @Input()
-    sourceData: [];
-    @Input()
-    tableTitle: string;
-    @Input()
-    totalPrice: number;
+    data: TableData
 
     constructor(){}
 }
