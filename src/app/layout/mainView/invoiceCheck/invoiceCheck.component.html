@@ -1,24 +1,4 @@
 <div class="invoiceContainer">
-    <div class="invoiceItem">
-        <input (change)="addFile(pdfSrcLeft, 'file1')" type="file" id="file1">
-        <div *ngFor="let sourceL of pdfSrcLeft">
-            <pdf-viewer 
-            style='width: auto; max-width: 100%;'
-                [src]="sourceL" 
-                [render-text]="true"
-                [original-size]="false"
-                [autoresize]="true"
-            ></pdf-viewer>
-        </div>
-    </div>
-    <div class="invoiceItem">
-        <input (change)="addFile(pdfSrcRight, 'file2')" type="file" id="file2">
-        <div *ngFor="let sourceR of pdfSrcRight">
-            <pdf-viewer 
-                [src]="sourceR" 
-                [render-text]="true"
-                [fit-to-page]="false"
-            ></pdf-viewer>
-        </div>
-    </div>
+    <imp-invoice-element class="invoiceItemContainer" inputId="left"></imp-invoice-element>
+    <imp-invoice-element class="invoiceItemContainer" inputId="right"></imp-invoice-element>
 </div>

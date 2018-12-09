@@ -5,6 +5,17 @@ import { TableInfoComponent } from "./reportGeneration/table/tableInfo.component
 import { TableInfoPipe } from "./reportGeneration/table/tableInfo.pipe";
 import { ReportTitleComponent } from "./reportGeneration/title/report-title.component";
 import { DamageCardComponent } from "./reportGeneration/damageCard/damage-card.component";
+import { InvoicePanelComponent } from "./invoiceCheck/invoicePanel/invoicePanel.component";
+import { CanvasComponent } from "./invoiceCheck/canvas.component";
 
 export const Pipes = [TableInfoPipe];
-export const Components = [InvoiceCheckComponent, ReportGenerationComponent, ClientInfoComponent, TableInfoComponent, ReportTitleComponent, DamageCardComponent];
+export const Components = [
+    InvoiceCheckComponent,
+    ReportGenerationComponent,
+    ClientInfoComponent,
+    TableInfoComponent,
+    ReportTitleComponent,
+    DamageCardComponent,
+    InvoicePanelComponent,
+    CanvasComponent
+];

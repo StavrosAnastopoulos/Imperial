@@ -5,12 +5,12 @@ import { ReportGenerationComponent } from "./reportGeneration/reportGeneration.c
 
 const mainViewRoutes: Routes = [
     {
-        path: 'invoice-check',
+        path: 'dashboard',
+        // path: 'invoice-check',
         component: InvoiceCheckComponent
     },
     {
-        path: 'dashboard',
-        // path: 'generate-report',
+        path: 'generate-report',
         component: ReportGenerationComponent
     }
   ];

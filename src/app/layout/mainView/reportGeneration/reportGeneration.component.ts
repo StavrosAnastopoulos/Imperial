@@ -1,8 +1,9 @@
 import { Component } from "@angular/core";
 import { NgxXml2jsonService } from 'ngx-xml2json';
 import { LocaleService } from "./locale.service";
-import { DomSanitizer, SafeResourceUrl } from "@angular/platform-browser";
+import { SafeResourceUrl } from "@angular/platform-browser";
 import { TableData } from './table/tableInfo.component'
+import { ImageFileService } from "../imageFiles.service";
 
 @Component({
 selector: '',
@@ -67,26 +68,22 @@ export class ReportGenerationComponent {
     tablesPerPage: TableData[];
     pages: any;
 
-    constructor(private ngxXml2jsonService: NgxXml2jsonService, private localeService: LocaleService, private sanitizer: DomSanitizer){}
+    constructor(
+        private ngxXml2jsonService: NgxXml2jsonService,
+        private localeService: LocaleService,
+        private _imageParser: ImageFileService
+    ){}
 
     print = () => window.print();
 
     addImages(event: any) {
         this.imgsSelected = false;
-        this.imgFilePaths = [];
         this.numberOfImages = 'No images chosen';
 
-        for (let i = 0; i < event.target.files.length; i++) {
-            if (!event.target.files[i].type.includes('image')) {
-                this.numberOfImages = 'Please select only images'
-                return;
-            }
+        this.imgFilePaths = this._imageParser.parseImages(event);
 
-            this.imgFilePaths.push(this.sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(event.target.files[i])));
-        }
-
-        this.numberOfImages = event.target.files.length;
-        this.imgsSelected = true;
+        this.numberOfImages = this.imgFilePaths.length.toString();
+        this.imgsSelected = this.imgFilePaths.length > 0;
     }
 
     addFile(event: any) {
@@ -127,7 +124,7 @@ export class ReportGenerationComponent {
                 this.expertInfo = this.data['TradingData']['Expert'];
                 this.ownerInfo = this.data['TradingData']['Owner'];
                 this.vehicleInfo = this.data['Vehicle'];
-        
+        console.log(this.vehicleInfo)
                 // details
                 const details = this.data['RepairCalculation']['CalcResultCommon']
                 this.materialInfo = details['MaterialPositions']['MaterialPosition'];

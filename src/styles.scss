@@ -54,3 +54,17 @@ html {
 .inputFile + label {
 	cursor: pointer;
 }
+
+.bn-pdf {
+    .bn-pdf-header {
+        background-image: none !important;
+        display: none !important;
+    }
+    .bn-pdf-body {
+        height: auto !important;
+        .bn-pdf__viewer {
+            display: none !important;
+        }
+    }
+
+}

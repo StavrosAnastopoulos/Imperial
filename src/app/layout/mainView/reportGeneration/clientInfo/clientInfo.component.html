@@ -29,16 +29,16 @@
             <mat-checkbox #chkh4 [(ngModel)]="chkh4.indeterminate"></mat-checkbox>
             Client Address
         </th>
-        <td colspan="3"><input></td>
+        <td colspan="3"><input [value]="expertInfo['Street'] + ' ' + expertInfo['StreetNumber'] + ' ' + expertInfo['StreetZipCode'] + ' ' + expertInfo['StreetCity']"></td>
     </tr>
     <tr [ngClass]="{'hide-print': chkh5.indeterminate}">
         <th>
             <mat-checkbox #chkh5 [(ngModel)]="chkh5.indeterminate"></mat-checkbox>
             Email
         </th>
-        <td><input></td>
+        <td><input [value]="expertInfo['EMail']"></td>
         <th>Telephone</th>
-        <td><input></td>
+        <td><input [value]="expertInfo['PhoneBusiness']"></td>
     </tr>
     <tr [ngClass]="{'hide-print': chkh6.indeterminate}">
         <th>
@@ -75,7 +75,7 @@
             <mat-checkbox #chkh9 [(ngModel)]="chkh9.indeterminate"></mat-checkbox>
             Name
         </th>
-        <td colspan="3"><input [value]="ownerInfo['LastName'] + ' ' + ownerInfo['FirstName']"></td>
+        <td colspan="3"><input [value]="ownerInfo['CompanyName'] || ownerInfo['LastName'] + ' ' + ownerInfo['FirstName']"></td>
     </tr>
     <tr [ngClass]="{'hide-print': chkh10.indeterminate}">
         <th>
@@ -91,7 +91,7 @@
         </th>
         <td><input [value]="ownerInfo['Email']"></td>
         <th>Telephone</th>
-        <td><input [value]="ownerInfo['PhoneMobile'] || ownerInfo['Personal']"></td>
+        <td><input [value]="ownerInfo['PhoneMobile'] || ownerInfo['PhonePersonal']"></td>
     </tr>
 </table>
 <table>
