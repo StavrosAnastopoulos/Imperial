@@ -5,7 +5,7 @@ import { DomSanitizer, SafeResourceUrl } from "@angular/platform-browser";
     providedIn: 'root'
 })
 export class ImageFileService {
-    
+
     constructor(private sanitizer: DomSanitizer) {}
 
     parseImages = (event: any): SafeResourceUrl[] => {

@@ -15,16 +15,16 @@
         ></imp-report-title>
         
         <client-info
-            [additionalInfo]="additionalInfo"
-            [ownerInfo]="ownerInfo"
-            [dealerInfo]="dealerInfo"
-            [expertInfo]="expertInfo"
-            [vehicleInfo]="vehicleInfo"
+            [additionalInfo]="data.additionalInfo"
+            [ownerInfo]="data.ownerInfo"
+            [dealerInfo]="data.dealerInfo"
+            [expertInfo]="data.expertInfo"
+            [vehicleInfo]="data.vehicleInfo"
         ></client-info>
 
         <imp-damage-card></imp-damage-card>
             
-        <div *ngFor="let page of pages">
+        <div *ngFor="let page of data.pages">
             <p style="page-break-before: always">
                 <div *ngFor="let table of page">
                         <table-info

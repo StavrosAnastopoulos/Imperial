@@ -1,11 +1,5 @@
 import { Component, Input } from "@angular/core";
-
-export interface TableData {
-    pointers: [];
-    source: [];
-    title: string;
-    price: number;
-}
+import { TableData } from "../table-split.service";
 
 @Component({
     selector: 'table-info',
