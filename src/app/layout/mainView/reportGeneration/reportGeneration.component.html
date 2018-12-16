@@ -1,10 +1,17 @@
 <div class="container">
-    <div class="tool-bar hide-print">
+    <div class="flex row tool-bar hide-print">
+        <div class ="mr-auto" [routerLink]="['/welcome']"><mat-icon>first_page</mat-icon></div>
         <input (change)="addFile($event)" type="file" class="inputFile" id="xmlFile">
-        <label for="xmlFile" [innerHtml]="'File: ' + fileName"></label>
+        <label for="xmlFile" class="flex row">
+            <mat-icon>note_add</mat-icon>
+            <div class="flex column sp-around label-info" [innerHtml]="fileName"></div>
+        </label>
         <input (change)="addImages($event)" type="file" multiple="multiple" class="inputFile" id="imgs">
-        <label for="imgs" [innerHtml]="'Images: ' + numberOfImages"></label>
-        <div class ="print-button" (click)="print()">Print</div>
+        <label for="imgs" class="flex row">
+            <mat-icon>add_photo_alternate</mat-icon>
+            <div class="flex column sp-around label-info" [innerHtml]="numberOfImages"></div>
+        </label>
+        <div class ="mr-auto" (click)="print()"><mat-icon>print</mat-icon></div>
     </div>
     <div *ngIf="dataProcessed">
         
@@ -36,7 +43,7 @@
     </div>
     <div *ngIf="imgsSelected" >
         <p style="page-break-before: always"></p>
-        <div class="img-container">
+        <div class="flex row-wrap sp-between">
             <div *ngFor="let image of imgFilePaths" class="img-item">
                 <p style="page-break-before: auto; display:none;"></p>
                 <img [attr.src]="image" [alt]="image" width="300">

@@ -1,4 +1,11 @@
-<div class="invoiceContainer">
-    <imp-invoice-element class="invoiceItemContainer" inputId="left"></imp-invoice-element>
-    <imp-invoice-element class="invoiceItemContainer" inputId="right"></imp-invoice-element>
+<div class="container">
+    <div class="flex row tool-bar hide-print">
+        <div class ="mr-auto" [routerLink]="['/welcome']"><mat-icon>first_page</mat-icon></div>
+        <div class ="mr-auto" (click)="print()"><mat-icon>print</mat-icon></div>
+    </div>
+
+    <div class="flex row sp-between invoiceContainer">
+        <imp-invoice-element class="invoiceItemContainer" inputId="left"></imp-invoice-element>
+        <imp-invoice-element class="invoiceItemContainer" inputId="right"></imp-invoice-element>
+    </div>
 </div>

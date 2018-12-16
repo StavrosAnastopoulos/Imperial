@@ -1,6 +1,6 @@
 <input (change)="addFile($event)" type="file" class="inputFile" [id]="inputId" multiple="multiple">
     <label [for]="inputId" [innerHtml]="'Choose Invoice'"></label>
-    <div #container class="invoiceItem">
+    <div #container class="flex column invoiceItem">
         <imp-canvas *ngIf="dimensionsRead" [canvasWidth]="width" [canvasHeight]="height"></imp-canvas>
         <bn-ng-pdf-viewer *ngIf="pdfFile" [showAll]="true" [PDF]="pdfFile" (PDFRender)="PDFNotifier($event)"></bn-ng-pdf-viewer>
         <div *ngIf="imgsPaths.length > 0">

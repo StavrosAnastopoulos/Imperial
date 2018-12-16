@@ -7,4 +7,6 @@ styleUrls: ['invoiceCheck.component.scss']
 })
 export class InvoiceCheckComponent {
   constructor() {}
+  
+  print = () => window.print();
 }

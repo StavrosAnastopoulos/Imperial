@@ -6,14 +6,8 @@
         position: absolute;
     }
     .damage-card {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
         height: 100%;
         .damage-indicator-row {
-            display: flex;
-            flex-flow: row nowrap;
-            justify-content: space-between;
             mat-checkbox {
                 margin: 10px;
             }

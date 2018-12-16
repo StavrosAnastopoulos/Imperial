@@ -7,9 +7,9 @@ import { LanguagePack, LanguagePacks } from "./locales";
 export class LocaleService {
 
     headers: LanguagePack;
-    private locale: string = 'en';
-    private currency: string = 'en';
-    
+    private locale = 'en';
+    private currency = 'EUR';
+
     constructor() {
     }
 
@@ -18,9 +18,12 @@ export class LocaleService {
         this.headers = LanguagePacks[this.locale];
     }
     public setCurrency = (s: string) => this.currency = s;
+    public getCurrecy = () => this.currency;
 
     public getHeader = (s: string) => {
-        if(!this.headers) this.headers = LanguagePacks[this.locale];
+        if (!this.headers) {
+            this.headers = LanguagePacks[this.locale];
+        }
         return this.headers[s];
     }
 

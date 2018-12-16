@@ -96,6 +96,7 @@ export class ImperialDataProcessingService {
 
          // client info page
          this.localeService.setLocal(data['Language']);
+         this.localeService.setCurrency(data['Currency']);
          dealerInfo = data['TradingData']['Dealership'];
          expertInfo = data['TradingData']['Expert'];
          ownerInfo = data['TradingData']['Owner'];

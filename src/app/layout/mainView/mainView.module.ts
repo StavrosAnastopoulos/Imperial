@@ -7,10 +7,11 @@ import { MainViewRoutingModule } from "./mainView-router.module";
 import {MatTableModule} from '@angular/material/table';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { BnNgPdfViewerModule } from 'bn-ng-pdf-viewer';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
     imports: [CommonModule, RouterModule, FormsModule, MainViewRoutingModule, 
-        MatTableModule, MatCheckboxModule, BnNgPdfViewerModule],
+        MatTableModule, MatCheckboxModule, BnNgPdfViewerModule, MatIconModule],
     declarations: [View.Components, View.Pipes],
     exports: [View.Components, View.Pipes]
 })

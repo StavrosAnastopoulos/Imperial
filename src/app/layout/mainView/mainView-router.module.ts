@@ -2,6 +2,7 @@ import { InvoiceCheckComponent } from "./invoiceCheck/invoiceCheck.component";
 import { Routes, RouterModule } from "@angular/router";
 import { NgModule } from "@angular/core";
 import { ReportGenerationComponent } from "./reportGeneration/reportGeneration.component";
+import { WelcomComponent } from "./welcomeScreen/welcomeScreen.component";
 
 const mainViewRoutes: Routes = [
     {
@@ -9,14 +10,17 @@ const mainViewRoutes: Routes = [
         component: InvoiceCheckComponent
     },
     {
-        path: 'dashboard',
-        // path: 'generate-report',
+        path: 'generate-report',
         component: ReportGenerationComponent
+    },
+    {
+        path: 'welcome',
+        component: WelcomComponent
     }
-  ];
-  
-  @NgModule({
+];
+
+@NgModule({
     imports: [RouterModule.forChild(mainViewRoutes)],
     exports: [RouterModule]
-  })
-  export class MainViewRoutingModule { }
+})
+export class MainViewRoutingModule { }

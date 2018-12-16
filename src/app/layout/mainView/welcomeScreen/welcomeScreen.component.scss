@@ -1,0 +1,27 @@
+.background {
+    height: 100%;
+    background-image: radial-gradient(circle, white 70%, rgba(110, 26, 23, 0.5));
+    height: -webkit-fill-available;
+}
+.container {
+    color: rgb(110, 26, 23);
+    .header {
+        font-size: -webkit-xxx-large;
+        margin: 0 auto;
+    }
+    .nav-buttons {
+        margin: 0 auto;
+        .item-link {
+            cursor: pointer;
+            padding: 40px;
+            margin: 20px;
+            font-size: 26px;
+            width: min-content;
+            border-radius: 3px;
+            border: 1px solid rgba(110, 26, 23, 0.2);
+            -webkit-box-shadow: -22px 30px 22px -12px rgba(110, 26, 23, 0.75);
+            -moz-box-shadow: -22px 30px 22px -12px rgba(110, 26, 23, 0.75);
+            box-shadow: -22px 30px 22px -12px rgba(110, 26, 23, 0.75);
+        }
+    }
+}
