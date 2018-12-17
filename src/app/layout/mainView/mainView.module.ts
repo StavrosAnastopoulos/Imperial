@@ -7,11 +7,11 @@ import { MainViewRoutingModule } from "./mainView-router.module";
 import {MatTableModule} from '@angular/material/table';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { BnNgPdfViewerModule } from 'bn-ng-pdf-viewer';
-import {MatIconModule} from '@angular/material/icon';
+import { ColorPickerModule } from "./invoiceCheck/color-picker/color-picker.module";
 
 @NgModule({
     imports: [CommonModule, RouterModule, FormsModule, MainViewRoutingModule, 
-        MatTableModule, MatCheckboxModule, BnNgPdfViewerModule, MatIconModule],
+        MatTableModule, MatCheckboxModule, BnNgPdfViewerModule, ColorPickerModule],
     declarations: [View.Components, View.Pipes],
     exports: [View.Components, View.Pipes]
 })

@@ -1,7 +1,14 @@
 <div class="container">
     <div class="flex row tool-bar hide-print">
-        <div class ="mr-auto" [routerLink]="['/welcome']"><mat-icon>first_page</mat-icon></div>
-        <div class ="mr-auto" (click)="print()"><mat-icon>print</mat-icon></div>
+        <div class="mr-auto" [routerLink]="['/welcome']"><mat-icon>first_page</mat-icon></div>
+        <div><mat-icon>gesture</mat-icon></div>
+        <div><mat-icon>crop_free</mat-icon></div>
+        <div><mat-icon 
+            [style.color]="color"
+            [cpPosition]="'bottom'"
+            [cpPositionOffset]="'-500px'"
+            [(colorPicker)]="color">palette</mat-icon></div>
+        <div class="mr-auto" (click)="print()"><mat-icon>print</mat-icon></div>
     </div>
 
     <div class="flex row sp-between invoiceContainer">

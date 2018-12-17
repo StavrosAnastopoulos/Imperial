@@ -4,11 +4,11 @@ import { LocaleService } from "./locale.service";
 
 const trimNameSpace = (temp: any): any => {
     Object.keys(temp).forEach(key => {
-        if(key == '#text') {
+        if (key == '#text') {
             delete temp['#text'];
         } else {
-            if(typeof(temp[key]) == 'object') {
-                temp[key] = trimNameSpace(temp[key])
+            if (typeof(temp[key]) == 'object') {
+                temp[key] = trimNameSpace(temp[key]);
             }
             if (key.includes(':')) {
                 temp[key.split(':')[1]] = temp[key];
@@ -17,7 +17,7 @@ const trimNameSpace = (temp: any): any => {
         }
     });
     return temp;
-}
+};
 
 const labourReplacement = {
     'CAR BODY': 'BodyWork | header',
@@ -110,7 +110,7 @@ export class ImperialDataProcessingService {
          this._tableService.switchPage();
 
          // details
-         const details = data['RepairCalculation']['CalcResultCommon']
+         const details = data['RepairCalculation']['CalcResultCommon'];
          materialInfo = details['MaterialPositions']['MaterialPosition'];
          if (!materialInfo.length) {
              materialInfo = [materialInfo];
@@ -158,9 +158,9 @@ export class ImperialDataProcessingService {
          delete summary['LabourCosts']['TotalSum'];
          Object.keys(summary['LabourCosts']).forEach(key => labourSum.push(summary['LabourCosts'][key]));
          labourSum.forEach(element => {
-             element['Description'] = labourReplacement[element['Type']]
-             element['Duration'] = element['Units']
-             element['ValueTotalCorrected'] = element['Price']
+             element['Description'] = labourReplacement[element['Type']];
+             element['Duration'] = element['Units'];
+             element['ValueTotalCorrected'] = element['Price'];
          });
 
          summary['LacquerCosts']['Wage']['Description'] = 'Wage | header';
@@ -170,8 +170,8 @@ export class ImperialDataProcessingService {
             .forEach(item => item['Description'] = item['Name']);
          lacquerSum.push(...summary['LacquerCosts']['Material']['MaterialGroups']['LacquerMaterialGroupSummary']);
          lacquerSum.forEach(element => {
-             element['Duration'] = element['Units']
-             element['ValueTotalCorrected'] = element['Price']
+             element['Duration'] = element['Units'];
+             element['ValueTotalCorrected'] = element['Price'];
          });
 
          lacquerSumTotal = summary['LacquerCosts']['TotalSum'];
