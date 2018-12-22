@@ -1,13 +1,14 @@
 <div class="container">
     <div class="flex row tool-bar hide-print">
         <div class="mr-auto" [routerLink]="['/welcome']"><mat-icon>first_page</mat-icon></div>
-        <div><mat-icon>gesture</mat-icon></div>
-        <div><mat-icon>crop_free</mat-icon></div>
+        <div (click)="_service.activeEditMode=1"><mat-icon [style.color]="_service.activeEditMode == 1 ? '#2f84ec' : '#000'">gesture</mat-icon></div>
+        <div (click)="_service.activeEditMode=2"><mat-icon [style.color]="_service.activeEditMode == 2 ? '#2f84ec' : '#000'">crop_free</mat-icon></div>
         <div><mat-icon 
-            [style.color]="color"
+            [style.color]="_service.activeColor"
             [cpPosition]="'bottom'"
             [cpPositionOffset]="'-500px'"
-            [(colorPicker)]="color">palette</mat-icon></div>
+            [(colorPicker)]="_service.activeColor"
+            (colorPickerChange)="_service.notifyColorChange($event)">palette</mat-icon></div>
         <div class="mr-auto" (click)="print()"><mat-icon>print</mat-icon></div>
     </div>
 

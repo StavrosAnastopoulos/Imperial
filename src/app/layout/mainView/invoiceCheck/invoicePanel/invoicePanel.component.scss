@@ -4,4 +4,12 @@
     .img-item {
         margin: 10px;
     }
+    .overlay-container {
+        position: relative;
+    }
+    .overlay-container > * {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 }

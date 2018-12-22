@@ -1,12 +1,15 @@
 <input (change)="addFile($event)" type="file" class="inputFile" [id]="inputId" multiple="multiple">
     <label [for]="inputId" [innerHtml]="'Choose Invoice'"></label>
     <div #container class="flex column invoiceItem">
-        <imp-canvas *ngIf="dimensionsRead" [canvasWidth]="width" [canvasHeight]="height"></imp-canvas>
-        <bn-ng-pdf-viewer *ngIf="pdfFile" [showAll]="true" [PDF]="pdfFile" (PDFRender)="PDFNotifier($event)"></bn-ng-pdf-viewer>
+        <div class="overlay-container">
+            <imp-canvas *ngIf="dimensionsRead" [canvasWidth]="width" [canvasHeight]="height"></imp-canvas>
+            <bn-ng-pdf-viewer *ngIf="pdfFile" [showAll]="true" [PDF]="pdfFile" (PDFRender)="PDFNotifier($event)"></bn-ng-pdf-viewer>        
+        </div>
         <div *ngIf="imgsPaths.length > 0">
-            <div *ngFor="let image of imgsPaths" class="img-item">
+            <div *ngFor="let image of imgsPaths" class="img-item overlay-container">
                 <p style="page-break-before: auto; display:none;"></p>
-                <img [attr.src]="image" [alt]="image" width="600">
+                <img [attr.src]="image" [alt]="image" width="600" heigh="800">
+                <imp-canvas [canvasWidth]="600" [canvasHeight]="800"></imp-canvas>
             </div>
         </div>
     </div>
