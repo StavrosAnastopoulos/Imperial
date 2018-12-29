@@ -1,0 +1,8 @@
+textarea {
+    width: 98%;
+    border: none;
+    resize: none;
+    &:focus,&:active{
+        outline: none;
+    } 
+}

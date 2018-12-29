@@ -1,6 +1,7 @@
 <div class="container">
     <div class="flex row tool-bar hide-print">
         <div class="mr-auto" [routerLink]="['/welcome']"><mat-icon>first_page</mat-icon></div>
+        <div class="" (click)="openComments()"><mat-icon>chat</mat-icon></div>
         <div (click)="_drawService.notifyEditModeChanged(1)"><mat-icon [style.color]="_drawService.activeEditMode == 1 ? '#2f84ec' : '#000'">gesture</mat-icon></div>
         <div (click)="_drawService.notifyEditModeChanged(2)"><mat-icon [style.color]="_drawService.activeEditMode == 2 ? '#2f84ec' : '#000'">crop_free</mat-icon></div>
         <div><mat-icon 
@@ -12,7 +13,7 @@
         <div class="mr-auto" (click)="print()"><mat-icon>print</mat-icon></div>
     </div>
     <div>
-
+        <imp-text-area class="commentSection" [value]="_service.commentSection"></imp-text-area>
     </div>
     <div class="flex row sp-between invoiceContainer">
         <imp-invoice-element class="invoiceItemContainer" inputId="left"></imp-invoice-element>

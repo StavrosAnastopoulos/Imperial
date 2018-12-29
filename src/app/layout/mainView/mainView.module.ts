@@ -6,7 +6,8 @@ import * as View from './index';
 
 @NgModule({
     imports: [RouterModule, MainViewRoutingModule, SharedModule],
-    declarations: [View.Components],
-    exports: [View.Components]
+    declarations: [View.Components, View.EntryComponents],
+    exports: [View.Components],
+    entryComponents: [View.EntryComponents]
 })
 export class MainViewModule {}

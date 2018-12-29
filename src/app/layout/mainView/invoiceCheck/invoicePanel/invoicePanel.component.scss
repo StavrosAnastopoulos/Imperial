@@ -1,6 +1,7 @@
 .invoiceItem {
+    height: -webkit-fill-available;
     .img-item {
-        height: 1010px;
+        min-height: 1010px;
     }
     .overlay-container {
         position: relative;
@@ -9,5 +10,15 @@
         position: absolute;
         top: 0;
         left: 0;
+    }
+}
+
+@media print {
+    .invoiceItem {
+        min-height: fit-content;
+        .img-item {
+            margin-top: 20px;
+            margin-bottom: 60px;
+        }
     }
 }

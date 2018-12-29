@@ -6,6 +6,13 @@
     .overlayCanvas {
         position: absolute;
         left: 0;
-        z-index: 1900;
+        z-index: 90;
+    }
+}
+
+@media print {
+    .canvas-container {
+        padding-top: 20px;
+        padding-bottom: 60px;
     }
 }

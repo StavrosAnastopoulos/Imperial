@@ -1,12 +1,12 @@
 <div>
-    <input (change)="addFile($event)" type="file" class="inputFile" [id]="inputId" multiple="multiple">
-        <label [for]="inputId" class="hide-print flex row">
-            <mat-icon>note_add</mat-icon>
-            <div class="flex column sp-around label-info" [innerHtml]="fileName"></div>
-        </label>
+    <input [id]="inputId" (change)="addFile($event)" type="file" class="inputFile" multiple="multiple" accept="image/png, image/jpeg, .pdf">
+    <label [for]="inputId" class="hide-print flex row">
+        <mat-icon>note_add</mat-icon>
+        <div class="flex column sp-around label-info" [innerHtml]="fileName"></div>
+    </label>
     <imp-pdf-viewer *ngIf="pdfFile" [PDF]="pdfFile"></imp-pdf-viewer>        
     <div *ngIf="imgsPaths.length > 0" class="flex column invoiceItem">
-        <div *ngFor="let image of imgsPaths" class="img-item img-print overlay-container">
+        <div *ngFor="let image of imgsPaths" class="img-item overlay-container">
             <img [attr.src]="image" [alt]="image" width="714" heigh="1010">
             <imp-draw-canvas [canvasWidth]="714" [canvasHeight]="1010"></imp-draw-canvas>
         </div>

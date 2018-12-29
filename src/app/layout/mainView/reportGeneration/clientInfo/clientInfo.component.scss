@@ -30,12 +30,8 @@ table {
             }
         }
         textarea {
-            width: 98%;
-            border: none;
-            resize: none;
             &:focus,&:active{
                 background-color: rgba(110, 26, 23, 0.2);
-                outline: none;
             } 
         }
     }

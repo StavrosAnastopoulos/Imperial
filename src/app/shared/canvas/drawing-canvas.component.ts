@@ -15,7 +15,7 @@ interface Rectangle {
 @Component({
     selector: 'imp-draw-canvas',
     template: `<canvas #canvas class="overlayCanvas"></canvas>`,
-    styles: ['.overlayCanvas { position: absolute; z-index: 2000; }']
+    styles: ['.overlayCanvas { position: absolute; z-index: 100; }']
 })
 export class DrawingCanvasComponent implements AfterViewInit, OnDestroy {
     @ViewChild('canvas') public canvas: ElementRef;

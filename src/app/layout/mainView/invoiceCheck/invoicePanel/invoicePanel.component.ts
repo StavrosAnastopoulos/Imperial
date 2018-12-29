@@ -22,19 +22,20 @@ export class InvoicePanelComponent {
   constructor(private _imageParser: ImageFileService) {}
 
   addFile(event: any) {
-    this.imgsPaths = this._imageParser.parseImages(event)
-    if (!(this.imgsPaths.length > 0)){
-      if (typeof (FileReader) !== 'undefined') {
-        const reader: FileReader = new FileReader();
-        this.fileName = event.target.files[0].name;
-        reader.onload = (e: any) => {
-          this.pdfFile = e.target.result;
-        };
-
-        reader.readAsArrayBuffer(event.target.files[0]);
+    if (event.target.files.length > 0) {
+      this.imgsPaths = this._imageParser.parseImages(event)
+      if (!(this.imgsPaths.length > 0)){
+        if (typeof (FileReader) !== 'undefined') {
+          const reader: FileReader = new FileReader();
+          this.fileName = event.target.files[0].name;
+          reader.onload = (e: any) => {
+            this.pdfFile = e.target.result;
+          };
+          reader.readAsArrayBuffer(event.target.files[0]);
+        }
+      } else {
+        this.fileName = `${this.imgsPaths.length.toString()} images`;
       }
-    } else {
-      this.fileName = `${this.imgsPaths.length.toString()} images`;
     }
   }
 }

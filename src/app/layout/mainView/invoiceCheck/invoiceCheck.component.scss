@@ -6,9 +6,12 @@
     padding-top: 50px;
     .invoiceItemContainer {
         width: 49%;
-        height: -webkit-fill-available;
         overflow: auto;
     }
+}
+
+.commentSection {
+    display: none;
 }
 
 @media print {
@@ -17,10 +20,15 @@
         padding-top: 0;
         .invoiceItemContainer {
             width: 100%;
-            height: auto;
+            min-height: fit-content;
             padding-bottom: 10px;
             page-break-after: always;
             overflow: visible;
         }
+    }
+
+    .commentSection {
+        display: block;
+        page-break-after: always;
     }
 }

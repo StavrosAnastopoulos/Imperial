@@ -10,7 +10,8 @@ PDFJS.workerSrc = require('pdfjs-dist/build/pdf.worker');
 
 @Component({
   selector: 'imp-pdf-viewer',
-  templateUrl: 'pdf-viewer.component.html'
+  templateUrl: 'pdf-viewer.component.html',
+  styleUrls: ['pdf-viewer.component.scss']
 })
 export class PdfViewerComponent {
   private _PDF: string;

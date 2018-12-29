@@ -5,6 +5,7 @@ import { ReportTitleComponent } from './reportGeneration/title/report-title.comp
 import { DamageCardComponent } from './reportGeneration/damageCard/damage-card.component';
 import { InvoicePanelComponent } from './invoiceCheck/invoicePanel/invoicePanel.component';
 import { WelcomComponent } from './welcomeScreen/welcomeScreen.component';
+import { BottomSheetComponent } from './invoiceCheck/bottom-sheet/bottom-sheet.component';
 
 export const Components = [
     InvoiceCheckComponent,
@@ -15,3 +16,7 @@ export const Components = [
     InvoicePanelComponent,
     WelcomComponent,
 ];
+
+export const EntryComponents = [
+    BottomSheetComponent
+]

@@ -1,12 +1,12 @@
 <div class="container">
     <div class="flex row tool-bar hide-print">
         <div class ="mr-auto" [routerLink]="['/welcome']"><mat-icon>first_page</mat-icon></div>
-        <input (change)="addFile($event)" type="file" class="inputFile" id="xmlFile">
+        <input (change)="addFile($event)" type="file" class="inputFile" id="xmlFile" accept=".xml">
         <label for="xmlFile" class="flex row">
             <mat-icon>note_add</mat-icon>
             <div class="flex column sp-around label-info" [innerHtml]="fileName"></div>
         </label>
-        <input (change)="addImages($event)" type="file" multiple="multiple" class="inputFile" id="imgs">
+        <input (change)="addImages($event)" type="file" multiple="multiple" class="inputFile" id="imgs"  accept="image/png, image/jpeg">
         <label for="imgs" class="flex row">
             <mat-icon>add_photo_alternate</mat-icon>
             <div class="flex column sp-around label-info" [innerHtml]="numberOfImages"></div>

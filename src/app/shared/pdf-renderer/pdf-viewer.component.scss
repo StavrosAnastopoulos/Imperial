@@ -1,0 +1,6 @@
+.pdf-container {
+    height: -webkit-fill-available;
+    @media print {
+        min-height: fit-content;
+    }
+}
