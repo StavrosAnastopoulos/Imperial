@@ -1,8 +1,8 @@
-import { InvoiceCheckComponent } from "./invoiceCheck/invoiceCheck.component";
-import { Routes, RouterModule } from "@angular/router";
-import { NgModule } from "@angular/core";
-import { ReportGenerationComponent } from "./reportGeneration/reportGeneration.component";
-import { WelcomComponent } from "./welcomeScreen/welcomeScreen.component";
+import { InvoiceCheckComponent } from './invoiceCheck/invoiceCheck.component';
+import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { ReportGenerationComponent } from './reportGeneration/reportGeneration.component';
+import { WelcomComponent } from './welcomeScreen/welcomeScreen.component';
 
 const mainViewRoutes: Routes = [
     {

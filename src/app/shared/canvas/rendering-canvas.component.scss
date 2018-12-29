@@ -1,0 +1,11 @@
+.canvas-container {
+    position: relative;
+    // hardcoded size
+    width: 714px;
+    height: 1010px;
+    .overlayCanvas {
+        position: absolute;
+        left: 0;
+        z-index: 1900;
+    }
+}

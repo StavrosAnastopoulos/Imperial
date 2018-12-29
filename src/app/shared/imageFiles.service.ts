@@ -1,5 +1,5 @@
-import { Injectable } from "@angular/core";
-import { DomSanitizer, SafeResourceUrl } from "@angular/platform-browser";
+import { Injectable } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Injectable({
     providedIn: 'root'

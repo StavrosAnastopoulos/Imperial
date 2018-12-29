@@ -1,8 +1,8 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 import { NgxXml2jsonService } from 'ngx-xml2json';
-import { SafeResourceUrl } from "@angular/platform-browser";
-import { ImageFileService } from "../imageFiles.service";
-import { ImperialDataProcessingService } from "./imperial-data-processing.service";
+import { SafeResourceUrl } from '@angular/platform-browser';
+import { ImperialDataProcessingService } from './imperial-data-processing.service';
+import { ImageFileService } from 'src/app/shared/imageFiles.service';
 
 @Component({
     templateUrl: 'reportGeneration.component.html',

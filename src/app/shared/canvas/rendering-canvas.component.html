@@ -1,0 +1,8 @@
+<div class="canvas-container img-print">
+    <canvas #canvas class="overlayCanvas"></canvas>
+    <imp-draw-canvas 
+        *ngIf="canvasEl"
+        [canvasWidth]="canvasEl.width"
+        [canvasHeight]="canvasEl.height"
+    ></imp-draw-canvas>
+</div>

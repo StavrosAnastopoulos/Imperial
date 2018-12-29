@@ -1,5 +1,5 @@
-import { Component, Input, ElementRef, ViewChild } from "@angular/core";
-import { ImageFileService } from "../../imageFiles.service";
+import { Component, Input } from '@angular/core';
+import { ImageFileService } from 'src/app/shared/imageFiles.service';
 
 @Component({
     selector: 'imp-invoice-element',
@@ -13,35 +13,28 @@ export class InvoicePanelComponent {
   pdfFile: any;
   imgsPaths: any[] = [];
 
-  @ViewChild('container')
-  containerEl: ElementRef;
-  
   width: number;
   height: number;
   dimensionsRead = false;
-  
-  constructor(private _imageParser: ImageFileService) {}
 
-  PDFNotifier(event: any) {
-    if (event == 'FINISHED') {
-      this.width = this.containerEl.nativeElement.scrollWidth;
-      this.height = this.containerEl.nativeElement.scrollHeight;
-      this.dimensionsRead = true;
-    }
-  }
+  fileName = 'Choose Invoice';
+
+  constructor(private _imageParser: ImageFileService) {}
 
   addFile(event: any) {
     this.imgsPaths = this._imageParser.parseImages(event)
     if (!(this.imgsPaths.length > 0)){
       if (typeof (FileReader) !== 'undefined') {
-        let reader: FileReader = new FileReader();
-       
+        const reader: FileReader = new FileReader();
+        this.fileName = event.target.files[0].name;
         reader.onload = (e: any) => {
           this.pdfFile = e.target.result;
         };
-        
+
         reader.readAsArrayBuffer(event.target.files[0]);
       }
+    } else {
+      this.fileName = `${this.imgsPaths.length.toString()} images`;
     }
   }
 }

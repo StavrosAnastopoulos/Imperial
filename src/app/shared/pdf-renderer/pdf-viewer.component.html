@@ -1,0 +1,3 @@
+<div *ngIf="_isValid && pages" class="flex column">
+  <imp-render-canvas *ngFor="let page of pages" [page]="page"></imp-render-canvas>  
+</div>

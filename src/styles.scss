@@ -28,6 +28,10 @@
     header, footer, .hide-print{
         display: none !important;
     }
+
+    .img-print {
+        margin-bottom: 80px;
+    }
 }
 
 html {
@@ -57,19 +61,6 @@ body {
 }
 .inputFile + label {
 	cursor: pointer;
-}
-
-.bn-pdf {
-    .bn-pdf-header {
-        background-image: none !important;
-        display: none !important;
-    }
-    .bn-pdf-body {
-        height: auto !important;
-        .bn-pdf__viewer {
-            display: none !important;
-        }
-    }
 }
 .container {
     padding: 20px 20px;

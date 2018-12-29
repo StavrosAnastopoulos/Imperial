@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
-import { TableSplitService, TableData } from "./table-split.service";
-import { LocaleService } from "./locale.service";
+import { Injectable } from '@angular/core';
+import { LocaleService } from 'src/app/shared/locale.service';
+import { TableSplitService, TableData } from 'src/app/shared/table/table-split.service';
 
 const trimNameSpace = (temp: any): any => {
     Object.keys(temp).forEach(key => {

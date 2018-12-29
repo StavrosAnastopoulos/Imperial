@@ -22,7 +22,6 @@
     "@angular/platform-browser": "^7.0.4",
     "@angular/platform-browser-dynamic": "^7.0.4",
     "@angular/router": "^7.0.4",
-    "bn-ng-pdf-viewer": "^1.2.0",
     "core-js": "^2.6.0",
     "hammerjs": "^2.0.8",
     "ngx-xml2json": "^1.0.2",

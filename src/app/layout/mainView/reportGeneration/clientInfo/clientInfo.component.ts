@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild, ElementRef } from "@angular/core";
+import { Component, Input, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
     selector: 'client-info',
@@ -26,9 +26,9 @@ export class ClientInfoComponent {
     }
 
     public textAreaAdjust(id: number) {
-        const textArea = document.getElementById("textarea"+id);
-        textArea.style.height = "1px";
-        textArea.style.height = (textArea.scrollHeight)+"px";
+        const textArea = document.getElementById('textarea'+id);
+        textArea.style.height = '1px';
+        textArea.style.height = (textArea.scrollHeight)+'px';
     }
 
 }
