@@ -55,6 +55,14 @@ export class ImperialDataProcessingService {
         const materialHeader = 'SpareParts';
         const materialPointers = ['PartNumber', 'Description', 'ValuePerUnit', 'Amount', 'ValueTotalCorrected'];
 
+        let additionalCostsInfo: any = {};
+        const additionalCostsHeader = 'AdditionalCosts';
+        const additionalCostsPointers = ['Description', 'ValueTotalCorrected'];
+
+        let discountInfo: any = {};
+        const discountHeader = 'Discount';
+        const discountPointers = ['Description', 'BaseValue', 'CorrectionPercentage', 'ValueTotalCorrected'];
+
         let labourInfo: any = {};
         const labourHeader = 'Labour';
         const labourPointers = ['LabourPosId', 'Description', 'WageLevel', 'Duration', 'ValueTotalCorrected'];
@@ -94,58 +102,104 @@ export class ImperialDataProcessingService {
             data = trimNameSpace(data['ns2:Dossiers']['ns2:Dossier']);
         }
 
-         // client info page
-         this.localeService.setLocal(data['Language']);
-         this.localeService.setCurrency(data['Currency']);
-         dealerInfo = data['TradingData']['Dealership'];
-         expertInfo = data['TradingData']['Expert'];
-         ownerInfo = data['TradingData']['Owner'];
-         vehicleInfo = data['Vehicle'];
-         serierEq = (vehicleInfo['Equipment']['SeriesEquipment'] || {})['EquipmentPosition'] || [];
-         specialEq = (vehicleInfo['Equipment']['SpecialEquipment'] || {})['EquipmentPosition'] || [];
+        // client info page
+        this.localeService.setLocal(data['Language'] || 'en');
+        this.localeService.setCurrency(data['Currency'] || 'EUR');
+        dealerInfo = (data['TradingData'] || {})['Dealership'] || {};
+        expertInfo = (data['TradingData'] || {})['Expert'] || {};
+        ownerInfo = (data['TradingData'] || {})['Owner'] || {};
+        vehicleInfo = data['Vehicle'] || {};
+        serierEq = ((vehicleInfo['Equipment'] || {})['SeriesEquipment'] || {})['EquipmentPosition'] || [];
+        specialEq = ((vehicleInfo['Equipment'] || {})['SpecialEquipment'] || {})['EquipmentPosition'] || [];
+        vehicleInfo['Color'] = (vehicleInfo['Equipment'] || {})['Color']
         delete vehicleInfo['Equipment'];
 
-         this._tableService.addTable(<TableData>{source: serierEq, pointers: equipmentPointer, title: serierEqHeader});
-         this._tableService.addTable(<TableData>{source: specialEq, pointers: equipmentPointer, title: specialEqHeader});
-         this._tableService.switchPage();
+        if (serierEq.length > 0) {
+            this._tableService.addTable(<TableData>{source: serierEq, pointers: equipmentPointer, title: serierEqHeader});
+        }
+        if (specialEq.length > 0) {
+            this._tableService.addTable(<TableData>{source: specialEq, pointers: equipmentPointer, title: specialEqHeader});
+        }
+        this._tableService.switchPage();
 
+        const repaireWages = (data['RepairCalculation'] || {})['RepairWages'];
          // details
-         const details = data['RepairCalculation']['CalcResultCommon'];
-         materialInfo = details['MaterialPositions']['MaterialPosition'];
-         if (!materialInfo.length) {
-             materialInfo = [materialInfo];
-        }
+         const details = (data['RepairCalculation'] || {})['CalcResultCommon'] || null;
+         if (details) {
+            materialInfo = (details['MaterialPositions'] || {})['MaterialPosition'];
+            if (materialInfo) {
+                if (!materialInfo.length) {
+                    materialInfo = [materialInfo];
+                }
+                this._tableService.addTable(<TableData>{
+                    source: materialInfo,
+                    pointers: materialPointers,
+                    title: materialHeader
+                });
+            }
 
-        labourInfo = details['LabourPositions']['LabourPosition'];
-        if (!labourInfo.length) {
-            labourInfo = [labourInfo];
-        }
+            additionalCostsInfo = (details['AdditionalCostsPositions'] || {})['AdditionalCostsPosition'];
+            if (additionalCostsInfo) {
+                if (!additionalCostsInfo.length) {
+                    additionalCostsInfo = [additionalCostsInfo];
+                }
+                additionalCostsInfo.forEach((item: any) => {
+                    if (!item['ValueTotalCorrected']) {
+                        item['ValueTotalCorrected'] = item['ValueTotal'];
+                    }
+                });
+                this._tableService.addTable(<TableData>{
+                    source: additionalCostsInfo,
+                    pointers: additionalCostsPointers,
+                    title: additionalCostsHeader
+                });
+            }
 
-         lacquerInfo = details['LacquerPositions']['LacquerPosition'];
-         if (!lacquerInfo.length) {
-             lacquerInfo = [lacquerInfo];
-        }
-         lacquerInfo.forEach(item => {
-             item['WagePrice'] = 30 * item['Duration'];
-             item['WageLevel'] = item['LabourPosId'];
-         });
+            labourInfo = (details['LabourPositions'] || {})['LabourPosition'];
+            if (labourInfo) {
+                if (!labourInfo.length) {
+                    labourInfo = [labourInfo];
+                 }
+                 this._tableService.addTable(<TableData>{
+                    source: labourInfo,
+                    pointers: labourPointers,
+                    title: labourHeader
+                });
+            }
 
-        this._tableService.addTable(<TableData>{
-             source: materialInfo,
-             pointers: materialPointers,
-             title: materialHeader
-        });
-        this._tableService.addTable(<TableData>{
-             source: labourInfo,
-             pointers: labourPointers,
-             title: labourHeader
-        });
-        this._tableService.addTable(<TableData>{
-             source: lacquerInfo,
-             pointers: lacquerPointers,
-             title: lacquerHeader
-        });
-         this._tableService.switchPage();
+            lacquerInfo = (details['LacquerPositions'] || {})['LacquerPosition'];
+            if (lacquerInfo) {
+                if (!lacquerInfo.length) {
+                    lacquerInfo = [lacquerInfo];
+                }
+                lacquerInfo.forEach((item: any) => {
+                    item['WagePrice'] = (repaireWages['Lacquer'] || 30) * item['Duration'];
+                    item['WageLevel'] = item['LabourPosId'];
+                });
+                this._tableService.addTable(<TableData>{
+                    source: lacquerInfo,
+                    pointers: lacquerPointers,
+                    title: lacquerHeader
+                });
+            }
+
+            discountInfo = (details['DiscountPositions'] || {})['DiscountPosition'];
+            if (discountInfo) {
+                if (!discountInfo.length) {
+                    discountInfo = [discountInfo];
+                }
+                discountInfo.forEach((item: any) => {
+                    item['ValueTotalCorrected'] = item['CorrectionValue'];
+                });
+                this._tableService.addTable(<TableData>{
+                    source: discountInfo,
+                    pointers: discountPointers,
+                    title: discountHeader
+                });
+            }
+
+            this._tableService.switchPage();
+         }
 
          // summary
          const summary = data['RepairCalculation']['CalculationSummary'];
@@ -157,7 +211,7 @@ export class ImperialDataProcessingService {
          labourSumTotal = summary['LabourCosts']['TotalSum'];
          delete summary['LabourCosts']['TotalSum'];
          Object.keys(summary['LabourCosts']).forEach(key => labourSum.push(summary['LabourCosts'][key]));
-         labourSum.forEach(element => {
+         labourSum.forEach((element: any) => {
              element['Description'] = labourReplacement[element['Type']];
              element['Duration'] = element['Units'];
              element['ValueTotalCorrected'] = element['Price'];
@@ -167,47 +221,77 @@ export class ImperialDataProcessingService {
          lacquerSum.push(summary['LacquerCosts']['Wage']);
          lacquerSum.push(...summary['LacquerCosts']['Material']['LacquerConstants']['LacquerConstant']);
          summary['LacquerCosts']['Material']['MaterialGroups']['LacquerMaterialGroupSummary']
-            .forEach(item => item['Description'] = item['Name']);
+            .forEach((item: any) => item['Description'] = item['Name']);
          lacquerSum.push(...summary['LacquerCosts']['Material']['MaterialGroups']['LacquerMaterialGroupSummary']);
-         lacquerSum.forEach(element => {
-             element['Duration'] = element['Units'];
-             element['ValueTotalCorrected'] = element['Price'];
+         lacquerSum.forEach((element: any) => {
+            element['Duration'] = element['Units'];
+            element['ValueTotalCorrected'] = element['Price'];
          });
 
          lacquerSumTotal = summary['LacquerCosts']['TotalSum'];
 
-         finalSum = [{
-             'Description': 'RepairCost | header',
-             'TotalNetCosts': summary['TotalNetCosts'],
-             'TotalVAT': summary['TotalVAT'],
-             'TotalGrossCosts': summary['TotalGrossCosts']
-         }];
-         finalSumTotal = summary['TotalGrossCosts'];
+        finalSum = [
+            {
+                'Description': 'RepairCost | header',
+                'TotalNetCosts': summary['TotalNetCosts'],
+                'TotalVAT': summary['TotalVAT'],
+                'TotalGrossCosts': summary['TotalGrossCosts']
+            }
+        ];
+        if (summary['TotalNetDiscount']) {
+            finalSum.push(
+                {
+                    'Description': 'Discount | header',
+                    'TotalNetCosts': summary['TotalNetDiscount'],
+                    'TotalVAT': summary['TotalVATDiscount'],
+                    'TotalGrossCosts': summary['TotalGrossDiscount']
+                }
+            );
+        }
+        if (summary['TotalNetCorrected']) {
+            finalSum.push(
+                {
+                    'Description': 'CorrectedRepairCost | header',
+                    'TotalNetCosts': summary['TotalNetCorrected'],
+                    'TotalVAT': summary['TotalVATCorrected'],
+                    'TotalGrossCosts': summary['TotalGrossCorrected']
+                }
+            );
+        }
+        finalSumTotal = summary['TotalGrossCorrected'] || summary['TotalGrossCosts'];
 
-         this._tableService.addTable(<TableData>{
-             source: sparePartSum,
-             pointers: sparePartPointers,
-             title: sparePartHeader,
-             price: sparePartTotal
-         });
-         this._tableService.addTable(<TableData>{
-             source: labourSum,
-             pointers: labourSumPointers,
-             title: labourSumHeader,
-             price: labourSumTotal
-         });
-         this._tableService.addTable(<TableData>{
-             source: lacquerSum,
-             pointers: lacquerSumPointers,
-             title: lacquerSumHeader,
-             price: lacquerSumTotal
-         });
-         this._tableService.addTable(<TableData>{
-             source: finalSum,
-             pointers: finalSumPointers,
-             title: finalSumHeader,
-             price: finalSumTotal
-         });
+        const auxiliaryCosts = summary['AuxiliaryCosts'];
+        if (auxiliaryCosts) {
+            this._tableService.addTable(<TableData>{
+                title: 'AdditionalCostsSum',
+                price: auxiliaryCosts['TotalSum']
+            });
+        }
+
+        this._tableService.addTable(<TableData>{
+            source: sparePartSum,
+            pointers: sparePartPointers,
+            title: sparePartHeader,
+            price: sparePartTotal
+        });
+        this._tableService.addTable(<TableData>{
+            source: labourSum,
+            pointers: labourSumPointers,
+            title: labourSumHeader,
+            price: labourSumTotal
+        });
+        this._tableService.addTable(<TableData>{
+            source: lacquerSum,
+            pointers: lacquerSumPointers,
+            title: lacquerSumHeader,
+            price: lacquerSumTotal
+        });
+        this._tableService.addTable(<TableData>{
+            source: finalSum,
+            pointers: finalSumPointers,
+            title: finalSumHeader,
+            price: finalSumTotal
+        });
 
         pages = this._tableService.endSession();
 

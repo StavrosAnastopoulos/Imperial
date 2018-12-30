@@ -42,18 +42,19 @@ export class TableSplitService {
     }
 
     addTable = (data: TableData) => {
+        const length = data.source ? data.source.length : 2;
         this.currentRow += this.newTableRows;
-        if (this.currentRow + data.source.length < this.maxRows) {
+        if (this.currentRow + length <= this.maxRows) {
             this.tablesPerPage.push(data);
-            this.currentRow += data.source.length;
-            if(this.maxRows - this.currentRow < 6) {
+            this.currentRow += length;
+            if (this.maxRows - this.currentRow < 6) {
                 this.currentRow = 0;
                 this.pages.push(this.tablesPerPage);
                 this.tablesPerPage = [];
             }
         } else {
-            const interim = this.currentRow + data.source.length - this.maxRows;
-            const tempIn = data.source.splice(data.source.length - interim);
+            const interim = this.currentRow + length - this.maxRows;
+            const tempIn = data.source.splice(length - interim);
             this.tablesPerPage.push(data);
             this.currentRow = 0;
             this.pages.push(this.tablesPerPage);

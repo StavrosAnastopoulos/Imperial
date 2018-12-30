@@ -6,11 +6,13 @@ import { LanguagePack, LanguagePacks } from '../language-packs/locales';
 })
 export class LocaleService {
 
-    headers: LanguagePack;
+    private headers: LanguagePack;
     private locale = 'en';
     private currency = 'EUR';
+    private backdrop: LanguagePack;
 
     constructor() {
+        this.backdrop = LanguagePacks['en'];
     }
 
     public setLocal = (s: string) => {
@@ -24,7 +26,7 @@ export class LocaleService {
         if (!this.headers) {
             this.headers = LanguagePacks[this.locale];
         }
-        return this.headers[s];
+        return this.headers[s] || this.backdrop[s];
     }
 
 }
