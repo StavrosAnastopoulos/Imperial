@@ -1,0 +1,8 @@
+<div [matMenuTriggerFor]="langMenu"><mat-icon>language</mat-icon></div>
+
+<mat-menu #langMenu="matMenu">
+    <button *ngFor="let lang of languages"
+        mat-menu-item
+        (click)="_localService.setLocal(lang.key)"
+    >{{lang.value}}</button>
+</mat-menu>

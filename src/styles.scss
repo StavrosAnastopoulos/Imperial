@@ -68,6 +68,12 @@ body {
 
     .tool-bar {
         border-bottom: 1px solid black;
+        position: fixed;
+        width: -webkit-fill-available;
+        background-color: white;
+        top: 0;
+        margin-left: -20px;
+        z-index: 2000;
     }
     .tool-bar > * {
         margin: 10px;
@@ -114,4 +120,22 @@ body {
 
 .mr-auto {
     margin-right: auto !important;
+}
+
+.mat-menu-panel {
+    box-shadow: none !important;
+    border: #000 solid 1px !important;
+    border-radius: 2px !important;
+    max-height: 300px !important;
+    .mat-menu-content {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        .mat-menu-item {
+            line-height: 40px;
+            height: 40px;
+        }
+        button:hover {
+            background-color: rgba(110, 26, 23, 0.4) !important;
+        }
+    }
 }
