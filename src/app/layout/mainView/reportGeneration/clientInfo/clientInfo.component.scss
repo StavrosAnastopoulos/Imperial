@@ -37,6 +37,10 @@ table {
     }
 }
 
+.mat-checkbox {
+    margin-right: 5px;
+}
+
 @media print {
     mat-checkbox{
         display: none;

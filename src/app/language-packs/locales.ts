@@ -39,7 +39,7 @@ const Bulgarian = <LanguagePack>{
     SumBlockLacquer: 'Междинна сума боядисване',
     TotalAuxiliaryCost: 'Сума съпътстващи разходи',
     AuxiliaryCost: 'Съпътстващи разходи'
-}
+};
 
 const English = <LanguagePack>{
     DATID: 'DPN',
@@ -88,8 +88,44 @@ const English = <LanguagePack>{
     AdditionalCosts: 'Additional Costs',
     AdditionalCostsSum: 'Sum of additional Costs',
     BaseValue: 'Price',
-    CorrectionPercentage: '%'
-}
+    CorrectionPercentage: '%',
+    DamageInspectionTitle: 'International vehicle damage inspection',
+    OrderNo: 'Order No.',
+    LicensePlate: 'License Plate',
+    DebitorNo: 'Debitor No.',
+    AccidentRefNo: 'Accident Ref. No.',
+    ClientName: 'Client Name',
+    ClientAddress: 'Client Address',
+    Email: 'Email',
+    Telephone: 'Telephone',
+    ClaimsAdjuster: 'Claims Adjuster',
+    DamageDate: 'Damage Date',
+    Inspector: 'Inspector',
+    InspectionPlace: 'Inspection Place',
+    InspectionDate: 'Inspection Date',
+    VehicleOwner: 'Vehicle Owner',
+    Name: 'Name',
+    Address: 'Address',
+    Vehicle: 'Vehicle',
+    VIN: 'VIN',
+    FirstRegistration: 'First Registration',
+    Type: 'Type',
+    Make: 'Make',
+    ModelSeries: 'Model / Series',
+    HorsePower: 'Horse Power (HP)',
+    CubicCapacity: 'Cubic Capacity (ccm)',
+    Fuel: 'Fuel',
+    MileageReading: 'Mileage Reading',
+    Color: 'Color',
+    MOTDate: 'MOT Date',
+    EmissionCheck: 'Emission Check',
+    TyreDescription: 'Tyre Description',
+    TyreBrand: 'Tyre Brand',
+    LFRF: 'LF / RF',
+    LRrRRr: 'L Rr / R Rr',
+    TyreType: 'Tyre Type',
+    AdditionalComments: 'Additional Comments'
+};
 
 const Greek = <LanguagePack>{
     DATID: 'DVN',
@@ -138,7 +174,43 @@ const Greek = <LanguagePack>{
     AdditionalCosts: 'Πρόσθετο κόστος',
     AdditionalCostsSum: 'Σύνολο πρόσθετου κόστους',
     BaseValue: 'Τιμή',
-}
+    DamageInspectionTitle: 'ΕΚΘΕΣΗ ΠΡΑΓΜΑΤΟΓΝΩΜΟΣΥΝΗΣ',
+    OrderNo: 'Order No.',
+    LicensePlate: 'Αρ. κυκλοφορίας',
+    DebitorNo: 'Debitor No.',
+    AccidentRefNo: 'Accident Ref. No.',
+    ClientName: 'Client Name',
+    ClientAddress: 'Client Address',
+    Email: 'E-mail',
+    Telephone: 'Τηλέφωνο',
+    ClaimsAdjuster: 'Claims Adjuster',
+    DamageDate: 'Ημ/νία Ατυχήματος',
+    Inspector: 'Πραγματογνώμων',
+    InspectionPlace: 'Inspection Place',
+    InspectionDate: `Ημ/νία Πρ/σ'υνης`,
+    VehicleOwner: 'Στοιχεία Ιδιοκτήτη',
+    Name: 'Ονοματεπώνημο',
+    Address: 'Διεύθυνση',
+    Vehicle: 'Στοιχεία Οχήματος',
+    VIN: 'Αριθμός Πλαισίου',
+    FirstRegistration: 'Ημ/νία 1ης Κυκλοφορίας',
+    Type: 'Χρήση Οχήματος',
+    Make: 'Μάρκα',
+    ModelSeries: 'Μοντέλο / Σειρά',
+    HorsePower: 'Ήπποι (HP)',
+    CubicCapacity: 'Κυβικά',
+    Fuel: 'Καύσιμο',
+    MileageReading: 'Χιλιόμετρα',
+    Color: 'Χρώμα',
+    MOTDate: 'ΚΤΕΟ',
+    EmissionCheck: 'Κάρτα Καυσαερίων',
+    TyreDescription: 'Περιγραφή Ελαστικών',
+    TyreBrand: 'Μάρκα Ελαστικών',
+    LFRF: 'ΜΑ / ΜΔ',
+    LRrRRr: 'ΠΑ / ΠΔ',
+    TyreType: `Τύπος Ελαστικών`,
+    AdditionalComments: 'Additional Comments'
+};
 
 const Chinese = <LanguagePack>{
     DATID: '数据处理编号',
@@ -181,7 +253,7 @@ const Chinese = <LanguagePack>{
     SumBlockLacquer: '喷漆总和',
     TotalAuxiliaryCost: '附加费用总额',
     AuxiliaryCost: '附加费用',
-}
+};
 
 const Czech = <LanguagePack>{
     DATID: 'ČDZ',
@@ -224,7 +296,7 @@ const Czech = <LanguagePack>{
     SumBlockLacquer: 'Lakování úhrnem',
     TotalAuxiliaryCost: 'Vedlejší náklady celkem',
     AuxiliaryCost: 'Vedlejší náklady',
-}
+};
 
 const Dutch = <LanguagePack>{
     DATID: 'DVN',
@@ -267,7 +339,7 @@ const Dutch = <LanguagePack>{
     SumBlockLacquer: 'Somoverzicht spuitwerkzaamheden',
     TotalAuxiliaryCost: 'Totaalbedrag bijkomende kosten',
     AuxiliaryCost: 'Bijkomende kosten / werkzaamheden',
-}
+};
 
 const French = <LanguagePack>{
     DATID: 'CODAT',
@@ -310,7 +382,7 @@ const French = <LanguagePack>{
     SumBlockLacquer: 'Somme totale peinture',
     TotalAuxiliaryCost: 'Total frais supplémentaires',
     AuxiliaryCost: 'Frais supplémentaires',
-}
+};
 
 const German = <LanguagePack>{
     DATID: 'DVN',
@@ -353,7 +425,7 @@ const German = <LanguagePack>{
     SumBlockLacquer: 'Summenblock Lackierung',
     TotalAuxiliaryCost: 'Summe Nebenkosten',
     AuxiliaryCost: 'Nebenkosten',
-}
+};
 
 const Hungarian = <LanguagePack>{
     DATID: 'Sorsz',
@@ -396,7 +468,7 @@ const Hungarian = <LanguagePack>{
     SumBlockLacquer: 'Fényezés összesen',
     TotalAuxiliaryCost: 'Mellékköltségek összesen',
     AuxiliaryCost: 'Mellékköltség',
-}
+};
 
 const Italian = <LanguagePack>{
     DATID: 'DVN',
@@ -439,7 +511,7 @@ const Italian = <LanguagePack>{
     SumBlockLacquer: 'Totale importo Verniciatura',
     TotalAuxiliaryCost: 'Totale spese accessorie',
     AuxiliaryCost: 'Spese accessorie',
-}
+};
 
 const Polish = <LanguagePack>{
     DATID: 'DVN',
@@ -482,7 +554,7 @@ const Polish = <LanguagePack>{
     SumBlockLacquer: 'Podsumowanie - lakierowanie',
     TotalAuxiliaryCost: 'Suma - Koszty dodatkowe',
     AuxiliaryCost: 'Koszty dodatkowe',
-}
+};
 
 const Romanian = <LanguagePack>{
     DATID: 'CBD',
@@ -525,7 +597,7 @@ const Romanian = <LanguagePack>{
     SumBlockLacquer: 'Bloc Vopsitorie',
     TotalAuxiliaryCost: 'Total Costuri Auxiliare',
     AuxiliaryCost: 'Costuri Auxiliare',
-}
+};
 
 const Russian = <LanguagePack>{
     DATID: 'DVN',
@@ -568,7 +640,7 @@ const Russian = <LanguagePack>{
     SumBlockLacquer: 'Малярные работы',
     TotalAuxiliaryCost: 'Итого дополнительные затраты',
     AuxiliaryCost: 'Дополнительные затраты',
-}
+};
 
 const Slovak = <LanguagePack>{
     DATID: 'ČDS',
@@ -611,7 +683,7 @@ const Slovak = <LanguagePack>{
     SumBlockLacquer: 'Lakovanie úhrnom',
     TotalAuxiliaryCost: 'Vedľajšie náklady celkom',
     AuxiliaryCost: 'Vedľajšie náklady',
-}
+};
 
 const Spanish = <LanguagePack>{
     DATID: 'Código',
@@ -654,7 +726,7 @@ const Spanish = <LanguagePack>{
     SumBlockLacquer: 'Bloque pintura',
     TotalAuxiliaryCost: 'Total gastos adicionales',
     AuxiliaryCost: 'Costes auxiliares',
-}
+};
 
 const Turkish = <LanguagePack>{
     DATID: 'SDN',
@@ -697,7 +769,7 @@ const Turkish = <LanguagePack>{
     SumBlockLacquer: 'Boyama Hesap Özeti',
     TotalAuxiliaryCost: 'Yan giderler toplamı',
     AuxiliaryCost: 'Yan giderler',
-}
+};
 
 export interface LanguagePack {
     DATID: string;
@@ -747,6 +819,42 @@ export interface LanguagePack {
     AdditionalCostsSum: string;
     BaseValue: string;
     CorrectionPercentage: string;
+    DamageInspectionTitle: string;
+    OrderNo: string;
+    LicensePlate: string;
+    DebitorNo: string;
+    AccidentRefNo: string;
+    ClientName: string;
+    ClientAddress: string;
+    Email: string;
+    Telephone: string;
+    ClaimsAdjuster: string;
+    DamageDate: string;
+    Inspector: string;
+    InspectionPlace: string;
+    InspectionDate: string;
+    VehicleOwner: string;
+    Name: string;
+    Address: string;
+    Vehicle: string;
+    VIN: string;
+    FirstRegistration: string;
+    Type: string;
+    Make: string;
+    ModelSeries: string;
+    HorsePower: string;
+    CubicCapacity: string;
+    Fuel: string;
+    MileageReading: string;
+    Color: string;
+    MOTDate: string;
+    EmissionCheck: string;
+    TyreDescription: string;
+    TyreBrand: string;
+    LFRF: string;
+    LRrRRr: string;
+    TyreType: string;
+    AdditionalComments: string;
 }
 
 export interface IDictionary<T> {

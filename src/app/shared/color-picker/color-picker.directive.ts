@@ -14,60 +14,60 @@ import { AlphaChannel, ColorMode, OutputFormat } from './helpers';
 export class ColorPickerDirective implements OnChanges, OnDestroy {
   private dialog: any;
 
-  private dialogCreated: boolean = false;
-  private ignoreChanges: boolean = false;
+  private dialogCreated = false;
+  private ignoreChanges = false;
 
   private cmpRef: ComponentRef<ColorPickerComponent>;
 
   @Input() colorPicker = '#fff';
 
-  @Input() cpWidth: string = '230px';
-  @Input() cpHeight: string = 'auto';
+  @Input() cpWidth = '230px';
+  @Input() cpHeight = 'auto';
 
-  @Input() cpToggle: boolean = false;
-  @Input() cpDisabled: boolean = false;
+  @Input() cpToggle = false;
+  @Input() cpDisabled = false;
 
   @Input() cpIgnoredElements: any = [];
 
-  @Input() cpFallbackColor: string = '';
+  @Input() cpFallbackColor = '';
 
   @Input() cpColorMode: ColorMode = 'color';
 
   @Input() cpOutputFormat: OutputFormat = 'auto';
   @Input() cpAlphaChannel: AlphaChannel = 'enabled';
 
-  @Input() cpDisableInput: boolean = false;
+  @Input() cpDisableInput = false;
 
-  @Input() cpDialogDisplay: string = 'popup';
+  @Input() cpDialogDisplay = 'popup';
 
-  @Input() cpSaveClickOutside: boolean = true;
+  @Input() cpSaveClickOutside = true;
 
-  @Input() cpUseRootViewContainer: boolean = false;
+  @Input() cpUseRootViewContainer = false;
 
-  @Input() cpPosition: string = 'right';
-  @Input() cpPositionOffset: string = '0%';
-  @Input() cpPositionRelativeToArrow: boolean = false;
+  @Input() cpPosition = 'right';
+  @Input() cpPositionOffset = '0%';
+  @Input() cpPositionRelativeToArrow = false;
 
-  @Input() cpOKButton: boolean = false;
-  @Input() cpOKButtonText: string = 'OK';
-  @Input() cpOKButtonClass: string = 'cp-ok-button-class';
+  @Input() cpOKButton = false;
+  @Input() cpOKButtonText = 'OK';
+  @Input() cpOKButtonClass = 'cp-ok-button-class';
 
-  @Input() cpCancelButton: boolean = false;
-  @Input() cpCancelButtonText: string = 'Cancel';
-  @Input() cpCancelButtonClass: string = 'cp-cancel-button-class';
+  @Input() cpCancelButton = false;
+  @Input() cpCancelButtonText = 'Cancel';
+  @Input() cpCancelButtonClass = 'cp-cancel-button-class';
 
-  @Input() cpPresetLabel: string = 'Preset colors';
+  @Input() cpPresetLabel = 'Preset colors';
   @Input() cpPresetColors: string[] = ['#000', '#f00', '#ff0', '#0f0', '#0ff', '#00f'];
-  @Input() cpMaxPresetColorsLength: number = 6;
+  @Input() cpMaxPresetColorsLength = 6;
 
-  @Input() cpPresetEmptyMessage: string = 'No colors added';
-  @Input() cpPresetEmptyMessageClass: string = 'preset-empty-message';
+  @Input() cpPresetEmptyMessage = 'No colors added';
+  @Input() cpPresetEmptyMessageClass = 'preset-empty-message';
 
-  @Input() cpAddColorButton: boolean = false;
-  @Input() cpAddColorButtonText: string = 'Add color';
-  @Input() cpAddColorButtonClass: string = 'cp-add-color-button-class';
+  @Input() cpAddColorButton = false;
+  @Input() cpAddColorButtonText = 'Add color';
+  @Input() cpAddColorButtonClass = 'cp-add-color-button-class';
 
-  @Input() cpRemoveColorButtonClass: string = 'cp-remove-color-button-class';
+  @Input() cpRemoveColorButtonClass = 'cp-remove-color-button-class';
 
   @Output() cpInputChange = new EventEmitter<any>(true);
 

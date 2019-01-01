@@ -73,7 +73,7 @@ body {
         background-color: white;
         top: 0;
         margin-left: -20px;
-        z-index: 2000;
+        z-index: 500;
     }
     .tool-bar > * {
         margin: 10px;
@@ -134,8 +134,31 @@ body {
             line-height: 40px;
             height: 40px;
         }
-        button:hover {
-            background-color: rgba(110, 26, 23, 0.4) !important;
+        button {
+            &.active {
+                background-color: rgba(110, 26, 23, 0.2) !important;
+            }
+            &:hover {
+                background-color: rgba(110, 26, 23, 0.4) !important;
+            }
         }
     }
 }
+
+.cdk-overlay-container {
+    z-index: 2000 !important;
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(black, 0.5);
+      &:hover {
+        cursor: pointer !important;
+        background: rgba(110, 26, 23, 0.5);
+      }
+    }
+  }

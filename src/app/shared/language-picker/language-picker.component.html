@@ -4,5 +4,6 @@
     <button *ngFor="let lang of languages"
         mat-menu-item
         (click)="_localService.setLocal(lang.key)"
+        [class.active]="_localService.locale == lang.key"
     >{{lang.value}}</button>
 </mat-menu>
