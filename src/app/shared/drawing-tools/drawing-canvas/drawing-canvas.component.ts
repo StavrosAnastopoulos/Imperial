@@ -3,7 +3,7 @@ import {
 } from '@angular/core';
 import { fromEvent, Subscription } from 'rxjs';
 import { switchMap, takeUntil, pairwise } from 'rxjs/operators';
-import { DrawingCanvasService, EditMode } from './drawing-canvas.service';
+import { DrawingService, EditMode } from '../drawing.service';
 
 interface Rectangle {
     startX: number;
@@ -29,7 +29,7 @@ export class DrawingCanvasComponent implements AfterViewInit, OnDestroy {
 
     private subscriptions: Subscription;
 
-    constructor(private _service: DrawingCanvasService) {
+    constructor(private _service: DrawingService) {
         this.subscriptions = this._service.colorChanged.subscribe((color: string) => this.cx.strokeStyle = color);
         this.subscriptions.add(this._service.editModeChanged.subscribe((mode: EditMode) => this.changeMode(mode)));
     }
@@ -53,7 +53,7 @@ export class DrawingCanvasComponent implements AfterViewInit, OnDestroy {
 
         this.cx.lineWidth = 3;
         this.cx.lineCap = 'round';
-        this.cx.strokeStyle = this._service.activeColor;
+        this.cx.strokeStyle = this._service.activeColor.toString;
 
         this.changeMode(this._service.activeEditMode);
     }

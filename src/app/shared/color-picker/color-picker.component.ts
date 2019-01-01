@@ -406,6 +406,7 @@ export class ColorPickerComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   public onHueChange(value: { v: number, rgX: number }): void {
+    console.log(value)
     this.hsva.h = value.v / value.rgX;
     this.sliderH = this.hsva.h;
 
@@ -431,6 +432,7 @@ export class ColorPickerComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   public onAlphaChange(value: { v: number, rgX: number }): void {
+    console.log(value);
     this.hsva.a = value.v / value.rgX;
 
     this.updateColorPicker();

@@ -1,0 +1,46 @@
+<div class="color-picker">
+
+    <!-- <div class="saturation-lightness" [slider] [rgX]="1" [rgY]="1" [style.background-color]="hueSliderColor" (newValue)="onColorChange($event)" (dragStart)="onDragStart('saturation-lightness')" (dragEnd)="onDragEnd('saturation-lightness')">
+      <div class="cursor" [style.top.px]="slider?.v" [style.left.px]="slider?.s"></div>
+    </div> -->
+  
+    <div class="hue-alpha box">
+      <div class="left">
+        <div class="selected-color-background"></div>
+        <mat-icon
+          class="selected-color"
+          [style.color]="drawingService.activeColor.toString"
+          (click)="drawingService.addPreset(drawingService.activeColor.toString)"
+        >add_circle</mat-icon>
+      </div>
+  
+      <div class="right">
+        <!-- <mat-slider class="hue" [min]="0" [max]="1" [(ngModel)]="hue" [step]="0.1">
+        </mat-slider> -->
+        <mat-slider
+          class="alpha"
+          [style.background-color]="drawingService.activeColor.toString"
+          [min]="0"
+          [max]="1"
+          [step]="0.01"
+          [(ngModel)]="alpha">
+        </mat-slider>
+      </div>
+    </div>
+  
+    <div class="preset-area">
+      <hr>
+        <div 
+            *ngFor="let color of drawingService.presets"
+            class="preset-color"
+            [style.backgroundColor]="color"
+            (click)="drawingService.setColor(color)">
+                <mat-icon
+                    class="cp-remove-color-button-class"
+                    (click)="drawingService.removePreset(color)">
+                remove_circle</mat-icon>
+        </div>
+  
+    </div>
+  </div>
+  

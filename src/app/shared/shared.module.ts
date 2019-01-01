@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import * as Material from './material-index';
 import * as Shared from './index';
 import * as ColorPicker from './color-picker/index';
+import { ColorPickerComponent } from './drawing-tools/color-picker/color-picker.component';
 
 @NgModule({
     imports: [
@@ -26,7 +27,8 @@ import * as ColorPicker from './color-picker/index';
         ColorPicker.Directives
     ],
     entryComponents: [
-        ColorPicker.Components
+        ColorPicker.Components,
+        ColorPickerComponent
     ]
 })
 export class SharedModule {}
