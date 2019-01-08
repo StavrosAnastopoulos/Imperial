@@ -43,3 +43,22 @@ export class TableHeaderPipe implements PipeTransform {
     }
 
 }
+
+const vehicleType = {
+    '1': 'car',
+    '3': 'motorcycle',
+    '4': 'truck'
+};
+
+@Pipe({
+    name: 'vehicleType'
+})
+export class VehicleTypePipe implements PipeTransform {
+    constructor(private localeService: LocaleService){}
+
+    // extra param to trigger change detection
+    transform(value: string, local: string = this.localeService.locale) {
+        return this.localeService.getHeader(vehicleType[value]);
+    }
+
+}

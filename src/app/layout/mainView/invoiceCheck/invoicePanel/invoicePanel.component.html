@@ -2,7 +2,7 @@
     <input [id]="inputId" (change)="addFile($event)" type="file" class="inputFile" multiple="multiple" accept="image/png, image/jpeg, .pdf">
     <label [for]="inputId" class="hide-print flex row">
         <mat-icon>note_add</mat-icon>
-        <div class="flex column sp-around label-info" [innerHtml]="fileName"></div>
+        <div class="flex column sp-around label-info" [innerHtml]="label || fileName"></div>
     </label>
     <imp-pdf-viewer *ngIf="pdfFile" [PDF]="pdfFile"></imp-pdf-viewer>        
     <div *ngIf="imgsPaths.length > 0" class="flex column invoiceItem">

@@ -2,13 +2,17 @@ import { Component, ViewChild, ElementRef, AfterViewInit, Input, Output, EventEm
 
 @Component({
     selector: 'imp-text-area',
-    template: `<textarea #textarea (keyup)="adjust()" style="overflow:hidden" [(ngModel)]="value"></textarea>`,
+    template: `<textarea #textarea
+                    (keyup)="adjust()" style="overflow:hidden"
+                    [(ngModel)]="value" [placeholder]="placeholder || ''"
+                ></textarea>`,
     styleUrls: ['text-area.component.scss']
 })
 export class TextAreaComponent implements AfterViewInit {
     @ViewChild('textarea') public textarea: ElementRef;
     private textareaEl: any;
     @Input() value: any;
+    @Input() placeholder: string;
     @Output() valueChanged = new EventEmitter<any>();
     constructor() {}
 

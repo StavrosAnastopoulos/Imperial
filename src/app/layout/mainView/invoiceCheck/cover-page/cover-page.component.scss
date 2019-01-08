@@ -1,0 +1,14 @@
+    textarea {
+        width: 100%;
+        height: 300px;
+        resize: none;
+    }
+
+.invoice-cover-page{
+    @media screen {
+        display: none;
+    }
+    @media print {
+        page-break-after: always;        
+    }
+}

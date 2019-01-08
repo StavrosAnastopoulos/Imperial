@@ -105,6 +105,11 @@ export class ImperialDataProcessingService {
         // client info page
         this.localeService.setLocal(data['Language'] || 'en');
         this.localeService.setCurrency(data['Currency'] || 'EUR');
+        additionalInfo['Name'] = data['Name'];
+        additionalInfo['Description'] = data['Description'];
+        additionalInfo['CreateDate'] = data['CreateDate'];
+        additionalInfo['ChangeDate'] = data['ChangeDate'];
+        additionalInfo['DamageDate'] = data['RepairOrder']['DamageDate'];
         dealerInfo = (data['TradingData'] || {})['Dealership'] || {};
         expertInfo = (data['TradingData'] || {})['Expert'] || {};
         ownerInfo = (data['TradingData'] || {})['Owner'] || {};

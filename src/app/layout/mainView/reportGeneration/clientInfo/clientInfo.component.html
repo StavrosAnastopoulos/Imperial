@@ -4,7 +4,7 @@
             <mat-checkbox #chkh1 [(ngModel)]="chkh1.indeterminate"></mat-checkbox>
             <span [innerHtml]="'OrderNo' | header: localeService.locale"></span>
         </th>
-        <td><input [value]="additionalInfo['claimNumber']"></td>
+        <td><input [value]="additionalInfo['Name'] || additionalInfo['Description']"></td>
         <th>
             <span [innerHtml]="'LicensePlate' | header: localeService.locale"></span>
         </th>
@@ -26,21 +26,22 @@
             <mat-checkbox #chkh3 [(ngModel)]="chkh3.indeterminate"></mat-checkbox>
             <span [innerHtml]="'ClientName' | header: localeService.locale"></span>
         </th>
-        <td colspan="3"><input [value]="expertInfo['NameLong'] || expertInfo['CompanyName']"></td>
+        <td colspan="3"><input ></td>
     </tr>
     <tr [ngClass]="{'hide-print': chkh4.indeterminate}">
         <th>
             <mat-checkbox #chkh4 [(ngModel)]="chkh4.indeterminate"></mat-checkbox>
             <span [innerHtml]="'ClientAddress' | header: localeService.locale"></span>
         </th>
-        <td colspan="3"><input [value]="expertInfo['Street'] + ' ' + expertInfo['StreetNumber'] + ' ' + expertInfo['StreetZipCode'] + ' ' + expertInfo['StreetCity']"></td>
+        <td colspan="3"><input></td>
+        <!-- [value]="expertInfo['Street'] + ' ' + expertInfo['StreetNumber'] + ' ' + expertInfo['StreetZipCode'] + ' ' + expertInfo['StreetCity']" -->
     </tr>
     <tr [ngClass]="{'hide-print': chkh5.indeterminate}">
         <th>
             <mat-checkbox #chkh5 [(ngModel)]="chkh5.indeterminate"></mat-checkbox>
             <span [innerHtml]="'Email' | header: localeService.locale"></span>
         </th>
-        <td><input [value]="expertInfo['EMail']"></td>
+        <td><input></td>
         <th>
             <span [innerHtml]="'Telephone' | header: localeService.locale"></span>
         </th>
@@ -55,14 +56,18 @@
         <th>
             <span [innerHtml]="'DamageDate' | header: localeService.locale"></span>
         </th>
-        <td><input [value]="additionalInfo['accidentDate'] | date"></td>
+        <td><input [value]="additionalInfo['DamageDate'] | date"></td>
     </tr>
     <tr [ngClass]="{'hide-print': chkh7.indeterminate}">
         <th>
             <mat-checkbox #chkh7 [(ngModel)]="chkh7.indeterminate"></mat-checkbox>
             <span [innerHtml]="'Inspector' | header: localeService.locale"></span>
         </th>
-        <td colspan="3"><input></td>
+        <td><input [value]="expertInfo['NameLong'] || expertInfo['CompanyName']"></td>
+        <th>
+            <span [innerHtml]="'CreateDate' | header: localeService.locale"></span>
+        </th>
+        <td><input [value]="additionalInfo['CreateDate'] | date"></td>
     </tr>
     <tr [ngClass]="{'hide-print': chkh8.indeterminate}">
         <th>
@@ -101,7 +106,7 @@
             <mat-checkbox #chkh11 [(ngModel)]="chkh11.indeterminate"></mat-checkbox>
             <span [innerHtml]="'Email' | header: localeService.locale"></span>
         </th>
-        <td><input [value]="ownerInfo['Email']"></td>
+        <td><input [value]="ownerInfo['EMail']"></td>
         <th>
             <span [innerHtml]="'Telephone' | header: localeService.locale"></span>
         </th>
@@ -124,7 +129,7 @@
             <span [innerHtml]="'FirstRegistration' | header: localeService.locale"></span>
         </th>
         <td colspan="2">
-            <input [value]="additionalInfo['vehicle_registrationFirst'] | date">
+            <input [value]="vehicleInfo['InitialRegistration']">
         </td>
     </tr>
     <tr [ngClass]="{'hide-print': chkh13.indeterminate}">
@@ -133,7 +138,7 @@
             <span [innerHtml]="'Type' | header: localeService.locale"></span>
         </th>
         <td colspan="2">
-            <input [value]="additionalInfo['VehicleUse']">
+            <input [value]="vehicleInfo['VehicleType'] | vehicleType: localeService.locale">
         </td>
         <th>
             <span [innerHtml]="'Make' | header: localeService.locale"></span>

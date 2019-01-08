@@ -18,7 +18,7 @@ export class ClientInfoComponent {
     @Input()
     vehicleInfo: any = {};
 
-    hide = []
+    hide = [];
 
     constructor(public localeService: LocaleService) {
         for (let i = 0; i < 21; i++) {

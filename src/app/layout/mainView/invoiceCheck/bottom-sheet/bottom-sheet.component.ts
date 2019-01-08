@@ -4,13 +4,17 @@ import { InvoiceCheckService } from '../invoice-check.service';
 
 @Component({
   template: `
-  <div #scroll
-    style="max-height:500px; overflow: auto;"
+  <input [placeholder]="'LicensePlate' | header"
+    [(ngModel)]="_invoiceService.licensePlate"
+  >
+  <div #scroll class="scroll"
     ><imp-text-area
+      [placeholder]="'invoiceComparisonComments' | header"
       [value]="_invoiceService.commentSection"
       (valueChanged)="updateService($event)"
     ></imp-text-area>
   </div>`,
+  styleUrls: ['bottom-sheet.component.scss']
 })
 export class BottomSheetComponent implements AfterViewInit {
 

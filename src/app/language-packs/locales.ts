@@ -100,6 +100,7 @@ const English = <LanguagePack>{
     Telephone: 'Telephone',
     ClaimsAdjuster: 'Claims Adjuster',
     DamageDate: 'Damage Date',
+    CreateDate: 'Order Date',
     Inspector: 'Inspector',
     InspectionPlace: 'Inspection Place',
     InspectionDate: 'Inspection Date',
@@ -124,7 +125,14 @@ const English = <LanguagePack>{
     LFRF: 'LF / RF',
     LRrRRr: 'L Rr / R Rr',
     TyreType: 'Tyre Type',
-    AdditionalComments: 'Additional Comments'
+    AdditionalComments: 'Additional Comments',
+    car: 'Private',
+    motorcycle: 'Moto',
+    truck: 'Truck',
+    invoice: 'Invoice',
+    inspection: 'Inspection',
+    invoiceComparisonTitle: 'INVOICE CHECK FOR CAR INSPECTION',
+    invoiceComparisonComments: 'INSPECTION COMMENTS'
 };
 
 const Greek = <LanguagePack>{
@@ -175,19 +183,20 @@ const Greek = <LanguagePack>{
     AdditionalCostsSum: 'Σύνολο πρόσθετου κόστους',
     BaseValue: 'Τιμή',
     DamageInspectionTitle: 'ΕΚΘΕΣΗ ΠΡΑΓΜΑΤΟΓΝΩΜΟΣΥΝΗΣ',
-    OrderNo: 'Order No.',
+    OrderNo: 'Αριθμός Ζημιάς',
     LicensePlate: 'Αρ. κυκλοφορίας',
     DebitorNo: 'Debitor No.',
-    AccidentRefNo: 'Accident Ref. No.',
-    ClientName: 'Client Name',
-    ClientAddress: 'Client Address',
+    AccidentRefNo: 'Αριθμός Αναφοράς',
+    ClientName: 'Ασφαλιστική',
+    ClientAddress: 'Δ/νση Ασφαλιστικής',
     Email: 'E-mail',
     Telephone: 'Τηλέφωνο',
-    ClaimsAdjuster: 'Claims Adjuster',
+    ClaimsAdjuster: 'Διακανωνιστής',
     DamageDate: 'Ημ/νία Ατυχήματος',
-    Inspector: 'Πραγματογνώμων',
-    InspectionPlace: 'Inspection Place',
-    InspectionDate: `Ημ/νία Πρ/σ'υνης`,
+    CreateDate: 'Ημ/νία Εντολής',
+    Inspector: 'Πρ/νώμων',
+    InspectionPlace: 'Συνεργείο',
+    InspectionDate: `Ημ/νία Πρ/σύνης`,
     VehicleOwner: 'Στοιχεία Ιδιοκτήτη',
     Name: 'Ονοματεπώνημο',
     Address: 'Διεύθυνση',
@@ -209,7 +218,14 @@ const Greek = <LanguagePack>{
     LFRF: 'ΜΑ / ΜΔ',
     LRrRRr: 'ΠΑ / ΠΔ',
     TyreType: `Τύπος Ελαστικών`,
-    AdditionalComments: 'Additional Comments'
+    AdditionalComments: 'Σχόλια',
+    car: 'ΕΙΧ',
+    motorcycle: 'ΜΟΤΟ',
+    truck: 'ΦΙΧ',
+    invoice: 'Τιμολόγιo',
+    inspection: 'Πραγαμτογνωμοσύνη',
+    invoiceComparisonTitle: 'ΕΛΕΓΧΟΣ ΤΙΜΟΛΟΓΙΩΝ ΓΙΑ ΠΡΑΓΜΑΤΟΓΝΩΜΟΣΥΝΗ ΟΧΗΜΑΤΟΣ',
+    invoiceComparisonComments: 'ΣΧΟΛΙΑ ΕΛΕΓΧΟΥ'
 };
 
 const Chinese = <LanguagePack>{
@@ -855,6 +871,14 @@ export interface LanguagePack {
     LRrRRr: string;
     TyreType: string;
     AdditionalComments: string;
+    CreateDate: string;
+    car: string;
+    motorcycle: string;
+    truck: string;
+    invoice: string;
+    inspection: string;
+    invoiceComparisonTitle: string;
+    invoiceComparisonComments: string;
 }
 
 export interface IDictionary<T> {

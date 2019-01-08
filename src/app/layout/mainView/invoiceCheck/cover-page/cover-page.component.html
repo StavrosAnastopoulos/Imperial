@@ -1,0 +1,14 @@
+<div class="invoice-cover-page">
+    <imp-report-title
+        imgPath="assets/img/Logo_Imp_D_P.jpg"
+        [dims]="[700, 65]"
+        title="invoiceComparisonTitle"
+    ></imp-report-title>
+    <table style="width: 100%">
+        <tr><td style="text-align: center; padding: 60px; font-weight: bold;" [innerHtml]="_service.licensePlate"></td></tr>
+        <tr><td style="text-align: center;"><img src="assets/img/some_picture.PNG" alt="Invoice Comparison flavour image" width="250"></td></tr>
+        <tr><td style="padding-top: 30px;" [innerHtml]="'invoiceComparisonComments' | header: localeService.locale"></td></tr>
+        <tr><td><textarea [value]="_service.commentSection || ''"></textarea></td></tr>
+    </table>
+</div>
+        

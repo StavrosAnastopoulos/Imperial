@@ -6,6 +6,7 @@ import { DamageCardComponent } from './reportGeneration/damageCard/damage-card.c
 import { InvoicePanelComponent } from './invoiceCheck/invoicePanel/invoicePanel.component';
 import { WelcomComponent } from './welcomeScreen/welcomeScreen.component';
 import { BottomSheetComponent } from './invoiceCheck/bottom-sheet/bottom-sheet.component';
+import { CoverPageComponent } from './invoiceCheck/cover-page/cover-page.component';
 
 export const Components = [
     InvoiceCheckComponent,
@@ -15,6 +16,7 @@ export const Components = [
     DamageCardComponent,
     InvoicePanelComponent,
     WelcomComponent,
+    CoverPageComponent
 ];
 
 export const EntryComponents = [

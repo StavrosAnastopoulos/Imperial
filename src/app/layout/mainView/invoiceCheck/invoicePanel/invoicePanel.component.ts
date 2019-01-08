@@ -7,8 +7,8 @@ import { ImageFileService } from 'src/app/shared/imageFiles.service';
     styleUrls: ['invoicePanel.component.scss']
 })
 export class InvoicePanelComponent {
-  @Input()
-  inputId: string;
+  @Input() inputId: string;
+  @Input() label: string;
   docFile: File;
   pdfFile: any;
   imgsPaths: any[] = [];

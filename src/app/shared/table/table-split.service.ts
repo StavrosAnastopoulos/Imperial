@@ -17,7 +17,7 @@ export class TableSplitService {
     tablesPerPage: TableData[];
     pages: any;
 
-    startSession = (maxPageRows = 29, newTableIntend = 3) => {
+    startSession = (maxPageRows = 33, newTableIntend = 3) => {
         this.pages = [];
         this.tablesPerPage = [];
         this.currentRow = 0;

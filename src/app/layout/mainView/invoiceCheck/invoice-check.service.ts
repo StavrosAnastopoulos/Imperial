@@ -5,5 +5,6 @@ import { Injectable } from '@angular/core';
 })
 export class InvoiceCheckService {
     commentSection: any;
+    licensePlate: string;
     constructor() {}
 }
