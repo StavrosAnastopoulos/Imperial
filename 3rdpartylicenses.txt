@@ -604,17 +604,17 @@ THE SOFTWARE.
 
 @angular/material/icon
 
-@angular/forms
-MIT
-
 @angular/animations
 MIT
 
+@angular/material/menu
+
 @angular/material/table
 
-@angular/material/checkbox
+@angular/forms
+MIT
 
-@angular/material/menu
+@angular/material/checkbox
 
 ngx-xml2json
 
