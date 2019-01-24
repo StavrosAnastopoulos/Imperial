@@ -71,7 +71,7 @@ export class ImperialDataProcessingService {
         const lacquerHeader = 'Lacquer';
         const lacquerPointers = ['WageLevel', 'Description', 'Material', 'Duration', 'WagePrice', 'ValueTotalCorrected'];
 
-        let sparePartSum: any = {};
+        let sparePartSum: any = [];
         const sparePartHeader = 'SumBlockSpareParts';
         const sparePartPointers = ['Description', 'AllSum', 'ConsumablesSurcharge', 'ValueTotalCorrected'];
         let sparePartTotal: number;
@@ -116,7 +116,7 @@ export class ImperialDataProcessingService {
         vehicleInfo = data['Vehicle'] || {};
         serierEq = ((vehicleInfo['Equipment'] || {})['SeriesEquipment'] || {})['EquipmentPosition'] || [];
         specialEq = ((vehicleInfo['Equipment'] || {})['SpecialEquipment'] || {})['EquipmentPosition'] || [];
-        vehicleInfo['Color'] = (vehicleInfo['Equipment'] || {})['Color']
+        vehicleInfo['Color'] = (vehicleInfo['Equipment'] || {})['Color'];
         delete vehicleInfo['Equipment'];
 
         if (serierEq.length > 0) {
@@ -208,10 +208,13 @@ export class ImperialDataProcessingService {
 
          // summary
          const summary = data['RepairCalculation']['CalculationSummary'];
-         summary['SparePartsCosts']['Description'] = 'SparePartsSum | header';
-         summary['SparePartsCosts']['ValueTotalCorrected'] = summary['SparePartsCosts']['TotalSum'];
-         sparePartSum = [summary['SparePartsCosts']];
-         sparePartTotal = summary['SparePartsCosts']['TotalSum'];
+         const sparepats = summary['SparePartsCosts'];
+         if (sparepats) {
+            sparepats['Description'] = 'SparePartsSum | header';
+            sparepats['ValueTotalCorrected'] = sparepats['TotalSum'];
+            sparePartSum = [sparepats];
+            sparePartTotal = sparepats['TotalSum'];
+         }
 
          labourSumTotal = summary['LabourCosts']['TotalSum'];
          delete summary['LabourCosts']['TotalSum'];
