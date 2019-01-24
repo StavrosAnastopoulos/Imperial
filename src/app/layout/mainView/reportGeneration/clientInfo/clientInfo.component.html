@@ -4,11 +4,11 @@
             <mat-checkbox #chkh1 [(ngModel)]="chkh1.indeterminate"></mat-checkbox>
             <span [innerHtml]="'OrderNo' | header: localeService.locale"></span>
         </th>
-        <td><input [value]="additionalInfo['Name'] || additionalInfo['Description']"></td>
+        <td><input [value]="additionalInfo['Name'] || additionalInfo['Description'] || ''"></td>
         <th>
             <span [innerHtml]="'LicensePlate' | header: localeService.locale"></span>
         </th>
-        <td><input [value]="vehicleInfo['RegistrationData']['LicenseNumber']"></td>
+        <td><input [value]="vehicleInfo['RegistrationData']['LicenseNumber'] || ''"></td>
     </tr>
     <tr [ngClass]="{'hide-print': chkh2.indeterminate}">
         <th>
@@ -34,7 +34,6 @@
             <span [innerHtml]="'ClientAddress' | header: localeService.locale"></span>
         </th>
         <td colspan="3"><input></td>
-        <!-- [value]="expertInfo['Street'] + ' ' + expertInfo['StreetNumber'] + ' ' + expertInfo['StreetZipCode'] + ' ' + expertInfo['StreetCity']" -->
     </tr>
     <tr [ngClass]="{'hide-print': chkh5.indeterminate}">
         <th>
@@ -45,7 +44,7 @@
         <th>
             <span [innerHtml]="'Telephone' | header: localeService.locale"></span>
         </th>
-        <td><input [value]="expertInfo['PhoneBusiness']"></td>
+        <td><input [value]="expertInfo['PhoneBusiness'] || ''"></td>
     </tr>
     <tr [ngClass]="{'hide-print': chkh6.indeterminate}">
         <th>
@@ -63,7 +62,7 @@
             <mat-checkbox #chkh7 [(ngModel)]="chkh7.indeterminate"></mat-checkbox>
             <span [innerHtml]="'Inspector' | header: localeService.locale"></span>
         </th>
-        <td><input [value]="expertInfo['NameLong'] || expertInfo['CompanyName']"></td>
+        <td><input [value]="expertInfo['NameLong'] || expertInfo['CompanyName'] || ''"></td>
         <th>
             <span [innerHtml]="'CreateDate' | header: localeService.locale"></span>
         </th>
@@ -106,11 +105,11 @@
             <mat-checkbox #chkh11 [(ngModel)]="chkh11.indeterminate"></mat-checkbox>
             <span [innerHtml]="'Email' | header: localeService.locale"></span>
         </th>
-        <td><input [value]="ownerInfo['EMail']"></td>
+        <td><input [value]="ownerInfo['EMail'] || ''"></td>
         <th>
             <span [innerHtml]="'Telephone' | header: localeService.locale"></span>
         </th>
-        <td><input [value]="ownerInfo['PhoneMobile'] || ownerInfo['PhonePersonal']"></td>
+        <td><input [value]="ownerInfo['PhoneMobile'] || ownerInfo['PhonePersonal'] || ''"></td>
     </tr>
 </table>
 <table>
@@ -124,12 +123,12 @@
             <mat-checkbox #chkh12 [(ngModel)]="chkh12.indeterminate"></mat-checkbox>
             <span [innerHtml]="'VIN' | header: localeService.locale"></span>
         </th>
-        <td  colspan="2"><input [value]="vehicleInfo['VehicleIdentNumber']"></td>
+        <td  colspan="2"><input [value]="vehicleInfo['VehicleIdentNumber'] || ''"></td>
         <th>
             <span [innerHtml]="'FirstRegistration' | header: localeService.locale"></span>
         </th>
         <td colspan="2">
-            <input [value]="vehicleInfo['InitialRegistration']">
+            <input [value]="vehicleInfo['InitialRegistration'] || ''">
         </td>
     </tr>
     <tr [ngClass]="{'hide-print': chkh13.indeterminate}">
@@ -144,7 +143,7 @@
             <span [innerHtml]="'Make' | header: localeService.locale"></span>
         </th>
         <td colspan="2">
-            <input [value]="vehicleInfo['ManufacturerName']">
+            <input [value]="vehicleInfo['ManufacturerName'] || ''">
         </td>
     </tr>
     <tr [ngClass]="{'hide-print': chkh14.indeterminate}">
@@ -162,19 +161,19 @@
             <span [innerHtml]="'HorsePower' | header: localeService.locale"></span>
         </th>
         <td>
-            <input [value]="vehicleInfo['Engine']['EnginePowerKw']">
+            <input [value]="vehicleInfo['Engine']['EnginePowerKw'] || ''">
         </td>
         <th>
             <span [innerHtml]="'CubicCapacity' | header: localeService.locale"></span>
         </th>
         <td>
-            <input [value]="vehicleInfo['Engine']['Capacity']">
+            <input [value]="vehicleInfo['Engine']['Capacity'] || ''">
         </td>
         <th class="th-small">
             <span [innerHtml]="'Fuel' | header: localeService.locale"></span>
         </th>
         <td>
-            <input [value]="vehicleInfo['Engine']['FuelMethod']">
+            <input [value]="vehicleInfo['Engine']['FuelMethod'] || ''">
         </td>
     </tr>
     <tr [ngClass]="{'hide-print': chkh16.indeterminate}">
@@ -183,13 +182,13 @@
             <span [innerHtml]="'MileageReading' | header: localeService.locale"></span>
         </th>
         <td colspan="2">
-            <input [value]="vehicleInfo['MileageOdometer']">
+            <input [value]="vehicleInfo['MileageOdometer'] || ''">
         </td>
         <th>
             <span [innerHtml]="'Color' | header: localeService.locale"></span>
         </th>
         <td colspan="2">
-            <input [value]="vehicleInfo['Color']">
+            <input [value]="vehicleInfo['Color'] || ''">
         </td>
     </tr>
     <tr [ngClass]="{'hide-print': chkh17.indeterminate}">

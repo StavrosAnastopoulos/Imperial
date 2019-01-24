@@ -6,9 +6,12 @@
 }
 
 input {
-    &:hover,
+    &:hover{
+        outline: none;
+    }
     &:focus,
     &:active {
         outline: none;
+        border: 2px inset rgba(#2f84ec, 0.5);
     }
 }
