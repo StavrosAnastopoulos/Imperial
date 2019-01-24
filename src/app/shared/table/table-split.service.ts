@@ -42,6 +42,9 @@ export class TableSplitService {
     }
 
     addTable = (data: TableData) => {
+        if (data.source.length == 0) {
+            return;
+        }
         const length = data.source ? data.source.length : 2;
         this.currentRow += this.newTableRows;
         if (this.currentRow + length <= this.maxRows) {
@@ -60,7 +63,7 @@ export class TableSplitService {
             this.pages.push(this.tablesPerPage);
             this.tablesPerPage = [];
             this.addTable(<TableData>{
-                source: tempIn, 
+                source: tempIn,
                 pointers: data.pointers,
                 title: data.title
             });
