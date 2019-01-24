@@ -225,9 +225,15 @@ export class ImperialDataProcessingService {
          summary['LacquerCosts']['Wage']['Description'] = 'Wage | header';
          lacquerSum.push(summary['LacquerCosts']['Wage']);
          lacquerSum.push(...summary['LacquerCosts']['Material']['LacquerConstants']['LacquerConstant']);
-         summary['LacquerCosts']['Material']['MaterialGroups']['LacquerMaterialGroupSummary']
-            .forEach((item: any) => item['Description'] = item['Name']);
-         lacquerSum.push(...summary['LacquerCosts']['Material']['MaterialGroups']['LacquerMaterialGroupSummary']);
+         let lacquerMaterialGroupSummary = summary['LacquerCosts']['Material']['MaterialGroups']['LacquerMaterialGroupSummary'];
+         if (lacquerMaterialGroupSummary) {
+             if (!lacquerMaterialGroupSummary.length) {
+                lacquerMaterialGroupSummary = [lacquerMaterialGroupSummary];
+             }
+             lacquerMaterialGroupSummary.forEach((item: any) => item['Description'] = item['Name']);
+             lacquerSum.push(...lacquerMaterialGroupSummary);
+        }
+
          lacquerSum.forEach((element: any) => {
             element['Duration'] = element['Units'];
             element['ValueTotalCorrected'] = element['Price'];
