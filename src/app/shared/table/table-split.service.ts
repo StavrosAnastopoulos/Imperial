@@ -42,9 +42,6 @@ export class TableSplitService {
     }
 
     addTable = (data: TableData) => {
-        if (data.source.length == 0) {
-            return;
-        }
         const length = data.source ? data.source.length : 2;
         this.currentRow += this.newTableRows;
         if (this.currentRow + length <= this.maxRows) {
