@@ -35,7 +35,7 @@ export class TableSplitService {
     }
 
     endSession = () => {
-        if (this.tablesPerPage) {
+        if (this.tablesPerPage.length > 0) {
             this.pages.push(this.tablesPerPage);
         }
         return this.pages;
