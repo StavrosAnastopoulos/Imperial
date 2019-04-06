@@ -19,6 +19,8 @@ export class ReportGenerationComponent {
 
     data: any;
 
+    imageAlbum = [];
+
     constructor(
         private ngxXml2jsonService: NgxXml2jsonService,
         private _imageParser: ImageFileService,
@@ -32,9 +34,12 @@ export class ReportGenerationComponent {
         this.numberOfImages = 'No images chosen';
 
         this.imgFilePaths = this._imageParser.parseImages(event);
-
         this.numberOfImages = this.imgFilePaths.length.toString();
         this.imgsSelected = this.imgFilePaths.length > 0;
+
+        while (this.imgFilePaths.length > 0) {
+            this.imageAlbum.push(this.imgFilePaths.splice(0, 6));
+        }
     }
 
     addFile(event: any) {
