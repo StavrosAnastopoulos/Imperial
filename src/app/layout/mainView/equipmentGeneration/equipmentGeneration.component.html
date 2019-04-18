@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="flex row tool-bar hide-print">
+        <div class ="mr-auto" [routerLink]="['/welcome']"><mat-icon>first_page</mat-icon></div>
+        <input (change)="addFile($event)" type="file" class="inputFile" id="xmlFile" accept=".xml">
+        <label for="xmlFile" class="flex row">
+            <mat-icon>note_add</mat-icon>
+            <div class="flex column sp-around label-info" [innerHtml]="fileName"></div>
+        </label>
+        <imp-lang-picker></imp-lang-picker>
+        <div class ="mr-auto" (click)="print()"><mat-icon>print</mat-icon></div>
+    </div>
+    <div *ngIf="dataProcessed">
+        <div *ngFor="let page of data">
+            <p style="page-break-before: always">
+            <div *ngFor="let table of page">
+                <imp-table-info [data]="table"></imp-table-info>
+            </div>
+        </div>            
+    </div>
+</div>

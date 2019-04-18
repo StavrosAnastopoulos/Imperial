@@ -7,10 +7,12 @@ import { InvoicePanelComponent } from './invoiceCheck/invoicePanel/invoicePanel.
 import { WelcomComponent } from './welcomeScreen/welcomeScreen.component';
 import { BottomSheetComponent } from './invoiceCheck/bottom-sheet/bottom-sheet.component';
 import { CoverPageComponent } from './invoiceCheck/cover-page/cover-page.component';
+import { EquipmentGenerationComponent } from './equipmentGeneration/equipmentGeneration.component';
 
 export const Components = [
     InvoiceCheckComponent,
     ReportGenerationComponent,
+    EquipmentGenerationComponent,
     ClientInfoComponent,
     ReportTitleComponent,
     DamageCardComponent,

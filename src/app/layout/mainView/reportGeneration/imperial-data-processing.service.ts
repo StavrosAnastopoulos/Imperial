@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { LocaleService } from 'src/app/shared/locale.service';
 import { TableSplitService, TableData } from 'src/app/shared/table/table-split.service';
 
-const trimNameSpace = (temp: any): any => {
+export const trimNameSpace = (temp: any): any => {
     Object.keys(temp).forEach(key => {
         if (key == '#text') {
             delete temp['#text'];

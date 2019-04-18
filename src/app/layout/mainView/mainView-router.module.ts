@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { ReportGenerationComponent } from './reportGeneration/reportGeneration.component';
 import { WelcomComponent } from './welcomeScreen/welcomeScreen.component';
+import { EquipmentGenerationComponent } from './equipmentGeneration/equipmentGeneration.component';
 
 const mainViewRoutes: Routes = [
     {
@@ -12,6 +13,10 @@ const mainViewRoutes: Routes = [
     {
         path: 'generate-report',
         component: ReportGenerationComponent
+    },
+    {
+        path: 'generate-report-equipment',
+        component: EquipmentGenerationComponent
     },
     {
         path: 'welcome',
