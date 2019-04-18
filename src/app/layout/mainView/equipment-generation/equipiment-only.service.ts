@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { TableSplitService, TableData } from 'src/app/shared/table/table-split.service';
-import { trimNameSpace } from '../reportGeneration/imperial-data-processing.service';
+import { trimNameSpace } from '../report-generation/imperial-data-processing.service';
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable()
 export class EquipmentService {
     constructor (
         private _tableService: TableSplitService

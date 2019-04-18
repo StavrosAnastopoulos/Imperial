@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { DrawingCanvasService } from 'src/app/shared/canvas/drawing-canvas.service';
+import { DrawingCanvasService } from 'src/app/layout/mainView/invoice-check/canvas/drawing-canvas.service';
 import { MatBottomSheet } from '@angular/material';
 import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
 import { InvoiceCheckService } from './invoice-check.service';
 import { LocaleService } from 'src/app/shared/locale.service';
 
 @Component({
-templateUrl: 'invoiceCheck.component.html',
-styleUrls: ['invoiceCheck.component.scss']
+templateUrl: 'invoice-check.component.html',
+styleUrls: ['invoice-check.component.scss']
 })
 export class InvoiceCheckComponent {
   constructor(

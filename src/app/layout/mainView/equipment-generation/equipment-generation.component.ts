@@ -3,7 +3,7 @@ import { NgxXml2jsonService } from 'ngx-xml2json';
 import { EquipmentService } from './equipiment-only.service';
 
 @Component({
-    templateUrl: 'equipmentGeneration.component.html'
+    templateUrl: 'equipment-generation.component.html'
 })
 export class EquipmentGenerationComponent {
 

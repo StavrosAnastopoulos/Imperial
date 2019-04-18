@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { LanguagePack, LanguagePacks } from '../language-packs/locales';
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable()
 export class LocaleService {
 
     private headers: LanguagePack;

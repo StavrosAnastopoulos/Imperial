@@ -1,10 +1,10 @@
 import { TableInfoComponent } from './table/tableInfo.component';
-import { PdfViewerComponent } from './pdf-renderer/pdf-viewer.component';
-import { RenderingCanvasComponent } from './canvas/rendering-canvas.component';
-import { DrawingCanvasComponent } from './canvas/drawing-canvas.component';
 import { TableInfoPipe, TableHeaderPipe, VehicleTypePipe } from './table/tableInfo.pipe';
 import { TextAreaComponent } from './text-area/text-area.component';
 import { LanguagePickerComponent } from './language-picker/language-picker.component';
+import { ReportTitleComponent } from './title/report-title.component';
+import { ImageFileService } from './imageFiles.service';
+import { LocaleService } from './locale.service';
 
 export const Pipes = [
     TableInfoPipe,
@@ -15,8 +15,11 @@ export const Pipes = [
 export const Components = [
     TextAreaComponent,
     TableInfoComponent,
-    PdfViewerComponent,
-    RenderingCanvasComponent,
-    DrawingCanvasComponent,
-    LanguagePickerComponent
+    LanguagePickerComponent,
+    ReportTitleComponent
+];
+
+export const Services = [
+    ImageFileService,
+    LocaleService
 ];

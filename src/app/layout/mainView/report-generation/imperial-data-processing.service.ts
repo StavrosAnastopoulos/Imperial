@@ -25,9 +25,7 @@ const labourReplacement = {
     'MECHANIC': 'MechanicalSystems | header'
 };
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable()
 export class ImperialDataProcessingService {
 
     constructor (

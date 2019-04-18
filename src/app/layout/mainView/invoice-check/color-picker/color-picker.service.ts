@@ -1,12 +1,8 @@
 import { Injectable } from '@angular/core';
-
 import { Cmyk, Rgba, Hsla, Hsva } from './formats';
-
 import { ColorPickerComponent } from './color-picker.component';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ColorPickerService {
   private active: ColorPickerComponent | null = null;
 

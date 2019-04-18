@@ -3,7 +3,6 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import * as Material from './material-index';
 import * as Shared from './index';
-import * as ColorPicker from './color-picker/index';
 
 @NgModule({
     imports: [
@@ -14,19 +13,14 @@ import * as ColorPicker from './color-picker/index';
     declarations: [
         Shared.Components,
         Shared.Pipes,
-        ColorPicker.Directives,
-        ColorPicker.Components
     ],
+    providers : [Shared.Services],
     exports: [
         CommonModule,
         FormsModule,
         Material.Modules,
         Shared.Components,
         Shared.Pipes,
-        ColorPicker.Directives
-    ],
-    entryComponents: [
-        ColorPicker.Components
     ]
 })
 export class SharedModule {}
