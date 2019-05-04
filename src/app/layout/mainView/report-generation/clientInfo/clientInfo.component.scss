@@ -14,6 +14,7 @@ table {
             text-align: left;
             font-size: 13px;
             width: 20%;
+            padding-left: 3px;
             &:not(:last-child) {
                 border-right: 1px solid black;
             }
@@ -32,9 +33,6 @@ table {
             td {
                 padding: 0;
             }
-            th {
-                padding-left: 3px;
-            }
             input {
                 width: -webkit-fill-available;
                 height: 100%;
@@ -48,7 +46,7 @@ table {
             }
         }
         @media print {
-            th, td {
+            td {
                 padding-left: 3px;
             }
             input {

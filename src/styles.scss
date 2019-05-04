@@ -1,10 +1,9 @@
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-/* You can add global styles to this file, and also import other style files */
 @page 
     {
-        size: A4;   /* auto is the initial value */
-        margin: 15px;  /* this affects the margin in the printer settings */
+        size: A4;
+        margin: 15px;
     }
 
 @media print {
@@ -40,8 +39,9 @@ html {
 }
 
 body {
-    margin: 0;
+    margin: auto;
     overscroll-behavior: none;
+    width: 21cm;
 }
 
 .mat-checkbox-checked .mat-checkbox-background {
@@ -72,7 +72,7 @@ body {
         width: -webkit-fill-available;
         background-color: white;
         top: 0;
-        margin-left: -20px;
+        left: 0;
         z-index: 500;
     }
     .tool-bar > * {
