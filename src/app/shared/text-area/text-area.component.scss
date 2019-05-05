@@ -1,5 +1,6 @@
 textarea {
     width: calc(100% - 7px);
+    max-width: 21cm;
     resize: none;
     border: 1px solid transparent;
     &:focus,
