@@ -205,7 +205,7 @@ export class ImperialDataProcessingService {
          }
 
          // summary
-         const summary = data['RepairCalculation']['CalculationSummary'];
+         const summary = (data['RepairCalculation'] || {})['CalculationSummary'];
          if (summary && Object.keys(summary).length > 0) {
 
             const sparepats = summary['SparePartsCosts'];
@@ -216,33 +216,46 @@ export class ImperialDataProcessingService {
                 sparePartTotal = sparepats['TotalSum'];
             }
 
-            labourSumTotal = summary['LabourCosts']['TotalSum'];
-            delete summary['LabourCosts']['TotalSum'];
-            Object.keys(summary['LabourCosts']).forEach(key => labourSum.push(summary['LabourCosts'][key]));
-            labourSum.forEach((element: any) => {
-                element['Description'] = labourReplacement[element['Type']];
-                element['Duration'] = element['Units'];
-                element['ValueTotalCorrected'] = element['Price'];
-            });
-
-            summary['LacquerCosts']['Wage']['Description'] = 'Wage | header';
-            lacquerSum.push(summary['LacquerCosts']['Wage']);
-            lacquerSum.push(...summary['LacquerCosts']['Material']['LacquerConstants']['LacquerConstant']);
-            let lacquerMaterialGroupSummary = summary['LacquerCosts']['Material']['MaterialGroups']['LacquerMaterialGroupSummary'];
-            if (lacquerMaterialGroupSummary) {
-                if (!lacquerMaterialGroupSummary.length) {
-                    lacquerMaterialGroupSummary = [lacquerMaterialGroupSummary];
-                }
-                lacquerMaterialGroupSummary.forEach((item: any) => item['Description'] = item['Name']);
-                lacquerSum.push(...lacquerMaterialGroupSummary);
+            if (summary['LabourCosts']) {
+                labourSumTotal = summary['LabourCosts']['TotalSum'];
+                delete summary['LabourCosts']['TotalSum'];
+                Object.keys(summary['LabourCosts']).forEach(key => labourSum.push(summary['LabourCosts'][key]));
+                labourSum.forEach((element: any) => {
+                    element['Description'] = labourReplacement[element['Type']];
+                    element['Duration'] = element['Units'];
+                    element['ValueTotalCorrected'] = element['Price'];
+                });
             }
 
-            lacquerSum.forEach((element: any) => {
-                element['Duration'] = element['Units'];
-                element['ValueTotalCorrected'] = element['Price'];
-            });
+            if (summary['LacquerCosts']) {
+                if (summary['LacquerCosts']['Wage']) {
+                    summary['LacquerCosts']['Wage']['Description'] = 'Wage | header';
+                    lacquerSum.push(summary['LacquerCosts']['Wage']);
+                }
+                if (summary['LacquerCosts']['Material']) {
+                    if ((summary['LacquerCosts']['Material']['LacquerConstants'] || {})['LacquerConstant']) {
+                        lacquerSum.push(...summary['LacquerCosts']['Material']['LacquerConstants']['LacquerConstant']);
+                    }
+                    if ((summary['LacquerCosts']['Material']['MaterialGroups'] || {})['LacquerMaterialGroupSummary']) {
+                        let lacquerMaterialGroupSummary =
+                        summary['LacquerCosts']['Material']['MaterialGroups']['LacquerMaterialGroupSummary'];
+                        if (lacquerMaterialGroupSummary) {
+                            if (!lacquerMaterialGroupSummary.length) {
+                                lacquerMaterialGroupSummary = [lacquerMaterialGroupSummary];
+                            }
+                            lacquerMaterialGroupSummary.forEach((item: any) => item['Description'] = item['Name']);
+                            lacquerSum.push(...lacquerMaterialGroupSummary);
+                        }
+                    }
+                }
 
-            lacquerSumTotal = summary['LacquerCosts']['TotalSum'];
+                lacquerSum.forEach((element: any) => {
+                    element['Duration'] = element['Units'];
+                    element['ValueTotalCorrected'] = element['Price'];
+                });
+
+                lacquerSumTotal = summary['LacquerCosts']['TotalSum'];
+            }
 
             finalSum = [
                 {
