@@ -9,6 +9,7 @@ import { LocaleService } from '../locale.service';
 })
 export class TableInfoComponent {
     @Input() data: TableData;
+    @Input() cssClass = '';
 
     constructor(public localeService: LocaleService) {}
 

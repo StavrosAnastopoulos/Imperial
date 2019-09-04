@@ -21,6 +21,11 @@ export class ReportGenerationComponent {
 
     imageAlbum = [];
 
+    logoPath = 'assets/img/Logo_Imp_D_P.jpg';
+    logoDims = [700, 65];
+    tableCss = 'imperial-table';
+    checkboxCss = 'imperial-checkboxes';
+
     constructor(
         private ngxXml2jsonService: NgxXml2jsonService,
         private _imageParser: ImageFileService,

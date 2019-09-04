@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { LocaleService } from 'src/app/shared/locale.service';
+import { LocaleService } from '../locale.service';
 
 @Component({
     selector: 'client-info',

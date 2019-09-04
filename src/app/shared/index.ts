@@ -5,6 +5,8 @@ import { LanguagePickerComponent } from './language-picker/language-picker.compo
 import { ReportTitleComponent } from './title/report-title.component';
 import { ImageFileService } from './imageFiles.service';
 import { LocaleService } from './locale.service';
+import { ClientInfoComponent } from './clientInfo/clientInfo.component';
+import { DamageCardComponent } from './damageCard/damage-card.component';
 
 export const Pipes = [
     TableInfoPipe,
@@ -16,7 +18,7 @@ export const Components = [
     TextAreaComponent,
     TableInfoComponent,
     LanguagePickerComponent,
-    ReportTitleComponent
+    ReportTitleComponent, ClientInfoComponent, DamageCardComponent
 ];
 
 export const Services = [

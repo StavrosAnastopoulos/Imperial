@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ReportGenerationComponent } from './report-generation.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { ImperialDataProcessingService } from './imperial-data-processing.service';
+import { DekraReportGenerationComponent } from './dekra-report-generation.component';
+import { ImperialDataProcessingService } from '../report-generation/imperial-data-processing.service';
 
 const routes: Routes = [
     {
         path: '',
-        component: ReportGenerationComponent
+        component: DekraReportGenerationComponent
     }
 ];
 
@@ -19,7 +19,7 @@ export class RoutingModule {}
 
 @NgModule({
     imports: [SharedModule, RoutingModule],
-    declarations: [ReportGenerationComponent],
+    declarations: [DekraReportGenerationComponent],
     providers: [ImperialDataProcessingService]
 })
-export class ReportGenerationModule {}
+export class DekraReportGenerationModule {}

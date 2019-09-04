@@ -17,8 +17,8 @@
     <div *ngIf="dataProcessed">
         
         <imp-report-title
-            imgPath="assets/img/Logo_Imp_D_P.jpg"
-            [dims]="[700, 65]"
+            [imgPath]="logoPath"
+            [dims]="logoDims"
             title="DamageInspectionTitle"
         ></imp-report-title>
         
@@ -30,13 +30,14 @@
             [vehicleInfo]="data.vehicleInfo"
         ></client-info>
 
-        <imp-damage-card></imp-damage-card>
+        <imp-damage-card [cssClass]="checkboxCss"></imp-damage-card>
             
         <div *ngFor="let page of data.pages">
             <p style="page-break-before: always">
                 <div *ngFor="let table of page">
                         <imp-table-info
-                        [data]="table">
+                        [data]="table"
+                        [cssClass]="tableCss">
                     </imp-table-info>
                 </div>
         </div>

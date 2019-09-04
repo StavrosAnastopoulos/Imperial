@@ -1,4 +1,4 @@
-<div style="margin-bottom: 10px;">
+<div [ngClass]="cssClass" style="margin-bottom: 10px;">
     <table *ngIf="data.title" style="width: 100%">
         <tr>
             <th [innerHtml]="data.title | header: localeService.locale"></th>

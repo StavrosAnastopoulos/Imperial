@@ -161,3 +161,51 @@ body {
       }
     }
   }
+
+  .imperial-table {
+    table{
+        border: 1px solid black;
+        background-color: rgb(110, 26, 23);
+        tr {
+            color: white;
+            th {
+                text-align: start;
+                
+            }
+        }
+    }
+  }
+
+  .imperial-checkboxes {
+    .mat-checkbox-checked .mat-checkbox-background {
+        background-color: rgb(110, 26, 23) !important;
+    }
+    
+    .mat-ripple-element {
+        background-color: rgba(110, 26, 23, 0.4) !important;
+    }    
+  }
+
+  .dekra-table {
+    table{
+        border: 1px solid black;
+        background-color: rgb(1, 131, 67);
+        tr {
+            color: white;
+            th {
+                text-align: start;
+                
+            }
+        }
+    }
+  }
+
+  .dekra-checkboxes {
+    .mat-checkbox-checked .mat-checkbox-background {
+        background-color: rgb(1, 131, 67) !important;
+    }
+    
+    .mat-ripple-element {
+        background-color: rgba(1, 131, 67, 0.4) !important;
+    }    
+  }

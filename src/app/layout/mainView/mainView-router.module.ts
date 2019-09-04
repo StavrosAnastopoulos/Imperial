@@ -12,6 +12,10 @@ const mainViewRoutes: Routes = [
         loadChildren: './report-generation/report-generation.module#ReportGenerationModule'
     },
     {
+        path: 'generate-report-dekra',
+        loadChildren: './dekra-report-generation/dekra-report-generation.module#DekraReportGenerationModule'
+    },
+    {
         path: 'generate-report-equipment',
         loadChildren: './equipment-generation/equipment-generation.module#EquipmentReportModule'
     },
