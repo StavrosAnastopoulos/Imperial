@@ -7,6 +7,7 @@ import { ReportGenerationComponent } from '../report-generation/report-generatio
 })
 export class DekraReportGenerationComponent extends ReportGenerationComponent {
     logoPath = 'assets/img/dekra-logo.jpg';
+    logoDims = [400, 65];
     tableCss = 'dekra-table';
     checkboxCss = 'dekra-checkboxes';
 }
