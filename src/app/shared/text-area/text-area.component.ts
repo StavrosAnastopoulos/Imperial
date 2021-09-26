@@ -9,15 +9,15 @@ import { Component, ViewChild, ElementRef, AfterViewInit, Input, Output, EventEm
     styleUrls: ['text-area.component.scss']
 })
 export class TextAreaComponent implements AfterViewInit {
-    @ViewChild('textarea') public textarea: ElementRef;
+    @ViewChild('textarea', { static: true }) public textarea: ElementRef | null = null;
     private textareaEl: any;
     @Input() value: any;
-    @Input() placeholder: string;
+    @Input() placeholder: string = '';
     @Output() valueChanged = new EventEmitter<any>();
     constructor() {}
 
     ngAfterViewInit(): void {
-        this.textareaEl = this.textarea.nativeElement;
+        this.textareaEl = this.textarea?.nativeElement;
     }
 
     public adjust = () => {

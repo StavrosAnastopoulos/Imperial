@@ -1,9 +1,8 @@
 <div [matMenuTriggerFor]="langMenu"><mat-icon>language</mat-icon></div>
 
 <mat-menu #langMenu="matMenu">
-    <button *ngFor="let lang of languages"
-        mat-menu-item
-        (click)="_localService.setLocal(lang.key)"
-        [class.active]="_localService.locale == lang.key"
+    <button *ngFor="let lang of languages" mat-menu-item
+        (click)="translateService.use(lang.key)"
+        [class.active]="translateService.currentLang == lang.key"
     >{{lang.value}}</button>
 </mat-menu>

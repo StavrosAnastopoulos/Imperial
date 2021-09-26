@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="flex row tool-bar hide-print">
+        <div class="mr-auto" [routerLink]="['/welcome']"><mat-icon>first_page</mat-icon></div>
+        <div class="" (click)="openComments()"><mat-icon>chat</mat-icon></div>
+        <div (click)="_drawService.notifyEditModeChanged(1)"><mat-icon [style.color]="_drawService.activeEditMode == 1 ? '#2f84ec' : '#000'">gesture</mat-icon></div>
+        <div (click)="_drawService.notifyEditModeChanged(2)"><mat-icon [style.color]="_drawService.activeEditMode == 2 ? '#2f84ec' : '#000'">crop_free</mat-icon></div>
+        <div><mat-icon 
+            [style.color]="_drawService.activeColor"
+            [cpPosition]="'bottom'"
+            [cpPositionOffset]="'-500px'"
+            [(colorPicker)]="_drawService.activeColor"
+            (colorPickerChange)="_drawService.notifyColorChange($event)">palette</mat-icon></div>
+        <imp-lang-picker></imp-lang-picker>
+        <div class="mr-auto" (click)="print()"><mat-icon>print</mat-icon></div>
+    </div>
+    <imp-cover-page></imp-cover-page>
+    <div class="flex row sp-between invoiceContainer">
+        <imp-invoice-element class="invoiceItemContainer" inputId="left" [label]="'invoice' | translate"></imp-invoice-element>
+        <imp-invoice-element class="invoiceItemContainer" inputId="right" [label]="'inspection' | translate"></imp-invoice-element>
+    </div>
+</div>

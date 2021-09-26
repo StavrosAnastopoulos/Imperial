@@ -1,20 +1,28 @@
 import { Injectable } from '@angular/core';
 
+export interface Cell {
+    value: any;
+    isAsync?: boolean;
+    width?: number;
+}
+
+export interface Row {
+    type: 'header' | 'row';
+    cells: Cell[];
+}
+
 export interface TableData {
-    pointers: [];
-    source: [];
+    rows: Row[];
     title: string;
     price: number;
 }
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class TableSplitService {
-    maxRows: number;
-    newTableRows: number;
-    currentRow: number;
-    tablesPerPage: TableData[];
+    maxRows: number = 0;
+    newTableRows: number = 0;
+    currentRow: number = 0;
+    tablesPerPage: TableData[] = [];
     pages: any;
 
     startSession = (maxPageRows = 33, newTableIntend = 3) => {
@@ -42,7 +50,7 @@ export class TableSplitService {
     }
 
     addTable = (data: TableData) => {
-        const length = data.source ? data.source.length : 2;
+        const length = data.rows ? data.rows.length : 2;
         this.currentRow += this.newTableRows;
         if (this.currentRow + length <= this.maxRows) {
             this.tablesPerPage.push(data);
@@ -54,15 +62,15 @@ export class TableSplitService {
             }
         } else {
             const interim = this.currentRow + length - this.maxRows;
-            const tempIn = data.source.splice(length - interim);
+            const tempIn = data.rows.splice(length - interim);
             this.tablesPerPage.push(data);
             this.currentRow = 0;
             this.pages.push(this.tablesPerPage);
             this.tablesPerPage = [];
             this.addTable(<TableData>{
-                source: tempIn,
-                pointers: data.pointers,
-                title: data.title
+                rows: tempIn,
+                title: data.title,
+                price: data.price
             });
         }
     }

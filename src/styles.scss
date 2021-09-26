@@ -1,211 +1,279 @@
-@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import "@angular/material/prebuilt-themes/deeppurple-amber.css";
 
-@page 
-    {
-        size: A4;
-        margin: 15px;
-    }
+@page {
+  size: A4;
+  margin: 15px;
+}
 
 @media print {
-    body {
-        -webkit-print-color-adjust: exact !important;
-        height: 90%;
-        margin-bottom: 80px;
-        padding-bottom: 80px;
-    }
+  body {
+    -webkit-print-color-adjust: exact !important;
+    height: 90%;
+    margin-bottom: 80px;
+    padding-bottom: 80px;
+  }
 
-    #border {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        // border: 2px solid rgb(110, 26, 23);
-        border: 2px solid rgb(1, 131, 67);
-    }
-    
-    header, footer, .hide-print{
-        display: none !important;
-    }
+  #border {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    // border: 2px solid rgb(110, 26, 23);
+    border: 2px solid rgb(1, 131, 67);
+  }
 
-    .img-print {
-        padding-top: 40px;
-        padding-bottom: 60px;
-    }
+  header,
+  footer,
+  .hide-print {
+    display: none !important;
+  }
+
+  .img-print {
+    padding-top: 40px;
+    padding-bottom: 60px;
+  }
 }
 
 html {
-    font-family: Roboto,"Helvetica Neue",sans-serif;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 body {
-    margin: auto;
-    overscroll-behavior: none;
+  margin: auto;
+  overscroll-behavior: none;
 }
 
 .mat-checkbox-checked .mat-checkbox-background {
-    background-color: rgb(110, 26, 23) !important;
+  background-color: rgb(110, 26, 23) !important;
 }
 
 .mat-ripple-element {
-    background-color: rgba(110, 26, 23, 0.4) !important;
+  background-color: rgba(110, 26, 23, 0.4) !important;
 }
 
 .inputFile {
-    width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
 }
 .inputFile + label {
-	cursor: pointer;
+  cursor: pointer;
 }
 .container {
-    padding: 20px 20px;
+  padding: 20px 20px;
 
-    .tool-bar {
-        border-bottom: 1px solid black;
-        position: fixed;
-        width: -webkit-fill-available;
-        background-color: white;
-        top: 0;
-        left: 0;
-        z-index: 500;
-    }
-    .tool-bar > * {
-        margin: 10px;
-        width: fit-content;
-        cursor: pointer;
-    }
+  .tool-bar {
+    border-bottom: 1px solid black;
+    position: fixed;
+    width: -webkit-fill-available;
+    background-color: white;
+    top: 0;
+    left: 0;
+    z-index: 500;
+  }
+  .tool-bar > * {
+    margin: 10px;
+    width: fit-content;
+    cursor: pointer;
+  }
 }
 
 .flex {
-    display: -webkit-box; 
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex; 
-    display: flex;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
 }
 
 .row {
-    flex-flow: row nowrap;
+  flex-flow: row nowrap;
 }
 
 .column {
-    flex-flow: column nowrap;
+  flex-flow: column nowrap;
 }
 
 .row-wrap {
-    flex-flow: row wrap;
+  flex-flow: row wrap;
 }
 
 .column-wrap {
-    flex-flow: column wrap;
+  flex-flow: column wrap;
 }
 
 .sp-between {
-    justify-content: space-between;
+  justify-content: space-between;
 }
 
 .sp-around {
-    justify-content: space-around;
+  justify-content: space-around;
 }
 
 .ml-auto {
-    margin-left: auto !important;
+  margin-left: auto !important;
 }
 
 .mr-auto {
-    margin-right: auto !important;
+  margin-right: auto !important;
 }
 
 .mat-menu-panel {
-    box-shadow: none !important;
-    border: #000 solid 1px !important;
-    border-radius: 2px !important;
-    max-height: 300px !important;
-    .mat-menu-content {
-        padding-top: 0 !important;
-        padding-bottom: 0 !important;
-        .mat-menu-item {
-            line-height: 40px;
-            height: 40px;
-        }
-        button {
-            &.active {
-                background-color: rgba(110, 26, 23, 0.2) !important;
-            }
-            &:hover {
-                background-color: rgba(110, 26, 23, 0.4) !important;
-            }
-        }
+  box-shadow: none !important;
+  border: #000 solid 1px !important;
+  border-radius: 2px !important;
+  max-height: 300px !important;
+  .mat-menu-content {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    .mat-menu-item {
+      line-height: 40px;
+      height: 40px;
     }
-}
-
-.cdk-overlay-container {
-    z-index: 2000 !important;
-    ::-webkit-scrollbar {
-      width: 10px;
-      height: 10px;
-    }
-    ::-webkit-scrollbar-track {
-      background-color: transparent;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: rgba(black, 0.5);
+    button {
+      &.active {
+        background-color: rgba(110, 26, 23, 0.2) !important;
+      }
       &:hover {
-        cursor: pointer !important;
-        background: rgba(110, 26, 23, 0.5);
+        background-color: rgba(110, 26, 23, 0.4) !important;
       }
     }
   }
+}
 
-  .imperial-table {
-    table{
+.cdk-overlay-container {
+  z-index: 2000 !important;
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(black, 0.5);
+    &:hover {
+      cursor: pointer !important;
+      background: rgba(110, 26, 23, 0.5);
+    }
+  }
+}
+
+.imperial-table {
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    tr {
+      width: 100%;
+      align-items: center;
+      background-attachment: scroll;
+      background-clip: border-box;
+      border-bottom-color: rgb(0, 0, 0);
+      border-bottom-style: solid;
+      border-bottom-width: 1px;
+      border-collapse: collapse;
+      border-left-color: rgb(0, 0, 0);
+      border-left-style: solid;
+      border-left-width: 1px;
+      border-right-color: rgb(0, 0, 0);
+      border-right-style: solid;
+      border-right-width: 1px;
+      border-top-style: solid;
+      border-top-width: 0px;
+      box-sizing: border-box;
+      display: flex;
+      th,
+      td {
+        &:not(:last-child) {
+          border-right: 1px solid black;
+        }
+        overflow-wrap: break-word;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        padding-left: 3px;
+        padding-right: 24px;
+        text-align: left;
+        align-items: center;
+        border-collapse: collapse;
+        display: flex;
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0;
+      }
+      &.overview {
+        text-align: left;
         border: 1px solid black;
         background-color: rgb(110, 26, 23);
-        tr {
-            color: white;
-            th {
-                text-align: start;
-                
-            }
+        color: white;
+        height: 25px;
+        th {
+          border-width: 0;
+          align-items: start;
         }
-    }
-  }
-
-  .imperial-checkboxes {
-    .mat-checkbox-checked .mat-checkbox-background {
-        background-color: rgb(110, 26, 23) !important;
-    }
-    
-    .mat-ripple-element {
-        background-color: rgba(110, 26, 23, 0.4) !important;
-    }    
-  }
-
-  .dekra-table {
-    table{
-        border: 1px solid black;
-        background-color: rgb(1, 131, 67);
-        tr {
-            color: white;
-            th {
-                text-align: start;
-                
-            }
+      }
+      &.header {
+        background-color: rgb(255, 255, 224);
+        border-top-width: 1px;
+        font-family: 'Roboto, "Helvetica Neue", sans-serif';
+        height: 37px;
+        min-height: 35px;
+        th {
+          color: rgb(0, 0, 0);
+          font-family: 'Roboto, "Helvetica Neue", sans-serif';
+          font-size: 12px;
+          font-weight: 600;
+          height: 35px;
+          min-height: 35px;
         }
+      }
+      &.row {
+        background-color: rgb(255, 255, 255);
+        height: 31px;
+        min-height: 30px;
+        td {
+          color: rgba(0, 0, 0, 0.87);
+          font-size: 10px;
+          height: 30px;
+          min-height: 30px;
+        }
+      }
     }
+  }
+}
+
+.imperial-checkboxes {
+  .mat-checkbox-checked .mat-checkbox-background {
+    background-color: rgb(110, 26, 23) !important;
   }
 
-  .dekra-checkboxes {
-    .mat-checkbox-checked .mat-checkbox-background {
-        background-color: rgb(1, 131, 67) !important;
-    }
-    
-    .mat-ripple-element {
-        background-color: rgba(1, 131, 67, 0.4) !important;
-    }    
+  .mat-ripple-element {
+    background-color: rgba(110, 26, 23, 0.4) !important;
   }
+}
+
+.dekra-table {
+  table {
+    border: 1px solid black;
+    background-color: rgb(1, 131, 67);
+    tr {
+      color: white;
+      th {
+        text-align: start;
+      }
+    }
+  }
+}
+
+.dekra-checkboxes {
+  .mat-checkbox-checked .mat-checkbox-background {
+    background-color: rgb(1, 131, 67) !important;
+  }
+
+  .mat-ripple-element {
+    background-color: rgba(1, 131, 67, 0.4) !important;
+  }
+}

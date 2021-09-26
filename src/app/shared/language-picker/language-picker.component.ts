@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { LocaleService } from '../locale.service';
-import { Languages } from 'src/app/language-packs/locales';
+import { TranslateService } from '@ngx-translate/core';
+import { Languages } from '../../language-packs/locales';
 
 @Component({
     selector: 'imp-lang-picker',
@@ -8,5 +8,5 @@ import { Languages } from 'src/app/language-packs/locales';
 })
 export class LanguagePickerComponent {
     public languages = Languages;
-    constructor(public _localService: LocaleService) {}
+    constructor(public translateService: TranslateService) {}
 }

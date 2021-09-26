@@ -1,18 +1,29 @@
-<div [ngClass]="cssClass" style="margin-bottom: 10px;">
-    <table *ngIf="data.title" style="width: 100%">
-        <tr>
-            <th [innerHtml]="data.title | header: localeService.locale"></th>
-            <th *ngIf="data.price" style="text-align: end" [innerHtml]="data.price | convert"></th>
+<div *ngIf="data" [ngClass]="cssClass" style="margin-bottom: 10px;">
+    <table>
+        <tr *ngIf="data.title" class="overview">
+            <th>{{data.title | translate}}</th>
+            <th *ngIf="data.price" style="justify-content: end">{{data.price | precision:2}}</th>
         </tr>
-    </table>
-    <mat-table *ngIf="data.source" [dataSource]=data.source>
-        <ng-container *ngFor="let header of data.pointers" [matColumnDef]="header" style="page-break-before:always;">
-            <mat-header-cell *matHeaderCellDef [innerHtml]="header | header: localeService.locale"></mat-header-cell>
-            <mat-cell *matCellDef="let element" [innerHtml]="element[header] | convert: localeService.locale">
-            </mat-cell>
+        <ng-container *ngFor="let entry of data.rows">
+            <ng-container *ngIf="entry.type == 'header'">
+                <tr class="header">
+                    <th *ngFor="let cell of entry.cells" [style.flex-basis.%]="cell.width || 0">
+                        {{cell.value | translate}}
+                    </th>
+                </tr>
+            </ng-container>
+            <ng-container *ngIf="entry.type == 'row'">
+                <tr class="row">
+                    <td *ngFor="let cell of entry.cells" [style.flex-basis.%]="cell.width || 0">
+                        <ng-container *ngIf="cell.isAsync; else sync">
+                            {{cell.value | async | precision:2}}
+                        </ng-container>
+                        <ng-template #sync>
+                            {{cell.value | precision:2}}
+                        </ng-template>
+                    </td>
+                </tr>
+            </ng-container>
         </ng-container>
-    
-        <mat-header-row *matHeaderRowDef="data.pointers"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: data.pointers;"></mat-row>
-    </mat-table>
+    </table>
 </div>

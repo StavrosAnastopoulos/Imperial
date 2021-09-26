@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { LocaleService } from 'src/app/shared/locale.service';
 
 @Component({
     selector: 'imp-report-title',
@@ -7,9 +6,7 @@ import { LocaleService } from 'src/app/shared/locale.service';
     styleUrls: ['report-title.component.scss']
 })
 export class ReportTitleComponent {
-    @Input() imgPath: string;
-    @Input() dims: [number, number];
-    @Input() title: string;
-
-    constructor(public localeService: LocaleService) {}
+    @Input() imgPath: string = '';
+    @Input() dims: [number, number] = [0, 0];
+    @Input() title: string = '';
 }

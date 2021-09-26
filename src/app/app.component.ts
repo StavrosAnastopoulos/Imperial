@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Imperial';
+  constructor(private traslateService: TranslateService) {
+    this.traslateService.setDefaultLang('en');
+    this.traslateService.use('en');
+  }
 }
