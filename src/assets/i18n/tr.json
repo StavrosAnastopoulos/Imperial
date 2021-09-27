@@ -39,4 +39,11 @@
     "SumBlockLacquer": "Boyama Hesap Özeti",
     "TotalAuxiliaryCost": "Yan giderler toplamı",
     "AuxiliaryCost": "Yan giderler",
+    "wageCost": "İşçilik",
+    "laquerWork": "tamir İşçilik",
+    "material": "Malzeme",
+    "sumMaterialUnits": "Malzeme noktası toplamı",
+    "materialUnitPrice": "Malzeme noktası başına",
+    "LACQUER MATERIAL OVERHAULING": "Yeni parça",
+    "LACQUER MATERIAL REPLACEMENT": "Onarım"
 }

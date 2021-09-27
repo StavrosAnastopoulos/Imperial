@@ -38,5 +38,12 @@
     "SumBlockWage": "Междинна сума труд",
     "SumBlockLacquer": "Междинна сума боядисване",
     "TotalAuxiliaryCost": "Сума съпътстващи разходи",
-    "AuxiliaryCost": "Съпътстващи разходи"
+    "AuxiliaryCost": "Съпътстващи разходи",
+    "wageCost": "Труд",
+    "laquerWork": " Repair труд",
+    "material": "Материали",
+    "sumMaterialUnits": "Сума материални точки",
+    "materialUnitPrice": "Цена за материална точка",
+    "LACQUER MATERIAL OVERHAULING": "Нов детайл",
+    "LACQUER MATERIAL REPLACEMENT": "Възстановяване"
 }

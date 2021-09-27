@@ -39,4 +39,11 @@
     "SumBlockLacquer": "Fényezés összesen",
     "TotalAuxiliaryCost": "Mellékköltségek összesen",
     "AuxiliaryCost": "Mellékköltség",
+    "wageCost": "Munkadíj",
+    "laquerWork": "Spot fényezési munkadíj",
+    "material": "Anyag",
+    "sumMaterialUnits": "Anyagegység összesen",
+    "materialUnitPrice": "Ár/anyagegység",
+    "LACQUER MATERIAL OVERHAULING": "Új elem fényezés",
+    "LACQUER MATERIAL REPLACEMENT": "Javító fényezés"
 }

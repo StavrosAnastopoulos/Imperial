@@ -39,4 +39,11 @@
     "SumBlockLacquer": "Totale importo Verniciatura",
     "TotalAuxiliaryCost": "Totale spese accessorie",
     "AuxiliaryCost": "Spese accessorie",
+    "wageCost": "Manodopera",
+    "laquerWork": "Manodopera Repair",
+    "material": "Materiale",
+    "sumMaterialUnits": "Somma punti materiale",
+    "materialUnitPrice": "Prezzo secondo il punto",
+    "LACQUER MATERIAL OVERHAULING": "pezzo nuovo",
+    "LACQUER MATERIAL REPLACEMENT": "riparazione"
 }

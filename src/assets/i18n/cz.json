@@ -39,4 +39,11 @@
     "SumBlockLacquer": "Lakování úhrnem",
     "TotalAuxiliaryCost": "Vedlejší náklady celkem",
     "AuxiliaryCost": "Vedlejší náklady",
+    "wageCost": "Mzda",
+    "laquerWork": "Mzda za bod. opravu",
+    "material": "Materiál",
+    "sumMaterialUnits": "Materiál. body celkem",
+    "materialUnitPrice": "Cena za materiál. bod",
+    "LACQUER MATERIAL OVERHAULING": "Nový díl",
+    "LACQUER MATERIAL REPLACEMENT": "Oprava"
 }

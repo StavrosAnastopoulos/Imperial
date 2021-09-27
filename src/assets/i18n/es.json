@@ -39,4 +39,11 @@
     "SumBlockLacquer": "Bloque pintura",
     "TotalAuxiliaryCost": "Total gastos adicionales",
     "AuxiliaryCost": "Costes auxiliares",
+    "wageCost": "Mano de obra",
+    "laquerWork": "Reparación-puntos, mano de obra",
+    "material": "Materiales",
+    "sumMaterialUnits": "Suma puntos-material",
+    "materialUnitPrice": "Precio por punto de",
+    "LACQUER MATERIAL OVERHAULING": "Pieza nueva",
+    "LACQUER MATERIAL REPLACEMENT": "Reparación"
 }

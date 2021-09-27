@@ -39,4 +39,11 @@
     "SumBlockLacquer": "Somme totale peinture",
     "TotalAuxiliaryCost": "Total frais supplémentaires",
     "AuxiliaryCost": "Frais supplémentaires",
+    "wageCost": "MO",
+    "laquerWork": "MO Repair",
+    "material": "Ingrédient",
+    "sumMaterialUnits": "Total ingrédients",
+    "materialUnitPrice": "Prix par Point Ingrédients",
+    "LACQUER MATERIAL OVERHAULING": "Pièce neuve",
+    "LACQUER MATERIAL REPLACEMENT": "Remise en état"
 }

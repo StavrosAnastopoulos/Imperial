@@ -39,4 +39,11 @@
     "SumBlockLacquer": "Somoverzicht spuitwerkzaamheden",
     "TotalAuxiliaryCost": "Totaalbedrag bijkomende kosten",
     "AuxiliaryCost": "Bijkomende kosten / werkzaamheden",
+    "wageCost": "Arbeidsloon",
+    "laquerWork": "Arbeidsloon Spotrepair",
+    "material": "Materiaal",
+    "sumMaterialUnits": "Som materiaalpunten",
+    "materialUnitPrice": "Prijs per materiaalpunt",
+    "LACQUER MATERIAL OVERHAULING": "Nieuw onderdeel",
+    "LACQUER MATERIAL REPLACEMENT": "Herstellen"
 }

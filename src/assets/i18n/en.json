@@ -89,5 +89,12 @@
     "invoice": "Invoice",
     "inspection": "Inspection",
     "invoiceComparisonTitle": "INVOICE CHECK FOR CAR INSPECTION",
-    "invoiceComparisonComments": "INSPECTION COMMENTS"
+    "invoiceComparisonComments": "INSPECTION COMMENTS",
+    "wageCost": "Labour costs",
+    "laquerWork": "repair labour costs",
+    "material": "Material",
+    "sumMaterialUnits": "Sum of material points",
+    "materialUnitPrice": "Price per material point ",
+    "LACQUER MATERIAL OVERHAULING": "New part",
+    "LACQUER MATERIAL REPLACEMENT": "Repairs"
 }

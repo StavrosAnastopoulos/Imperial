@@ -39,4 +39,11 @@
     "SumBlockLacquer": "Bloc Vopsitorie",
     "TotalAuxiliaryCost": "Total Costuri Auxiliare",
     "AuxiliaryCost": "Costuri Auxiliare",
+    "wageCost": "Manopera",
+    "laquerWork": "Manopera Repair",
+    "material": "Material",
+    "sumMaterialUnits": "Total Puncte Material",
+    "materialUnitPrice": "Pret per Punct de Material ",
+    "LACQUER MATERIAL OVERHAULING": "Piesa Noua",
+    "LACQUER MATERIAL REPLACEMENT": "Reparare"
 }

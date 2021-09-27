@@ -39,4 +39,11 @@
     "SumBlockLacquer": "Podsumowanie - lakierowanie",
     "TotalAuxiliaryCost": "Suma - Koszty dodatkowe",
     "AuxiliaryCost": "Koszty dodatkowe",
+    "wageCost": "Roboc.",
+    "laquerWork": "Robocizna napr.",
+    "material": "Materiał",
+    "sumMaterialUnits": "Suma punktów",
+    "materialUnitPrice": "Cena za punkt materiałowy",
+    "LACQUER MATERIAL OVERHAULING": "Cz. nowa",
+    "LACQUER MATERIAL REPLACEMENT": "Naprawcze"
 }

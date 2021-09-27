@@ -39,4 +39,11 @@
     "SumBlockLacquer": "Малярные работы",
     "TotalAuxiliaryCost": "Итого дополнительные затраты",
     "AuxiliaryCost": "Дополнительные затраты",
+    "wageCost": "Работы",
+    "laquerWork": "Работы Repair",
+    "material": "Материалы",
+    "sumMaterialUnits": "Итого единиц материалов",
+    "materialUnitPrice": "Стоимость единицы",
+    "LACQUER MATERIAL OVERHAULING": "Новая деталь",
+    "LACQUER MATERIAL REPLACEMENT": "Ремонт"
 }
