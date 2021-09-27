@@ -2,7 +2,7 @@
 
 <mat-menu #langMenu="matMenu">
     <button *ngFor="let lang of languages" mat-menu-item
-        (click)="translateService.use(lang.key)"
+        (click)="this.translateService.use(lang.key)"
         [class.active]="translateService.currentLang == lang.key"
     >{{lang.value}}</button>
 </mat-menu>

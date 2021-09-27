@@ -10,7 +10,9 @@ import { PdfViewerComponent } from './pdf-renderer/pdf-viewer.component';
 import { RenderingCanvasComponent } from './canvas/rendering-canvas.component';
 import { DrawingCanvasComponent } from './canvas/drawing-canvas.component';
 import * as ColorPicker from './color-picker';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
 
 const routes: Routes = [
     {
@@ -25,8 +27,23 @@ const routes: Routes = [
 })
 export class RoutingModule {}
 
+export function createTranslateLoader(http: HttpClient) {
+    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+  
 @NgModule({
-    imports: [SharedModule, RoutingModule, TranslateModule.forChild({ extend: true })],
+    imports: [
+        RoutingModule,
+        TranslateModule.forChild({
+            extend: true,
+            loader: {
+                provide: TranslateLoader,
+                useFactory: (createTranslateLoader),
+                deps: [HttpClient]
+            }
+        }),
+        SharedModule
+    ],
     declarations: [
         InvoiceCheckComponent,
         InvoicePanelComponent,

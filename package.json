@@ -8,8 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "ng build --prod --base-href=\"https://StavrosAnastopoulos.github.io/Imperial/\" && ngh --dir=dist/Imperial",
-    "bundle-report": "ng build --prod --stats-json && webpack-bundle-analyzer dist/Imperial/stats.json"
+    "deploy": "ng build --configuration production --base-href=\"https://StavrosAnastopoulos.github.io/Imperial/\" && ngh --dir=dist",
+    "bundle-report": "ng build --configuration production --stats-json && webpack-bundle-analyzer dist/Imperial/stats.json"
   },
   "private": true,
   "dependencies": {
@@ -24,7 +24,7 @@
     "@angular/platform-browser-dynamic": "12.2.7",
     "@angular/router": "12.2.7",
     "@ngx-translate/core": "13.0.0",
-    "@ngx-translate/http-loader": "^6.0.0",
+    "@ngx-translate/http-loader": "6.0.0",
     "hammerjs": "2.0.8",
     "ngx-xml2json": "1.0.2",
     "pdfjs-dist": "2.9.359",

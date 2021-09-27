@@ -8,8 +8,8 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent {
   title = 'Imperial';
-  constructor(private traslateService: TranslateService) {
-    this.traslateService.setDefaultLang('en');
-    this.traslateService.use('en');
+  constructor(private translateService: TranslateService) {
+    this.translateService.setDefaultLang('el');
+    this.translateService.use('el');
   }
 }

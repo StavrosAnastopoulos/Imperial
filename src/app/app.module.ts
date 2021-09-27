@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FooterModule } from './footer/footer.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
-export function HttpLoaderFactory(http: HttpClient) {
+export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
@@ -19,12 +19,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppRoutingModule,
     FooterModule,
     TranslateModule.forRoot({
+      defaultLanguage: 'el',
       loader: {
         provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
+        useFactory: (createTranslateLoader),
         deps: [HttpClient]
       },
-      defaultLanguage: 'en'
     })
   ],
   declarations: [ AppComponent, DashboardComponent ],

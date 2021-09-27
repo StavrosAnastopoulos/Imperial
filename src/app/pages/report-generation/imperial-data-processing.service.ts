@@ -56,7 +56,13 @@ export class ImperialDataProcessingService {
         }
 
         // client info page
-        this.translateService.use(data['Language'] || 'en');
+        let lang = data['Language'];
+        if (!lang || lang == 'el_GR') {
+            lang = 'el';
+        }
+        if (lang != this.translateService.currentLang) {
+            this.translateService.use(lang);
+        }
         this.currency = (data['Currency'] || 'EUR');
         
         additionalInfo['Name'] = data['Name'];
