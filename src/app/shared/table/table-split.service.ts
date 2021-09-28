@@ -9,6 +9,7 @@ export interface Cell {
 export interface Row {
     type: 'header' | 'row';
     cells: Cell[];
+    persist?: boolean;
 }
 
 export interface TableData {
@@ -63,12 +64,20 @@ export class TableSplitService {
         } else {
             const interim = this.currentRow + length - this.maxRows;
             const tempIn = data.rows.splice(length - interim);
+            let persistRow: Row | null = null;
+            for (let i = data.rows.length - 1; i >= 0; i--) {
+                if (data.rows[i].persist) {
+                    persistRow = data.rows[i];
+                    break;
+                }
+            }
+            const rows = persistRow ? [persistRow, ...tempIn] : tempIn;
             this.tablesPerPage.push(data);
             this.currentRow = 0;
             this.pages.push(this.tablesPerPage);
             this.tablesPerPage = [];
             this.addTable(<TableData>{
-                rows: tempIn,
+                rows,
                 title: data.title,
                 price: data.price
             });

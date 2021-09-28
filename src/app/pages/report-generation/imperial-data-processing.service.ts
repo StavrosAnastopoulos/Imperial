@@ -81,7 +81,7 @@ export class ImperialDataProcessingService {
             this._tableService.addTable(<TableData>{
                 title: 'SeriesEquipment',
                 rows: [
-                    {type: 'header', cells: [{value: 'Description'}]},
+                    {type: 'header', persist: true, cells: [{value: 'Description'}]},
                     ...eqPos.map(e => ({type: 'row', cells: [{value: e.Description}]}))
                 ]
             });
@@ -94,7 +94,7 @@ export class ImperialDataProcessingService {
             this._tableService.addTable(<TableData>{
                 title: 'SpecialEquipment',
                 rows: [
-                    {type: 'header', cells: [{value: 'Description'}]},
+                    {type: 'header', persist: true, cells: [{value: 'Description'}]},
                     ...eqPos.map(e => ({type: 'row', cells: [{value: e.Description}]}))
                 ]
             });
@@ -123,7 +123,7 @@ export class ImperialDataProcessingService {
                     this._tableService.addTable(<TableData>{
                         title: 'SpareParts',
                         rows: [
-                            {type: 'header', cells: [{value: 'PartNumber'}, {value: 'Description', width: 40}, {value: 'ValuePerUnit'}, {value: 'Amount'}, {value: 'ValueTotalCorrected'}]},
+                            {type: 'header', persist: true, cells: [{value: 'PartNumber'}, {value: 'Description', width: 40}, {value: 'ValuePerUnit'}, {value: 'Amount'}, {value: 'ValueTotalCorrected'}]},
                             ...(materialInfo as any[]).map(e =>
                                 ({type: 'row', cells: [{value: e['PartNumber']}, {value: e['Description'], width: 40}, {value: e['ValuePerUnit']}, {value: e['Amount']}, {value: e['ValueTotalCorrected']}]})
                             )
@@ -149,7 +149,7 @@ export class ImperialDataProcessingService {
                     this._tableService.addTable(<TableData>{
                         title: 'AdditionalCosts',
                         rows:[
-                            {type: 'header', cells: [{value: 'Description', width: 40}, {value: 'ValueTotalCorrected'}]},
+                            {type: 'header', persist: true, cells: [{value: 'Description', width: 40}, {value: 'ValueTotalCorrected'}]},
                             ...(additionalCostsInfo as any[]).map(e =>
                                 ({type: 'row', cells: [{value: e['Description'], width: 40}, {value: e['ValueTotalCorrected']}]})
                             )
@@ -163,20 +163,37 @@ export class ImperialDataProcessingService {
             // -- Labour Positions
             try {
                 let labourInfo = (details['LabourPositions'] || {})['LabourPosition'];
+                const rows: Row[] = [];
                 if (labourInfo) {
                     if (!labourInfo.length) {
                         labourInfo = [labourInfo];
                     }
-                    this._tableService.addTable(<TableData>{
-                        title: 'Labour',
-                        rows: [
-                            {type: 'header', cells: [{value: 'LabourPosId'}, {value: 'Description', width: 40}, {value: 'WageLevel'}, {value: 'Duration'}, {value: 'ValueTotalCorrected'}]},
-                            ...(labourInfo as any[]).map(e =>
-                                ({type: 'row', cells: [{value: e['LabourPosId']}, {value: e['Description'], width: 40}, {value: e['WageLevel']}, {value: e['Duration']}, {value: e['ValueTotalCorrected']}]})
-                            )
-                        ]
-                    });
+                    rows.push({type: 'header', persist: true, cells: [{value: 'LabourPosId'}, {value: 'Description', width: 40}, {value: 'WageLevel'}, {value: 'Duration'}, {value: 'ValueTotalCorrected'}]});
+                    for (const e of labourInfo) {
+                        rows.push({type: 'row', cells: [{value: e['LabourPosId']}, {value: e['Description'], width: 40}, {value: e['WageLevel']}, {value: e['Duration']}, {value: e['ValueTotalCorrected']}]});
+                    }
                 }
+
+                // -- Dent Positions
+                try {
+                    let dentInfo = (details['LabourPositions'] || {})['DentBvatPosition'];
+                    console.log(JSON.parse(JSON.stringify(dentInfo)));
+                    if (dentInfo) {
+                        if (!dentInfo.length) {
+                            dentInfo = [dentInfo];
+                        }
+                        rows.push({type: 'header', persist: true, cells: [{value: 'PAINTLESS_DENT_REPAIR_HALL_DAMAGE_CENTRE'}]});
+                        rows.push({type: 'header', persist: true, cells: [{value: 'Description', width: 40}, {value: 'Duration'}, {value: 'ValueTotalCorrected'}]});
+                        for (const e of dentInfo) {
+                            rows.push({type: 'row', cells: [{value: e['Description'], width: 40}, {value: e['Amount']}, {value: e['Duration']}, {value: e['ValueTotalCorrected']}]});
+                        }
+                    }
+                } catch (e) {
+                    console.log('could not read Dent Positions');
+                }
+
+                this._tableService.addTable(<TableData>{ title: 'Labour', rows });
+
             } catch (e) {
                 console.log('could not read Labour Positions');
             }
@@ -195,7 +212,7 @@ export class ImperialDataProcessingService {
                     this._tableService.addTable(<TableData>{
                         title: 'Lacquer',
                         rows: [
-                            {type: 'header', cells: [{value: 'WageLevel'}, {value: 'Description', width: 40}, {value: 'Material'}, {value: 'Duration'}, {value: 'WagePrice'}, {value: 'ValueTotalCorrected'}]},
+                            {type: 'header', persist: true, cells: [{value: 'WageLevel'}, {value: 'Description', width: 40}, {value: 'Material'}, {value: 'Duration'}, {value: 'WagePrice'}, {value: 'ValueTotalCorrected'}]},
                             ...(lacquerInfo as any[]).map(e =>
                                 ({type: 'row', cells: [{value: e['WageLevel']}, {value: e['Description'], width: 40},{value:  e['Material']}, {value: e['Duration']}, {value: e['WagePrice']}, {value: e['ValueTotalCorrected']}]})
                             )
@@ -216,7 +233,7 @@ export class ImperialDataProcessingService {
                     this._tableService.addTable(<TableData>{
                         title: 'Discount',
                         rows: [
-                            {type: 'header', cells: [{value: 'Description', width: 40}, {value: 'BaseValue'}, {value: 'CorrectionPercentage'}, {value: 'ValueTotalCorrected'}]},
+                            {type: 'header', persist: true, cells: [{value: 'Description', width: 40}, {value: 'BaseValue'}, {value: 'CorrectionPercentage'}, {value: 'ValueTotalCorrected'}]},
                             ...(discountInfo as any[]).map(e =>
                                 ({type: 'row', cells: [{value: e['Description'], width: 40}, {value: e['BaseValue']}, {value: e['CorrectionPercentage']}, {value: e['CorrectionValue']}]})
                             )
@@ -251,7 +268,7 @@ export class ImperialDataProcessingService {
                         title: 'SumBlockSpareParts',
                         price: sparePartTotal,
                         rows: [
-                            {type: 'header', cells: [{value: 'Description', width: 40}, {value: 'AllSum'}, {value: 'ConsumablesSurcharge'}, {value: 'ValueTotalCorrected'}]},
+                            {type: 'header', persist: true, cells: [{value: 'Description', width: 40}, {value: 'AllSum'}, {value: 'ConsumablesSurcharge'}, {value: 'ValueTotalCorrected'}]},
                             {type: 'row', cells: [{value: this.translateService.stream('SparePartsSum'), width: 40, isAsync: true}, {value: sparepats['AllSum']}, {value: sparepats['ConsumablesSurcharge']}, {value: sparepats['TotalSum']}]}
                         ]
                     });
@@ -272,7 +289,7 @@ export class ImperialDataProcessingService {
                         title: 'SumBlockWage',
                         price: labourSumTotal,
                         rows: [
-                            {type: 'header', cells: [{value: 'Description', width: 40}, {value: 'Duration'}, {value: 'PricePerUnit'}, {value: 'ValueTotalCorrected'}]},
+                            {type: 'header', persist: true, cells: [{value: 'Description', width: 40}, {value: 'Duration'}, {value: 'PricePerUnit'}, {value: 'ValueTotalCorrected'}]},
                             ...labourSum.map(e =>
                                 ({type: 'row', cells: [{value: this.translateService.stream(e['Type']), width: 40, isAsync: true}, {value: e['Units']}, {value: e['PricePerUnit']}, {value: e['Price']}]})
                             )
@@ -291,13 +308,13 @@ export class ImperialDataProcessingService {
 
                     const wage = summary['LacquerCosts']['Wage'];
                     if (wage != null) {
-                        rows.push({type: 'header', cells: [{value: 'wageCost', width: 40}, {value: 'Duration'}, {value: 'PricePerUnit'}, {value: 'ValueTotalCorrected'}]});
+                        rows.push({type: 'header', persist: true, cells: [{value: 'wageCost', width: 40}, {value: 'Duration'}, {value: 'PricePerUnit'}, {value: 'ValueTotalCorrected'}]});
                         rows.push({type: 'row', cells: [{value: this.translateService.stream('laquerWork'), width: 40, isAsync: true}, {value: wage['Unit']}, {value: wage['PricePerUnit']}, {value: wage['Price']}]});
                     }
 
                     const material = summary['LacquerCosts']['Material'];
                     if (material != null) {
-                        rows.push({type: 'header', cells: [{value: 'material', width: 40}, {value: 'sumMaterialUnits'}, {value: 'materialUnitPrice'}, {value: 'ValueTotalCorrected'}]})
+                        rows.push({type: 'header', persist: true, cells: [{value: 'material', width: 40}, {value: 'sumMaterialUnits'}, {value: 'materialUnitPrice'}, {value: 'ValueTotalCorrected'}]})
                         const constant = (material['LacquerConstants'] || {})['LacquerConstant'];
                         delete material['LacquerConstants'];
                         const overhauling = summary['LacquerCosts']['Material']['Overhauling'];
@@ -339,7 +356,7 @@ export class ImperialDataProcessingService {
 
             // -- Final Summary
             try {
-                const rows: Row[] = [{type: 'header', cells: [{value: 'Description', width: 40}, {value: 'TotalNetCosts'}, {value: 'TotalVAT'}, {value: 'TotalGrossCosts'}]}];
+                const rows: Row[] = [{type: 'header', persist: true, cells: [{value: 'Description', width: 40}, {value: 'TotalNetCosts'}, {value: 'TotalVAT'}, {value: 'TotalGrossCosts'}]}];
                 rows.push({type: 'row', cells: [{value: this.translateService.stream('RepairCost'), width: 40, isAsync: true}, {value: summary['TotalNetCosts']}, {value: summary['TotalVAT']}, {value: summary['TotalGrossCosts']}]});
                 if (summary['TotalNetDiscount']) {
                     rows.push({type: 'row', cells: [{value: this.translateService.stream('Discount'), width: 40, isAsync: true}, {value: summary['TotalNetDiscount']}, {value: summary['TotalVATDiscount']}, {value: summary['TotalGrossDiscount']}]});

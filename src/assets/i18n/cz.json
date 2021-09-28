@@ -45,5 +45,7 @@
     "sumMaterialUnits": "Materiál. body celkem",
     "materialUnitPrice": "Cena za materiál. bod",
     "LACQUER MATERIAL OVERHAULING": "Nový díl",
-    "LACQUER MATERIAL REPLACEMENT": "Oprava"
+    "LACQUER MATERIAL REPLACEMENT": "Oprava",
+    "PAINTLESS_DENT_REPAIR_HALL_DAMAGE_CENTRE": "Oprava bez lakování: Metoda 'Centrum pro škody způsobené kroupami'",
+    "MUBER_OF_DENTS": "Počet důlků"
 }

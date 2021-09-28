@@ -25,7 +25,7 @@ export class EquipmentService {
             this._tableService.addTable(<TableData>{
                 title: 'SeriesEquipment',
                 rows: [
-                    {type: 'header', cells: [{value: 'Description'}]},
+                    {type: 'header', persist: true, cells: [{value: 'Description'}]},
                     ...eqPos.map(e => ({type: 'row', cells: [{value: e.Description}]}))
                 ]
             });
@@ -38,7 +38,7 @@ export class EquipmentService {
             this._tableService.addTable(<TableData>{
                 title: 'SpecialEquipment',
                 rows: [
-                    {type: 'header', cells: [{value: 'Description'}]},
+                    {type: 'header', persist: true, cells: [{value: 'Description'}]},
                     ...eqPos.map(e => ({type: 'row', cells: [{value: e.Description}]}))
                 ]
             });
