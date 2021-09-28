@@ -183,7 +183,7 @@ export class ImperialDataProcessingService {
                             dentInfo = [dentInfo];
                         }
                         rows.push({type: 'header', persist: true, cells: [{value: 'PAINTLESS_DENT_REPAIR_HALL_DAMAGE_CENTRE'}]});
-                        rows.push({type: 'header', persist: true, cells: [{value: 'Description', width: 40}, {value: 'Duration'}, {value: 'ValueTotalCorrected'}]});
+                        rows.push({type: 'header', persist: true, cells: [{value: 'Description', width: 40}, {value: "MUBER_OF_DENTS"}, {value: 'Duration'}, {value: 'ValueTotalCorrected'}]});
                         for (const e of dentInfo) {
                             rows.push({type: 'row', cells: [{value: e['Description'], width: 40}, {value: e['Amount']}, {value: e['Duration']}, {value: e['ValueTotalCorrected']}]});
                         }
