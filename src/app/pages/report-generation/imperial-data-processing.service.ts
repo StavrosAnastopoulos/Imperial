@@ -177,7 +177,6 @@ export class ImperialDataProcessingService {
                 // -- Dent Positions
                 try {
                     let dentInfo = (details['LabourPositions'] || {})['DentBvatPosition'];
-                    console.log(JSON.parse(JSON.stringify(dentInfo)));
                     if (dentInfo) {
                         if (!dentInfo.length) {
                             dentInfo = [dentInfo];
