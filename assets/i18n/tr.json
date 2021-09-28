@@ -45,5 +45,7 @@
     "sumMaterialUnits": "Malzeme noktası toplamı",
     "materialUnitPrice": "Malzeme noktası başına",
     "LACQUER MATERIAL OVERHAULING": "Yeni parça",
-    "LACQUER MATERIAL REPLACEMENT": "Onarım"
+    "LACQUER MATERIAL REPLACEMENT": "Onarım",
+    "PAINTLESS_DENT_REPAIR_HALL_DAMAGE_CENTRE": "Boyaya zarar vermeden onarım: 'Dolu hasarı merkezi' yöntemi",
+    "MUBER_OF_DENTS": "Göçük sayısı"
 }

@@ -96,5 +96,7 @@
     "sumMaterialUnits": "Sum of material points",
     "materialUnitPrice": "Price per material point ",
     "LACQUER MATERIAL OVERHAULING": "New part",
-    "LACQUER MATERIAL REPLACEMENT": "Repairs"
+    "LACQUER MATERIAL REPLACEMENT": "Repairs",
+    "PAINTLESS_DENT_REPAIR_HALL_DAMAGE_CENTRE": "Paintless dent repair: method 'Hail damage centre'",
+    "MUBER_OF_DENTS": "Number of dents"
 }
