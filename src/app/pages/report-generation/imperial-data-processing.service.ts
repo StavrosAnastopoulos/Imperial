@@ -314,7 +314,7 @@ export class ImperialDataProcessingService {
                     const material = summary['LacquerCosts']['Material'];
                     if (material != null) {
                         rows.push({type: 'header', persist: true, cells: [{value: 'material', width: 40}, {value: 'sumMaterialUnits'}, {value: 'materialUnitPrice'}, {value: 'ValueTotalCorrected'}]})
-                        const constant = (material['LacquerConstants'] || {})['LacquerConstant'];
+                        let constant = (material['LacquerConstants'] || {})['LacquerConstant'];
                         delete material['LacquerConstants'];
                         const overhauling = summary['LacquerCosts']['Material']['Overhauling'];
                         if (overhauling != null) {
@@ -339,7 +339,15 @@ export class ImperialDataProcessingService {
                             }
                         }
                         if (constant != null) {
-                            rows.push({type: 'row', cells: [{value: constant['Description'], width: 40}, {value: '-'}, {value: '-'}, {value: constant['Price']}]})
+                            if (!constant.length) {
+                                constant = [constant];
+                            }
+
+                            rows.push(
+                                ...(constant as any[]).map(e =>
+                                    ({type: 'row' as 'row', cells: [{value: e['Description'], width: 40}, {value: '-'}, {value: '-'}, {value: e['Price']}]})
+                                )
+                            );
                         }
                     }
 
