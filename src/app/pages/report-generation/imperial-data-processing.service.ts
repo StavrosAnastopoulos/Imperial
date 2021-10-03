@@ -316,6 +316,10 @@ export class ImperialDataProcessingService {
                         rows.push({type: 'header', persist: true, cells: [{value: 'material', width: 40}, {value: 'sumMaterialUnits'}, {value: 'materialUnitPrice'}, {value: 'ValueTotalCorrected'}]})
                         let constant = (material['LacquerConstants'] || {})['LacquerConstant'];
                         delete material['LacquerConstants'];
+                        const surface = summary['LacquerCosts']['Material']['Surface'];
+                        if (surface != null) {
+                            rows.push({type: 'row', cells: [{value: this.translateService.stream(surface['Type']), width: 40, isAsync: true}, {value: surface['Unit']}, {value: surface['PricePerUnit']}, {value: surface['Price']}]});
+                        }
                         const overhauling = summary['LacquerCosts']['Material']['Overhauling'];
                         if (overhauling != null) {
                             rows.push({type: 'row', cells: [{value: this.translateService.stream(overhauling['Type']), width: 40, isAsync: true}, {value: overhauling['Unit']}, {value: overhauling['PricePerUnit']}, {value: overhauling['Price']}]});
