@@ -94,9 +94,9 @@
     "material": "Υλικά",
     "sumMaterialUnits": "Σύνολο μονάδων υλικού",
     "materialUnitPrice": "Τιμή ανά μονάδα υλικού",
-    "LACQUER MATERIAL OVERHAULING": "Καινούργιο εξάρτημα",
+    "LACQUER MATERIAL OVERHAULING": "Επισκευή",
     "LACQUER MATERIAL SURFACE": "Επιφάνεια",
-    "LACQUER MATERIAL REPLACEMENT": "Επισκευή",
+    "LACQUER MATERIAL REPLACEMENT": "Καινούργιο εξάρτημα",
     "PAINTLESS_DENT_REPAIR_HALL_DAMAGE_CENTRE": "Επισκευή χωρίς ζημιά στη βαφή: Μέθοδος 'Κέντρο ζημιών από χαλάζι'",
     "MUBER_OF_DENTS": "Αριθμός βαθουλωμάτων"
 }
