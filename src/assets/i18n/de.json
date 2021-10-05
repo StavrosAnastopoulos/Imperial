@@ -44,9 +44,9 @@
     "material": "Material",
     "sumMaterialUnits": "Summe Materialpunkte",
     "materialUnitPrice": "Preis je Materialpunkt",
-    "LACQUER MATERIAL OVERHAULING": "Neuteil",
+    "LACQUER MATERIAL OVERHAULING": "Instandsetzung",
     "LACQUER MATERIAL SURFACE": "Oberfläche",
-    "LACQUER MATERIAL REPLACEMENT": "Instandsetzung",
+    "LACQUER MATERIAL REPLACEMENT": "Neuteil",
     "PAINTLESS_DENT_REPAIR_HALL_DAMAGE_CENTRE": "Lackschadenfreie Reparatur: Methode 'Hagelschadenzentrum'",
     "MUBER_OF_DENTS": "Dellen Anzahl"
 }
