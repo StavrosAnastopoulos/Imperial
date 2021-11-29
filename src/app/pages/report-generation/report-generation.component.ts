@@ -23,8 +23,8 @@ export class ReportGenerationComponent {
 
     imageAlbum: SafeResourceUrl[] = [];
 
-    logoPath = 'assets/img/Logo_Imp_D_P.jpg';
-    logoDims = [700, 65];
+    logoPath = 'assets/img/Dekra_Logo.png';
+    logoDims = [600, 93];
     tableCss = 'imperial-table';
     checkboxCss = 'imperial-checkboxes';
 
