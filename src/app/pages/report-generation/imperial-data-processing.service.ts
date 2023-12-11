@@ -205,7 +205,7 @@ export class ImperialDataProcessingService {
                         lacquerInfo = [lacquerInfo];
                     }
                     lacquerInfo.forEach((item: any) => {
-                        item['WagePrice'] = (repaireWages['Lacquer'] || 30) * item['Duration'];
+                        item['WagePrice'] = (repaireWages?.['Lacquer'] || 30) * item['Duration'];
                         item['WageLevel'] = item['LabourPosId'];
                     });
                     this._tableService.addTable(<TableData>{
@@ -281,9 +281,9 @@ export class ImperialDataProcessingService {
                 if (summary['LabourCosts']) {
                     let labourSumTotal = summary['LabourCosts']['TotalSum'];
                     delete summary['LabourCosts']['TotalSum'];
+                    delete summary['LabourCosts']['Works'];
                     const labourSum: any[] = [];
                     Object.keys(summary['LabourCosts']).forEach(key => labourSum.push(summary['LabourCosts'][key]));
-
                     this._tableService.addTable(<TableData>{
                         title: 'SumBlockWage',
                         price: labourSumTotal,
@@ -308,7 +308,7 @@ export class ImperialDataProcessingService {
                     const wage = summary['LacquerCosts']['Wage'];
                     if (wage != null) {
                         rows.push({type: 'header', persist: true, cells: [{value: 'wageCost', width: 40}, {value: 'Duration'}, {value: 'PricePerUnit'}, {value: 'ValueTotalCorrected'}]});
-                        rows.push({type: 'row', cells: [{value: this.translateService.stream('laquerWork'), width: 40, isAsync: true}, {value: wage['Unit']}, {value: wage['PricePerUnit']}, {value: wage['Price']}]});
+                        rows.push({type: 'row', cells: [{value: this.translateService.stream('laquerWork'), width: 40, isAsync: true}, {value: wage['Units']}, {value: wage['PricePerUnit']}, {value: wage['Price']}]});
                     }
 
                     const material = summary['LacquerCosts']['Material'];
@@ -318,15 +318,15 @@ export class ImperialDataProcessingService {
                         delete material['LacquerConstants'];
                         const surface = summary['LacquerCosts']['Material']['Surface'];
                         if (surface != null) {
-                            rows.push({type: 'row', cells: [{value: this.translateService.stream(surface['Type']), width: 40, isAsync: true}, {value: surface['Unit']}, {value: surface['PricePerUnit']}, {value: surface['Price']}]});
+                            rows.push({type: 'row', cells: [{value: this.translateService.stream(surface['Type']), width: 40, isAsync: true}, {value: surface['Units']}, {value: surface['PricePerUnit']}, {value: surface['Price']}]});
                         }
                         const overhauling = summary['LacquerCosts']['Material']['Overhauling'];
                         if (overhauling != null) {
-                            rows.push({type: 'row', cells: [{value: this.translateService.stream(overhauling['Type']), width: 40, isAsync: true}, {value: overhauling['Unit']}, {value: overhauling['PricePerUnit']}, {value: overhauling['Price']}]});
+                            rows.push({type: 'row', cells: [{value: this.translateService.stream(overhauling['Type']), width: 40, isAsync: true}, {value: overhauling['Units']}, {value: overhauling['PricePerUnit']}, {value: overhauling['Price']}]});
                         }
                         const replacement = summary['LacquerCosts']['Material']['Replacement'];
                         if (replacement != null) {
-                            rows.push({type: 'row', cells: [{value: this.translateService.stream(replacement['Type']), width: 40, isAsync: true}, {value: replacement['Unit']}, {value: replacement['PricePerUnit']}, {value: replacement['Price']}]});
+                            rows.push({type: 'row', cells: [{value: this.translateService.stream(replacement['Type']), width: 40, isAsync: true}, {value: replacement['Units']}, {value: replacement['PricePerUnit']}, {value: replacement['Price']}]});
                         }
                         if ((summary['LacquerCosts']['Material']['MaterialGroups'] || {})['LacquerMaterialGroupSummary']) {
                             let lacquerMaterialGroupSummary =
@@ -337,7 +337,7 @@ export class ImperialDataProcessingService {
                                 }
                                 rows.push(
                                     ...(lacquerMaterialGroupSummary as any[]).map(e =>
-                                        ({type: 'row' as 'row', cells: [{value: e['Name'], width: 40}, {value: e['Unit']}, {value: e['PricePerUnit']}, {value: e['Price']}]})
+                                        ({type: 'row' as 'row', cells: [{value: e['Name'], width: 40}, {value: e['Units']}, {value: e['PricePerUnit']}, {value: e['Price']}]})
                                     )
                                 );
                             }
