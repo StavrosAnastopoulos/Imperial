@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "ng build --configuration production --base-href=\"https://StavrosAnastopoulos.github.io/Imperial/\" && ngh --dir=dist",
+    "deploy": "ng build --configuration production --base-href=\"https://StavrosAnastopoulos.github.io/Imperial/\" && npx gh-pages -d dist",
     "bundle-report": "ng build --configuration production --stats-json && webpack-bundle-analyzer dist/Imperial/stats.json"
   },
   "private": true,
@@ -37,6 +37,7 @@
     "@angular/compiler-cli": "12.2.0",
     "@types/jasmine": "3.6.0",
     "@types/node": "12.11.1",
+    "gh-pages": "^6.1.0",
     "jasmine-core": "3.7.0",
     "karma": "^6.4.2",
     "karma-chrome-launcher": "3.1.0",
