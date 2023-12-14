@@ -58,9 +58,6 @@ export function createTranslateLoader(http: HttpClient) {
     providers: [
         InvoiceCheckService,
         ColorPicker.Services
-    ],
-    entryComponents: [
-        ColorPicker.Components
     ]
 })
 export class InvoiceCheckModule {}
