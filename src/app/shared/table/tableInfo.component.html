@@ -1,5 +1,5 @@
 <div *ngIf="data" [ngClass]="cssClass" style="margin-bottom: 10px;">
-    <table>
+    <table class="imp-table">
         <tr *ngIf="data.title" class="overview">
             <th>{{data.title | translate}}</th>
             <th *ngIf="data.price" style="justify-content: end">{{data.price | precision:2}}</th>

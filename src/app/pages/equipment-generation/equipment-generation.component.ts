@@ -1,12 +1,26 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { NgFor, NgIf } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 import { NgxXml2jsonService } from 'ngx-xml2json';
 import { EquipmentService } from './equipiment-only.service';
+import { TableInfoComponent } from 'src/app/shared/table/tableInfo.component';
+import { LanguagePickerComponent } from 'src/app/shared/language-picker/language-picker.component';
 
 @Component({
+    standalone: true,
     selector: 'imp-equipment-generation',
     templateUrl: 'equipment-generation.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: [EquipmentService]
+    providers: [EquipmentService],
+    imports: [
+        NgIf,
+        NgFor,
+        RouterModule,
+        MatIconModule,
+        TableInfoComponent,
+        LanguagePickerComponent,
+    ]
 })
 export class EquipmentGenerationComponent {
     public fileName: string = 'No file chosen';

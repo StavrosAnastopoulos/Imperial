@@ -1,14 +1,34 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
+import { NgFor, NgIf } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 import { SafeResourceUrl } from '@angular/platform-browser';
 import { NgxXml2jsonService } from 'ngx-xml2json';
 import { ImperialDataProcessingService } from './imperial-data-processing.service';
-import { ImageFileService } from '../../shared/imageFiles.service';
+import { ImageFileService } from 'src/app/shared/imageFiles.service';
+import { LanguagePickerComponent } from 'src/app/shared/language-picker/language-picker.component';
+import { ReportTitleComponent } from 'src/app/shared/title/report-title.component';
+import { ClientInfoComponent } from 'src/app/shared/client-info/client-info.component';
+import { DamageCardComponent } from 'src/app/shared/damage-card/damage-card.component';
+import { TableInfoComponent } from 'src/app/shared/table/tableInfo.component';
 
 @Component({
+    standalone: true,
     templateUrl: 'report-generation.component.html',
     styleUrls: ['report-generation.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [ImperialDataProcessingService, ImageFileService],
+    imports: [
+        NgIf,
+        NgFor,
+        RouterModule,
+        MatIconModule,
+        LanguagePickerComponent,
+        ReportTitleComponent,
+        ClientInfoComponent,
+        DamageCardComponent,
+        TableInfoComponent,
+    ]
 })
 export class ReportGenerationComponent {
 

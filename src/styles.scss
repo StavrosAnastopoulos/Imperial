@@ -19,7 +19,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    // border: 2px solid rgb(110, 26, 23);
+    // border: 2px solid rgb(156, 30, 61);
     border: 2px solid rgb(1, 131, 67);
   }
 
@@ -45,11 +45,11 @@ body {
 }
 
 .mat-checkbox-checked .mat-checkbox-background {
-  background-color: rgb(110, 26, 23) !important;
+  background-color: rgb(156, 30, 61) !important;
 }
 
 .mat-ripple-element {
-  background-color: rgba(110, 26, 23, 0.4) !important;
+  background-color: rgba(156, 30, 61, 0.4) !important;
 }
 
 .inputFile {
@@ -136,10 +136,10 @@ body {
     }
     button {
       &.active {
-        background-color: rgba(110, 26, 23, 0.2) !important;
+        background-color: rgba(156, 30, 61, 0.2) !important;
       }
       &:hover {
-        background-color: rgba(110, 26, 23, 0.4) !important;
+        background-color: rgba(156, 30, 61, 0.4) !important;
       }
     }
   }
@@ -158,101 +158,13 @@ body {
     background: rgba(black, 0.5);
     &:hover {
       cursor: pointer !important;
-      background: rgba(110, 26, 23, 0.5);
+      background: rgba(156, 30, 61, 0.5);
     }
   }
 }
 
 .imperial-table {
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    tr {
-      width: 100%;
-      align-items: center;
-      background-attachment: scroll;
-      background-clip: border-box;
-      border-bottom-color: rgb(0, 0, 0);
-      border-bottom-style: solid;
-      border-bottom-width: 1px;
-      border-collapse: collapse;
-      border-left-color: rgb(0, 0, 0);
-      border-left-style: solid;
-      border-left-width: 1px;
-      border-right-color: rgb(0, 0, 0);
-      border-right-style: solid;
-      border-right-width: 1px;
-      border-top-style: solid;
-      border-top-width: 0px;
-      box-sizing: border-box;
-      display: flex;
-      th,
-      td {
-        &:not(:last-child) {
-          border-right: 1px solid black;
-        }
-        overflow-wrap: break-word;
-        overflow-x: hidden;
-        overflow-y: hidden;
-        padding-left: 3px;
-        padding-right: 24px;
-        text-align: left;
-        align-items: center;
-        border-collapse: collapse;
-        display: flex;
-        flex-grow: 1;
-        flex-shrink: 1;
-        flex-basis: 0;
-      }
-      &.overview {
-        text-align: left;
-        border: 1px solid black;
-        background-color: rgb(110, 26, 23);
-        color: white;
-        height: 25px;
-        th {
-          border-width: 0;
-          align-items: start;
-        }
-      }
-      &.header {
-        background-color: rgb(255, 255, 224);
-        border-top-width: 1px;
-        font-family: 'Roboto, "Helvetica Neue", sans-serif';
-        height: 37px;
-        min-height: 35px;
-        th {
-          color: rgb(0, 0, 0);
-          font-family: 'Roboto, "Helvetica Neue", sans-serif';
-          font-size: 12px;
-          font-weight: 600;
-          height: 35px;
-          min-height: 35px;
-        }
-      }
-      &.row {
-        background-color: rgb(255, 255, 255);
-        height: 31px;
-        min-height: 30px;
-        td {
-          color: rgba(0, 0, 0, 0.87);
-          font-size: 10px;
-          height: 30px;
-          min-height: 30px;
-        }
-      }
-    }
-  }
-}
-
-.imperial-checkboxes {
-  .mat-checkbox-checked .mat-checkbox-background {
-    background-color: rgb(110, 26, 23) !important;
-  }
-
-  .mat-ripple-element {
-    background-color: rgba(110, 26, 23, 0.4) !important;
-  }
+  
 }
 
 .dekra-table {
@@ -268,12 +180,44 @@ body {
   }
 }
 
-.dekra-checkboxes {
-  .mat-checkbox-checked .mat-checkbox-background {
-    background-color: rgb(1, 131, 67) !important;
+.imperial-checkboxes {
+  .mat-mdc-checkbox-checked .mdc-checkbox__background {
+    background-color: rgb(156, 30, 61) !important;
+    border-color: rgb(156, 30, 61) !important;
+  }
+  .mat-mdc-checkbox-checked .mdc-checkbox__checkmark {
+    color: white !important;
   }
 
-  .mat-ripple-element {
+  .mdc-checkbox__ripple {
+    background-color: rgba(156, 30, 61, 0.4) !important;
+  }
+}
+
+.dekra-checkboxes {
+  .mat-mdc-checkbox-checked .mdc-checkbox__background {
+    background-color: rgb(1, 131, 67) !important;
+    border-color: rgb(1, 131, 67) !important;
+  }
+  .mat-mdc-checkbox-checked .mdc-checkbox__checkmark {
+    color: white !important;
+  }
+
+  .mdc-checkbox__ripple {
+    background-color: rgba(1, 131, 67, 0.4) !important;
+  }
+}
+
+.avus-checkboxes {
+  .mat-mdc-checkbox-checked .mdc-checkbox__background {
+    background-color: rgb(1, 131, 67) !important;
+    border-color: rgb(1, 131, 67) !important;
+  }
+  .mat-mdc-checkbox-checked .mdc-checkbox__checkmark {
+    color: white !important;
+  }
+
+  .mdc-checkbox__ripple {
     background-color: rgba(1, 131, 67, 0.4) !important;
   }
 }

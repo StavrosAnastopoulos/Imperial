@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-@Pipe({ name: 'precision' })
+@Pipe({ standalone: true, name: 'precision' })
 export class PrecisionPipe implements PipeTransform {
     transform(value: number | string | null, floatingPoints: number = 2, nullValue: string = '-') {
         if (typeof(value) == 'string'){
@@ -33,7 +33,7 @@ const priceHeaders = ['ValueTotalCorrected', 'TotalNetCosts',  'TotalVAT', 'Tota
 //     }
 // }
 
-@Pipe({ name: 'vehicleType' })
+@Pipe({ standalone: true, name: 'vehicleType' })
 export class VehicleTypePipe implements PipeTransform {
     private vehicleType = {
         '1': 'car',

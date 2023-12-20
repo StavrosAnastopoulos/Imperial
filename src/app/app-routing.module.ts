@@ -3,21 +3,25 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 const appRoutes: Routes = [
-    {
-        path: 'invoice-check',
-        loadChildren: () => import('./pages/invoice-check/invoice-check.module').then(m => m.InvoiceCheckModule)
-    },
+    // {
+    //     path: 'invoice-check',
+    //     loadComponent: () => import('./pages/invoice-check/invoice-check.component').then(c => c.InvoiceCheckComponent)
+    // },
     {
         path: 'generate-report',
-        loadChildren: () => import('./pages/report-generation/report-generation.module').then(m => m.ReportGenerationModule)
+        loadComponent: () => import('./pages/report-generation/report-generation.component').then(c => c.ReportGenerationComponent)
     },
     {
         path: 'generate-report-dekra',
-        loadChildren: () => import('./pages/dekra-report-generation/dekra-report-generation.module').then(m => m.DekraReportGenerationModule)
+        loadComponent: () => import('./pages/dekra-report-generation/dekra-report-generation.component').then(c => c.DekraReportGenerationComponent)
+    },
+    {
+        path: 'generate-report-avus',
+        loadComponent: () => import('./pages/avus-report-generation/avus-report-generation.component').then(c => c.AvusReportGenerationComponent)
     },
     {
         path: 'generate-report-equipment',
-        loadChildren: () => import('./pages/equipment-generation/equipment-generation.module').then(m => m.EquipmentReportModule)
+        loadComponent: () => import('./pages/equipment-generation/equipment-generation.component').then(c => c.EquipmentGenerationComponent),
     },
     {
         path: 'welcome',

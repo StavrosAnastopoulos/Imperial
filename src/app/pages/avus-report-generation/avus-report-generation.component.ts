@@ -29,9 +29,9 @@ import { ImperialDataProcessingService } from '../report-generation/imperial-dat
         LanguagePickerComponent,
     ]
 })
-export class DekraReportGenerationComponent extends ReportGenerationComponent {
-    public logoPath: string = 'assets/img/dekra-logo.jpg';
+export class AvusReportGenerationComponent extends ReportGenerationComponent {
+    public logoPath: string = 'assets/img/avus-logo.jpg';
     public logoDims: [number, number] = [400, 65];
-    public tableCss: string = 'dekra-table';
-    public checkboxCss: string = 'dekra-checkboxes';
+    public tableCss: string = 'avus-table';
+    public checkboxCss: string = 'avus-checkboxes';
 }
