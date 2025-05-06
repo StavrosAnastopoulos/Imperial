@@ -109,7 +109,7 @@ export class ImperialDataProcessingService {
 
         const repaireWages = (data['RepairCalculation'] || {})['RepairWages'];
 
-         const details = (data['RepairCalculation'] || {})['CalcResultCommon'] || null;
+         const details = (data['RepairCalculation'] || {})['CalcResultSPO'] || null;
          if (details) {
 
             // -- Material Positions
